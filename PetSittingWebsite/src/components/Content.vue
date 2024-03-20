@@ -36,20 +36,20 @@
             <div class="bg-pink-lighten-4" style="padding: 50px;">
                 <h1 class="text-h5 my-3">We love your pets.</h1>
                 <v-row no-gutters>
-                    <v-col class="boxes"><img src="/public/lara_dogs/dog1.jpg" alt="" class="gap"></v-col>
-                    <v-col class="boxes"><img src="/public/lara_dogs/dog2.jpg" alt="" class="gap"></v-col>
-                    <v-col class="boxes"><img src="/public/lara_dogs/dog3.jpg" alt="" class="gap"></v-col>
-                    <v-col class="boxes"><img src="/public/lara_dogs/dog4.jpeg" alt="" class="gap"></v-col>
-                    <v-col class="boxes"><img src="/public/lara_dogs/dog5.jpg" alt="" class="gap"></v-col>
-                    <v-col class="boxes"><img src="/public/lara_dogs/dog6.jpg" alt="" class="gap"></v-col>
+                    <v-col class="boxes"><img src="/lara_dogs/dog1.jpg" alt="" class="gap"></v-col>
+                    <v-col class="boxes"><img src="/lara_dogs/dog2.jpg" alt="" class="gap"></v-col>
+                    <v-col class="boxes"><img src="/lara_dogs/dog3.jpg" alt="" class="gap"></v-col>
+                    <v-col class="boxes"><img src="/lara_dogs/dog4.jpeg" alt="" class="gap"></v-col>
+                    <v-col class="boxes"><img src="/lara_dogs/dog5.jpg" alt="" class="gap"></v-col>
+                    <v-col class="boxes"><img src="/lara_dogs/dog6.jpg" alt="" class="gap"></v-col>
                 </v-row>
                 <v-row no-gutters>
-                    <v-col class="boxes"><img src="/public/lara_dogs/dog7.jpg" alt="" class="gap"></v-col>
-                    <v-col class="boxes"><img src="/public/lara_dogs/dog8.jpg" alt="" class="gap"></v-col>
-                    <v-col class="boxes"><img src="/public/lara_dogs/dog9.jpg" alt="" class="gap"></v-col>
-                    <v-col class="boxes"><img src="/public/lara_dogs/dog10.jpg" alt="" class="gap"></v-col>
-                    <v-col class="boxes"><img src="/public/lara_dogs/dog11.jpg" alt="" class="gap"></v-col>
-                    <v-col class="boxes"><img src="/public/lara_dogs/dog12.jpg" alt="" class="gap"></v-col>
+                    <v-col class="boxes"><img src="/lara_dogs/dog7.jpg" alt="" class="gap"></v-col>
+                    <v-col class="boxes"><img src="/lara_dogs/dog8.jpg" alt="" class="gap"></v-col>
+                    <v-col class="boxes"><img src="/lara_dogs/dog9.jpg" alt="" class="gap"></v-col>
+                    <v-col class="boxes"><img src="/lara_dogs/dog10.jpg" alt="" class="gap"></v-col>
+                    <v-col class="boxes"><img src="/lara_dogs/dog11.jpg" alt="" class="gap"></v-col>
+                    <v-col class="boxes"><img src="/lara_dogs/dog12.jpg" alt="" class="gap"></v-col>
                 </v-row>
 
                 <p class="mt-5 text-body-1">
@@ -305,9 +305,9 @@ const attrs = ref([
 export default {
     data() {
         return {
-            fur1: "/public/fur_packs/fur1.jpg",
-            fur2: "/public/fur_packs/fur2.jpg",
-            fur3: "/public/fur_packs/fur3.jpg",
+            fur1: "/fur_packs/fur1.jpg",
+            fur2: "/fur_packs/fur2.jpg",
+            fur3: "/fur_packs/fur3.jpg",
         }
     }
 }
@@ -374,13 +374,13 @@ export default {
 
 /* .fade {
     background-size: cover;
-    background-image: url(/public/fur_packs/fur1.jpg);
+    background-image: url(/fur_packs/fur1.jpg);
     background-image: -webkit-linear-gradient(right, 
         rgba(255,224,178,0.95) 5%, 
         rgba(255,224,178, 0) 50%,
         rgba(255,224,178, 0) 100%,
         rgba(255,224,178,0) 50%
     ),
-    url(/public/fur_packs/fur1.jpg);
+    url(/fur_packs/fur1.jpg);
 } */
 </style>
