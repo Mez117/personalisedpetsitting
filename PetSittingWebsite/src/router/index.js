@@ -19,6 +19,10 @@ const routes = [
         name: 'PetSitting',
         component: () => import('@/views/PetSitting.vue'),
       },
+      { path: '/packages',
+        name: 'Packages',
+        component: () => import('@/views/PetPackages.vue')
+      },
     ],
   },
 ]
