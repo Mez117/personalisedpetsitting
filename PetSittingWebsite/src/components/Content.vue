@@ -82,7 +82,7 @@
                 <v-carousel hide-delimiters>
                     <v-carousel-item>
                         <div class="d-flex justify-center">
-                        <v-card class="bg-orange-lighten-4">
+                        <v-card class="bg-orange-lighten-4" style="width: 100%;">
                             <v-row>
                                 <v-col cols="4">
                                     <v-img
@@ -92,7 +92,7 @@
                                     cover
                                     ></v-img>
                                 </v-col>
-                                <v-col class="pa-5 pr-10">
+                                <v-col cols="6" class="pa-5">
                                     <h1 class="text-h3 pt-5">Independent Fur Child</h1>
                                     <h1 class="text-subtitle-1 pt-5 mb-10">This package is amazing for pets that have a regular routine of being left at home whilst their owner is at work.</h1>
                                     <ul class="furlist ms-auto" style="text-align: left">
@@ -112,7 +112,7 @@
                     </v-carousel-item>
                     <v-carousel-item>
                         <div class="d-flex justify-center">
-                        <v-card class="bg-orange-lighten-4">
+                        <v-card class="bg-orange-lighten-4" style="width: 100%;">
                             <v-row>
                                 <v-col cols="4">
                                     <v-img
@@ -122,7 +122,7 @@
                                     cover
                                     ></v-img>
                                 </v-col>
-                                <v-col class="pa-5 pr-10">
+                                <v-col cols="6" class="pa-5">
                                     <h1 class="text-h3 pt-5">The Fur Baby Package</h1>
                                     <h1 class="text-subtitle-1 pt-5 mb-10">This is our most popular package!! This package is great for any owners that loves regular updates and doesn’t have pets that suffer from separation anxiety.This package <br /><br />INCLUDES everything in the Independent Fur Child, PLUS:</h1>
                                     <ul class="furlist ms-auto" style="text-align: left">
@@ -137,7 +137,7 @@
                     </v-carousel-item>
                     <v-carousel-item>
                         <div class="d-flex justify-center">
-                        <v-card class="bg-orange-lighten-4">
+                        <v-card class="bg-orange-lighten-4" style="width: 100%;">
                             <v-row>
                                 <v-col cols="4">
                                     <v-img
@@ -147,7 +147,7 @@
                                     cover
                                     ></v-img>
                                 </v-col>
-                                <v-col class="pa-5 pr-10">
+                                <v-col cols="6" class="pa-5">
                                     <h1 class="text-h3 pt-5">The Separation Anxiety Package</h1>
                                     <h1 class="text-subtitle-1 pt-5 mb-10">This package is the best package for any pets that suffer from separation anxiety and require the petsitter to be with your pet consistently throughout the booking. If you as the owner also suffer from separation anxiety from your beloved pets this package includes 6-10 updates daily and a FaceTime call to you every second day This package <br /><br />INCLUDES everything listed in package 1, PLUS:</h1>
                                     <ul class="furlist ms-auto" style="text-align: left">
