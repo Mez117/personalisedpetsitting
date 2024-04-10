@@ -22,7 +22,13 @@ import SvgIcon from '@jamescoyle/vue-icon'
 import { mdiAccount } from '@mdi/js'
 
 // SwiperJS
-import { Swiper, SwiperSlide } from 'swiper/vue';
+// import { register } from 'swiper/element/bundle';
+// register();
+// import { Swiper, SwiperSlide} from 'swiper/vue';
+// import SwiperCore from 'swiper';
+// import "swiper/swiper.min.css";
+
+// SwiperCore.use(Swiper).use(SwiperSlide);
 
 const app = createApp(App)
 
@@ -33,5 +39,3 @@ app.mount('#app')
 app.use(VCalendar, {})
     .use(SvgIcon)
     .use(mdiAccount)
-    .use(Swiper)
-    .use(SwiperSlide)

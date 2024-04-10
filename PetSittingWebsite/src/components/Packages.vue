@@ -15,7 +15,7 @@
                         <v-col class="pa-5 pr-10">
                             <h1 class="text-h3 pt-5">Independent Fur Child</h1>
                             <h1 class="text-subtitle-1 pt-5 mb-10">This package is amazing for pets that have a regular routine of being left at home whilst their owner is at work.</h1>
-                            <ul class="furlist ms-auto" style="text-align: left">
+                            <ul class="furlist" style="text-align: left">
                                 <li>1-3 Update Daily</li>
                                 <li>Daily Exercise</li>
                                 <li>Physical and Mental Enrichment</li>
@@ -49,7 +49,7 @@
                         <v-col class="pa-5 pr-10">
                             <h1 class="text-h3 pt-5">The Fur Baby Package</h1>
                             <h1 class="text-subtitle-1 pt-5 mb-10">This is our most popular package!! This package is great for any owners that loves regular updates and doesn’t have pets that suffer from separation anxiety.This package <br /><br />INCLUDES everything in the Independent Fur Child, PLUS:</h1>
-                            <ul class="furlist ms-auto" style="text-align: left">
+                            <ul class="furlist" style="text-align: left">
                                 <li>3-6 updates daily</li>
                                 <li>Pet can be left a max of 6 hours </li>
                                 <li>General tidy + sanitised all surfaces</li>
@@ -70,7 +70,7 @@
                         <v-col class="pa-5 pr-10">
                             <h1 class="text-h3 pt-5">The Separation Anxiety Package</h1>
                             <h1 class="text-subtitle-1 pt-5 mb-10">This package is the best package for any pets that suffer from separation anxiety and require the petsitter to be with your pet consistently throughout the booking. If you as the owner also suffer from separation anxiety from your beloved pets this package includes 6-10 updates daily and a FaceTime call to you every second day This package <br /><br />INCLUDES everything listed in package 1, PLUS:</h1>
-                            <ul class="furlist ms-auto" style="text-align: left">
+                            <ul class="furlist" style="text-align: left">
                                 <li>6-10 daily updates</li>
                                 <li>1 FaceTime every other day during the booking.</li>
                                 <li>Spotless home</li>

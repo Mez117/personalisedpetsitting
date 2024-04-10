@@ -163,6 +163,70 @@
                     </v-carousel-item>
                 </v-carousel>
             </div>
+                <swiper 
+                    class="bg-cyan-darken-3 mb-5 pa-10 ps-16"
+                    :modules="modules"
+                    :slides-per-view="3"
+                    :space-between="100"
+                    :navigation="true"
+                    :pagination="{ clickable: true }"
+                    :scrollbar="{ draggable: true }"
+                    @swiper="onSwiper"
+                    @slideChange="onSlideChange"
+                    :loop="true"
+                >
+
+                    <swiper-slide>
+                            <v-row>
+                                <v-col>
+                                    <v-img :src="r1" height="300" alt=""></v-img>
+                                </v-col>
+                                <v-col>
+                                    <v-img :src="r2" height="300" alt=""></v-img>
+                                </v-col>
+                            </v-row>
+                            <h1 class="text-h5">Emma, Ruari & Ted</h1>
+                            <p>
+                                Lara has looked after our Labrador, Ruari and cat, Ted several times over the past few years while also housesitting. She is trustworthy, reliable and caring. Lara LOVES animals and they love her. I think she is our dog’s favourite human - Ruari gets so excited when she sees her. She understands how to keep pets happy, safe and secure and I wouldn’t in recommending her. 
+                            </p>
+                    </swiper-slide>
+                    <swiper-slide>
+                        <v-img :src="r3" height="300" alt=""></v-img>
+                        <h1 class="text-h5">Sally & Banjo </h1>
+                        <p>
+                            Lara looked after our much loved Golden Retriever, Banjo for 5 days whilst we were on holidays. Lara took the time to meet Banjo and learn his routine prior to our holiday. She cared for Banjo like he was in a 5 star hotel whilst at his own house! She checked in with us and provided updates during this time. She walked him regularly and played with him, building a strong friendship. Lara has a very caring nature and is trustworthy, making it easy for us to leave our beloved pet at home with her. We will definitely use Lara in the future which I am sure Banjo will love.   
+                            
+                        </p>
+                    </swiper-slide>
+                    <swiper-slide>
+                        <v-img :src="r4" height="300" alt=""></v-img>
+                        <h1 class="text-h5">Madison, Ruby & Hollie</h1>
+                        <p>
+                            Lara is very thoughtful and passionate about her job!  My family and I went away for 10 days to NZ and Lara took great care of the house and our fluffy companions. Ruby (dog) loved her daily walks and Holly (cat) just wanted to snuggle with Lara every chance she got! Would highly recommend her business to anyone looking for a great petsitter. 
+                        </p>
+                    </swiper-slide>
+                    <swiper-slide>
+                        <v-img :src="r5" height="300" alt=""></v-img>
+                        <h1 class="text-h5">Taylor & Luna</h1>
+                        <p>
+                            Lara did an incredible job looking after my dog Luna while I was away for a month. She not only ensured Luna’s basic needs were meet, but she went the extra mile to provide her with fulfilling and enriching experiences. From long daily walks and enrichment to exciting trips to the beach, Lara truly understood Luna’s needs and catered to them with enthusiasm and dedication. Lara regularly provided updates, photos and messages which instantly eased my anxieties about being separated from Luna. Lara was always responsive and respectful about any requested I made. Most importantly, it was evident that Lara treated Luna with an abundance of love and attention. Her genuine affection for animals shone through in her interactions with Luna, making me confident that Luna was in the best hands!  Luna and I are truly grateful for her exceptional care and wouldn’t hesitate to recommending her to anyone needing a trusted pet sitter!
+                        </p>
+                    </swiper-slide>
+                    <swiper-slide>
+                        <v-row>
+                            <v-col>
+                                <v-img :src="r6" height="300" alt=""></v-img>
+                            </v-col>
+                            <v-col>
+                                <v-img :src="r7" height="300" alt=""></v-img>
+                            </v-col>
+                        </v-row>
+                        <h1 class="text-h5">Emma, Isabelle & Vasilli</h1>
+                        <p>
+                            Lara did an incredible job looking after my two cats. They absolutely adored Lara and were so comfortable around her they even suggled up to her, which is a BIG DEAL because they don’t snuggle up to just anyone. They were so happy with her which made us so happy with Lara.  Will definitely be booking Lara again in the future  
+                        </p>
+                    </swiper-slide>
+                </swiper>
             <div class="bg-cyan-darken-3 pa-2">
                 <div class="reviews">
                     <img src="https://picsum.photos/201/300" alt="">
@@ -284,7 +348,9 @@
 </template>
 
 <script setup>
+
 import { ref } from 'vue';
+
 
 const selectedColor = ref('purple');
 const attrs = ref([
@@ -302,15 +368,51 @@ const attrs = ref([
 
 </script>
 <script>
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import SwiperCore from 'swiper'
+
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+
+SwiperCore.use([Navigation]).use([Pagination])
 export default {
     data() {
         return {
             fur1: "/fur_packs/fur1.jpg",
             fur2: "/fur_packs/fur2.jpg",
             fur3: "/fur_packs/fur3.jpg",
+            r1: "/reviews/r1.jpg",
+            r2: "/reviews/r2.jpg",
+            r3: "/reviews/r3.jpg",
+            r4: "/reviews/r4.jpg",
+            r5: "/reviews/r5.jpg",
+            r6: "/reviews/r6.jpg",
+            r7: "/reviews/r7.jpg",
         }
-    }
-}
+    },
+    
+    components: {
+        Swiper,
+        SwiperSlide,
+    },
+    setup() {
+        const onSwiper = (swiper) => {
+            console.log(swiper);
+        };
+        const onSlideChange = () => {
+            console.log('slide change');
+        };
+        return {
+            onSwiper,
+            onSlideChange,
+            modules: [Scrollbar, A11y],
+        };
+    },
+};
 </script>
 
 <style>
