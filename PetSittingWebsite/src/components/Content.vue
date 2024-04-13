@@ -1,7 +1,7 @@
 <template>
-<v-container class="fill-height">
+<v-container>
     <v-responsive class="align-center text-center fill-height">
-            <v-row justify="center" class="welcome bg-cyan-darken-3 pa-16">
+            <v-row justify="center" class="bg-cyan-darken-3 ma-0 pa-16 rounded-lg">
                 <v-col cols="12">
                     <h1 class="text-h2">Personalised Petsitting</h1>
                 </v-col>
@@ -11,10 +11,11 @@
                 <v-btn size="large" class="bg-purple " style="margin-top: 150px;">Learn More</v-btn>
             </v-row>
 
-            <v-row justify="center" class="bg-purple-darken-2 pa-16">
+            <v-row justify="center" class="bg-purple-darken-2 pa-16 ma-0 mt-5 rounded-lg">
+
                 <v-col cols="5" class="ma-5 pa-2">
                     <h1 class="text-h2">About Us</h1>
-                    <p class="mt-10 text-subtitle-1">
+                    <p class="mt-10 text-subtitle-1 text-justify">
                     Personalised Petsitting was create to provide owners with a
                     pet care service they can tailor that their every need. To
                     help form coherent relationship with not only the pet
@@ -26,14 +27,13 @@
 
                 <v-col cols="5" class="ma-5 pa-2">
                     <h1 class="text-h4" style="width: 90%; margin: 0 auto">Getting to know our Personalised Petsitter Lara</h1>
-                    <p class="mt-7" style="width: 70%; margin: 0 auto">
+                    <p class="mt-7 text-justify" style="width: 70%; margin: 0 auto">
                     Lara has an abundance of love for anything with 4 legs, the bigger the better is her motto when it comes to dogs. She has been petsitting for over 4 years, she currently works in the animal care industry and has been for over 1 year. Lara not only has her Certificate 2 in Animals Studies, she also has her animal first aid and is a wizard at administering medication to any types of pets. Lara has quite the nack for looking after pets that aren’t hers as she has fosters over 20 animals from the RSPCA, from a mum and her 7 puppies, 2 rescue kittens for over 2 months, an 8 week old Great Dane pup for 8 months and many more. 
                     </p>
                 </v-col>
                 
-
             </v-row>
-            <div class="bg-pink-lighten-4" style="padding: 50px;">
+            <div class="bg-pink-lighten-4 major-divs mt-5" style="padding: 50px;">
                 <h1 class="text-h5 my-3">We love your pets.</h1>
                 <v-row no-gutters>
                     <v-col class="boxes"><img src="/lara_dogs/dog1.jpg" alt="" class="gap"></v-col>
@@ -170,14 +170,13 @@
                     :space-between="50"
                     :navigation="true"
                     :pagination="{ clickable: true }"
-                    :scrollbar="{ draggable: true }"
                     @swiper="onSwiper"
                     @slideChange="onSlideChange"
                     :loop="true"
                 >
 
                     <swiper-slide>
-                        <v-card class="pa-5 bg-cyan-darken-3" variant="outlined" height="1000">
+                        <v-card class="pa-5 bg-cyan-darken-3 review-cards" variant="outlined" height="1000">
                             <div class="align-self-center">
                             <v-row>
                                 <v-col>
@@ -187,43 +186,43 @@
                                     <v-img :src="r2" height="300" alt=""></v-img>
                                 </v-col>
                             </v-row>
-                            <h1 class="text-h5">Emma, Ruari & Ted</h1>
-                            <p>
+                            <h1 class="text-h5 text-center mt-5">Emma, Ruari & Ted</h1>
+                            <p class="mt-2">
                                 Lara has looked after our Labrador, Ruari and cat, Ted several times over the past few years while also housesitting. She is trustworthy, reliable and caring. Lara LOVES animals and they love her. I think she is our dog’s favourite human - Ruari gets so excited when she sees her. She understands how to keep pets happy, safe and secure and I wouldn’t in recommending her. 
                             </p>
                             </div>
                         </v-card>
                     </swiper-slide>
                     <swiper-slide>
-                        <v-card class="pa-5 bg-cyan-darken-3" variant="outlined" height="1000">
+                        <v-card class="pa-5 bg-cyan-darken-3 review-cards" height="1000">
                             <v-img :src="r3" height="300" alt=""></v-img>
-                            <h1 class="text-h5">Sally & Banjo </h1>
-                            <p>
+                            <h1 class="text-h5 text-center mt-5">Sally & Banjo </h1>
+                            <p class="mt-2">
                                 Lara looked after our much loved Golden Retriever, Banjo for 5 days whilst we were on holidays. Lara took the time to meet Banjo and learn his routine prior to our holiday. She cared for Banjo like he was in a 5 star hotel whilst at his own house! She checked in with us and provided updates during this time. She walked him regularly and played with him, building a strong friendship. Lara has a very caring nature and is trustworthy, making it easy for us to leave our beloved pet at home with her. We will definitely use Lara in the future which I am sure Banjo will love.   
                                 
                             </p>
                         </v-card>
                     </swiper-slide>
                     <swiper-slide>
-                        <v-card class="pa-5 bg-cyan-darken-3" variant="outlined" height="1000">
+                        <v-card class="pa-5 bg-cyan-darken-3 review-cards" height="1000">
                             <v-img :src="r4" height="300" alt=""></v-img>
-                            <h1 class="text-h5">Madison, Ruby & Hollie</h1>
-                            <p>
+                            <h1 class="text-h5 text-center mt-5">Madison, Ruby & Hollie</h1>
+                            <p class="mt-2">
                                 Lara is very thoughtful and passionate about her job!  My family and I went away for 10 days to NZ and Lara took great care of the house and our fluffy companions. Ruby (dog) loved her daily walks and Holly (cat) just wanted to snuggle with Lara every chance she got! Would highly recommend her business to anyone looking for a great petsitter. 
                             </p>
                         </v-card>
                     </swiper-slide>
                     <swiper-slide>
-                        <v-card class="pa-5 bg-cyan-darken-3" variant="outlined" height="1000">
+                        <v-card class="pa-5 bg-cyan-darken-3 review-cards" height="1000">
                             <v-img :src="r5" height="300" alt=""></v-img>
-                            <h1 class="text-h5">Taylor & Luna</h1>
-                            <p>
+                            <h1 class="text-h5 text-center mt-5">Taylor & Luna</h1>
+                            <p class="mt-2">
                                 Lara did an incredible job looking after my dog Luna while I was away for a month. She not only ensured Luna’s basic needs were meet, but she went the extra mile to provide her with fulfilling and enriching experiences. From long daily walks and enrichment to exciting trips to the beach, Lara truly understood Luna’s needs and catered to them with enthusiasm and dedication. Lara regularly provided updates, photos and messages which instantly eased my anxieties about being separated from Luna. Lara was always responsive and respectful about any requested I made. Most importantly, it was evident that Lara treated Luna with an abundance of love and attention. Her genuine affection for animals shone through in her interactions with Luna, making me confident that Luna was in the best hands!  Luna and I are truly grateful for her exceptional care and wouldn’t hesitate to recommending her to anyone needing a trusted pet sitter!
                             </p>
                         </v-card>
                     </swiper-slide>
                     <swiper-slide>
-                        <v-card class="pa-5 bg-cyan-darken-3" variant="outlined" height="1000">
+                        <v-card class="pa-5 bg-cyan-darken-3 review-cards" height="1000">
                             <v-row>
                                 <v-col>
                                     <v-img :src="r6" height="300" alt=""></v-img>
@@ -232,8 +231,8 @@
                                     <v-img :src="r7" height="300" alt=""></v-img>
                                 </v-col>
                             </v-row>
-                            <h1 class="text-h5">Emma, Isabelle & Vasilli</h1>
-                            <p>
+                            <h1 class="text-h5 text-center mt-5">Emma, Isabelle & Vasilli</h1>
+                            <p class="mt-2">
                                 Lara did an incredible job looking after my two cats. They absolutely adored Lara and were so comfortable around her they even suggled up to her, which is a BIG DEAL because they don’t snuggle up to just anyone. They were so happy with her which made us so happy with Lara.  Will definitely be booking Lara again in the future  
                             </p>
                         </v-card>
@@ -325,18 +324,24 @@
                     </ul>
                 </div>
             </div> -->
-            <div class="bg-cyan-darken-2" style="padding: 10% 25%">
-                <h1 class="text-h2 mb-10">Up to Date Calender Availability</h1>
-                <VCalendar
-                :initial-page="{ month: 2, year: 2024 }"
-                :color="selectedColor"
-                :attributes="attrs"
-                :is-dark="true"
-                expanded
-                :columns="2"
-                />
+            <div class="bg-cyan-darken-2 mb-10 major-divs" style="padding: 2%">
+                <v-row>
+                    <v-col cols="5" align-self="center">
+                        <h1 class="text-h2 mb-10">Up to Date Calender Availability</h1>
+                    </v-col>
+                    <v-col>
+                        <VCalendar
+                        :initial-page="{ month: 2, year: 2024 }"
+                        :color="selectedColor"
+                        :attributes="attrs"
+                        :is-dark="true"
+                        expanded
+                        :columns="2"
+                        />
+                    </v-col>
+                </v-row>
             </div>
-            <div class="bg-purple-lighten-1 pa-2">
+            <div class="bg-purple-lighten-1 pa-2 major-divs">
                 <h1 class="text-h5">Frequently Asked Questions</h1>
                 <h1 class="text-h5 mt-4">Why choose Personalised Petsitting?</h1>
                 <p class="mt-2">Personalised Petsitting not only has over 4 years experiences in the field, we hold a certification, first aid and a large number of 5 star reviews from happy customers that can’t get enough of their petsitter.  </p>
@@ -349,7 +354,7 @@
                 <h1 class="text-h5 mt-4">How far in advance should I book?</h1>
                 <p class="mt-2">The earlier the better is always best as it ensures that you secure the dates of your booking. If you are booking the separation anxiety package over a month is a minimal requirement as your petsitter will need to organised work related affairs. </p>
             </div>
-            <div class="bg-brown-lighten-3 pa-10">
+            <div class="bg-brown-lighten-3 pa-10 major-divs">
                 <h1 class="text-h2">Have any Questions?</h1>
                 <h1 class="text-h3 mt-5">Get in Touch</h1>
                 <p class="mt-5">Want to make an enquiry for a booking?</p>
@@ -428,6 +433,7 @@ export default {
 </script>
 
 <style>
+
 .para {
     margin: 10px 0;
 }
@@ -504,4 +510,18 @@ export default {
     ),
     url(/fur_packs/fur1.jpg);
 } */
+</style>
+
+<style scoped>
+
+.review-cards {
+    border: 2px solid black;
+    text-align: justify;
+}
+
+.major-divs {
+    border-radius: 8px;
+}
+
+
 </style>
