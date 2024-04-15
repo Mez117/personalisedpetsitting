@@ -14,26 +14,26 @@
             <v-row justify="center" class="bg-purple-darken-2 pa-16 ma-0 mt-5 rounded-lg">
 
                 <v-col cols="5" class="ma-5 pa-2">
-                    <h1 class="text-h2">About Us</h1>
-                    <p class="mt-10 text-subtitle-1 text-justify">
+                    <h1 class="text-h2 mt-1">About Us</h1>
+                    <p class="mt-12 text-justify">
                     Personalised Petsitting was create to provide owners with a
                     pet care service they can tailor that their every need. To
                     help form coherent relationship with not only the pet
                     owner but the pets with a petsitter that they loves and cares
-                    for them. 
+                    for them.
                     </p>
                 </v-col>
  
 
                 <v-col cols="5" class="ma-5 pa-2">
-                    <h1 class="text-h4" style="width: 90%; margin: 0 auto">Getting to know our Personalised Petsitter Lara</h1>
-                    <p class="mt-7 text-justify" style="width: 70%; margin: 0 auto">
+                    <h1 class="text-h4" style="margin: 0 auto">Getting to know our Personalised Petsitter Lara</h1>
+                    <p class="mt-7 text-justify" style="width: 90%; margin: 0 auto">
                     Lara has an abundance of love for anything with 4 legs, the bigger the better is her motto when it comes to dogs. She has been petsitting for over 4 years, she currently works in the animal care industry and has been for over 1 year. Lara not only has her Certificate 2 in Animals Studies, she also has her animal first aid and is a wizard at administering medication to any types of pets. Lara has quite the nack for looking after pets that aren’t hers as she has fosters over 20 animals from the RSPCA, from a mum and her 7 puppies, 2 rescue kittens for over 2 months, an 8 week old Great Dane pup for 8 months and many more. 
                     </p>
                 </v-col>
                 
             </v-row>
-            <div class="bg-pink-lighten-4 major-divs mt-5" style="padding: 50px;">
+            <div class="bg-pink-lighten-4 major-divs mt-5 mb-5" style="padding: 50px;">
                 <h1 class="text-h5 my-3">We love your pets.</h1>
                 <v-row no-gutters>
                     <v-col class="boxes"><img src="/lara_dogs/dog1.jpg" alt="" class="gap"></v-col>
@@ -341,24 +341,77 @@
                     </v-col>
                 </v-row>
             </div>
-            <div class="bg-purple-lighten-1 pa-2 major-divs">
-                <h1 class="text-h5">Frequently Asked Questions</h1>
-                <h1 class="text-h5 mt-4">Why choose Personalised Petsitting?</h1>
-                <p class="mt-2">Personalised Petsitting not only has over 4 years experiences in the field, we hold a certification, first aid and a large number of 5 star reviews from happy customers that can’t get enough of their petsitter.  </p>
-                <h1 class="text-h5 mt-4">Why Petsit at your own home?</h1>
-                <p class="mt-2">Your home is not only your pet’s most familiar enviroment it is also the safest pet your pet can be in. With the biggest change of you as the owner being there by only changing one </p>
-                <h1 class="text-h5 mt-4">Why is a meet and greet needed before the booking is confirmed?</h1>
-                <p class="mt-2">A meet and greet is a great way for everyone including your pets, a chance to met before the booking and ensure that not only you as the paying client but the Personalised Petsitter are happy and comfortable with everything. Meet and Greets are important because this is also the time that you petsitter gets all the information about everything they will need to know for the booking, for example the location of all your pets supplies, emergency contact, rough routine of your pet, house rule, etc. </p>
-                <h1 class="text-h5 mt-4">How to book?</h1>
-                <p class="mt-2">Send through an inquiry or email personalisedpetsitting@outlook.com to create a booking.</p>
-                <h1 class="text-h5 mt-4">How far in advance should I book?</h1>
-                <p class="mt-2">The earlier the better is always best as it ensures that you secure the dates of your booking. If you are booking the separation anxiety package over a month is a minimal requirement as your petsitter will need to organised work related affairs. </p>
+            <div class="bg-purple-lighten-1 pa-2 major-divs mb-5">
+                <h1 class="text-h5 mt-5">Frequently Asked Questions</h1>
+                <v-row class="ma-5 text-justify">
+                    <v-col cols="6 pr-10">
+                        <h1 class="text-h5 mt-4">Why choose Personalised Petsitting?</h1>
+                        <p class="mt-2">Personalised Petsitting not only has over 4 years experiences in the field, we hold a certification, first aid and a large number of 5 star reviews from happy customers that can’t get enough of their petsitter.  </p>
+                        <h1 class="text-h5 mt-4">Why Petsit at your own home?</h1>
+                        <p class="mt-2">Your home is not only your pet’s most familiar enviroment it is also the safest pet your pet can be in. With the biggest change of you as the owner being there by only changing one </p>
+                        <h1 class="text-h5 mt-4">How to book?</h1>
+                        <p class="mt-2">Send through an inquiry or email personalisedpetsitting@outlook.com to create a booking.</p>
+                    </v-col>
+
+                    <v-col cols="6 pr-10">
+                        <h1 class="text-h5 mt-4">Why is a meet and greet needed before the booking is confirmed?</h1>
+                        <p class="mt-2">A meet and greet is a great way for everyone including your pets, a chance to met before the booking and ensure that not only you as the paying client but the Personalised Petsitter are happy and comfortable with everything. Meet and Greets are important because this is also the time that you petsitter gets all the information about everything they will need to know for the booking, for example the location of all your pets supplies, emergency contact, rough routine of your pet, house rule, etc. </p>
+                        <h1 class="text-h5 mt-4">How far in advance should I book?</h1>
+                        <p class="mt-2">The earlier the better is always best as it ensures that you secure the dates of your booking. If you are booking the separation anxiety package over a month is a minimal requirement as your petsitter will need to organised work related affairs. </p>
+                    </v-col>
+                </v-row>
             </div>
             <div class="bg-brown-lighten-3 pa-10 major-divs">
                 <h1 class="text-h2">Have any Questions?</h1>
                 <h1 class="text-h3 mt-5">Get in Touch</h1>
                 <p class="mt-5">Want to make an enquiry for a booking?</p>
                 <p class="mt-2">Name, contact details, how they want to be contacted, what type and how many pets, surburb, dates, package</p>
+                <form @submit.prevent="submit">
+                    <v-text-field
+                    v-model="name.value.value"
+                    :counter="10"
+                    :error-messages="name.errorMessage.value"
+                    label="Name"
+                    ></v-text-field>
+
+                    <v-text-field
+                    v-model="phone.value.value"
+                    :counter="7"
+                    :error-messages="phone.errorMessage.value"
+                    label="Phone Number"
+                    ></v-text-field>
+
+                    <v-text-field
+                    v-model="email.value.value"
+                    :error-messages="email.errorMessage.value"
+                    label="E-mail"
+                    ></v-text-field>
+
+                    <v-select
+                    v-model="select.value.value"
+                    :error-messages="select.errorMessage.value"
+                    :items="items"
+                    label="Select"
+                    ></v-select>
+
+                    <v-checkbox
+                    v-model="checkbox.value.value"
+                    :error-messages="checkbox.errorMessage.value"
+                    label="Option"
+                    type="checkbox"
+                    value="1"
+                    ></v-checkbox>
+
+                    <v-btn
+                    class="me-4"
+                    type="submit"
+                    >submit
+                    </v-btn>
+
+                    <v-btn @click="handleReset">
+                    clear
+                    </v-btn>
+                </form>
             </div>
     </v-responsive>
 </v-container>
@@ -384,16 +437,67 @@ const attrs = ref([
 ]);
 
 </script>
+
 <script>
+//////////////////////////////////////////////////////////////////////////////
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import SwiperCore from 'swiper'
+
+import { useField, useForm } from 'vee-validate'
 
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+
+const { handleSubmit, handleReset } = useForm({
+    validationSchema: {
+      name (value) {
+        if (value?.length >= 2) return true
+
+        return 'Name needs to be at least 2 characters.'
+      },
+      phone (value) {
+        if (value?.length > 9 && /[0-9-]+/.test(value)) return true
+
+        return 'Phone number needs to be at least 9 digits.'
+      },
+      email (value) {
+        if (/^[a-z.-]+@[a-z.-]+\.[a-z]+$/i.test(value)) return true
+
+        return 'Must be a valid e-mail.'
+      },
+      select (value) {
+        if (value) return true
+
+        return 'Select an item.'
+      },
+      checkbox (value) {
+        if (value === '1') return true
+
+        return 'Must be checked.'
+      },
+    },
+})
+
+const name = useField('name')
+const phone = useField('phone')
+const email = useField('email')
+const select = useField('select')
+const checkbox = useField('checkbox')
+
+const items = ref([
+    'Item 1',
+    'Item 2',
+    'Item 3',
+    'Item 4',
+])
+
+const submit = handleSubmit(values => {
+    alert(JSON.stringify(values, null, 2))
+})
 
 SwiperCore.use([Navigation]).use([Pagination])
 export default {
@@ -411,11 +515,34 @@ export default {
             r7: "/reviews/r7.jpg",
         }
     },
+
+    // methods: {
+    //     onSubmit(values) {
+    //         console.log(values);
+    //     },
+
+    //     validateEmail(value) {
+    //     // if the field is empty
+    //     if (!value) {
+    //         return 'This field is required';
+    //     }
+    //     // if the field is not a valid email
+    //     const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+    //     if (!regex.test(value)) {
+    //         return 'This field must be a valid email';
+    //     }
+    //     // All is good
+    //     return true;
+    // },
+    // },
     
     components: {
         Swiper,
         SwiperSlide,
+        handleSubmit,
+        handleReset,
     },
+
     setup() {
         const onSwiper = (swiper) => {
             console.log(swiper);
