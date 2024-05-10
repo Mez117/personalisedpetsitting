@@ -105,6 +105,17 @@
                                         <li>Cleaning of all pets waste</li>
                                         <li>Grooming pet (if required, not including bath)</li>
                                     </ul>
+                                    <router-link 
+                                    to="/packages/"
+                                    style="text-decoration: none;"
+                                    ><v-btn 
+                                        class="mt-10"
+                                        rounded="0"
+                                        variant="flat" 
+                                        color="primary"
+                                        >More Info and Booking
+                                    </v-btn>
+                                    </router-link>
                                 </v-col>
                             </v-row>
                         </v-card>

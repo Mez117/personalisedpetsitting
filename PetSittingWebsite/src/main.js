@@ -21,6 +21,15 @@ import 'v-calendar/style.css';
 import SvgIcon from '@jamescoyle/vue-icon'
 import { mdiAccount } from '@mdi/js'
 
+import { StripePlugin } from '@vue-stripe/vue-stripe';
+
+// const options = {
+//   pk = process.env.STRIPE_PUBLISHABLE_KEY,
+//   stripeAccount: process.env.STRIPE_ACCOUNT,
+//   apiVersion: process.env.API_VERSION,
+//   locale: process.env.LOCALE,
+// };
+
 // SwiperJS
 // import { register } from 'swiper/element/bundle';
 // register();
@@ -39,3 +48,5 @@ app.mount('#app')
 app.use(VCalendar, {})
     .use(SvgIcon)
     .use(mdiAccount)
+    .use(StripePlugin)
+    // .use(options)

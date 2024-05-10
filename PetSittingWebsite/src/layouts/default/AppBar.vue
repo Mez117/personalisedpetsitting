@@ -27,6 +27,14 @@
           </router-link>
     </v-menu>
     <v-app-bar-title>Personalised Petsitting</v-app-bar-title>
+    <template v-slot:append>
+      <router-link 
+        to="/checkout/"
+        style="color: black;"
+      ><v-btn 
+        icon="mdi-shopping-outline" size="large">
+      </v-btn></router-link>
+    </template>
   </v-app-bar>
 </template>
 

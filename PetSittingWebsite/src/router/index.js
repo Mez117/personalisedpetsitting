@@ -1,4 +1,5 @@
 // Composables
+import PetPackages from '@/views/PetPackages.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
@@ -22,6 +23,11 @@ const routes = [
       { path: '/packages',
         name: 'Packages',
         component: () => import('@/views/PetPackages.vue')
+      },
+      {
+        path: '/checkout',
+        name: 'Checkout',
+        component: () => import("@/views/Checkout.vue")
       },
     ],
   },

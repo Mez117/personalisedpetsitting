@@ -3,8 +3,9 @@
         <v-responsive>
             <!-- <v-row> -->
                 <v-card class="bg-orange-lighten-4 section">
+                    <h1 class="text-h3 pa-3">Independent Fur Child</h1>
                     <v-row>
-                        <v-col cols="4">
+                        <v-col cols="auto">
                             <v-img
                             src="/fur_packs/fur3.jpg"
                             :height="500"
@@ -12,10 +13,10 @@
                             cover
                             ></v-img>
                         </v-col>
-                        <v-col class="pa-5 pr-10">
-                            <h1 class="text-h3 pt-5">Independent Fur Child</h1>
-                            <h1 class="text-subtitle-1 pt-5 mb-10">This package is amazing for pets that have a regular routine of being left at home whilst their owner is at work.</h1>
-                            <ul class="furlist" style="text-align: left">
+                        <v-col class="pl-5 pr-10">
+                            
+                            <!-- <h1 class="text-subtitle-1 pt-5 mb-10">This package is amazing for pets that have a regular routine of being left at home whilst their owner is at work.</h1> -->
+                            <ul class="furlist" style="text-align: left; width: 500px; line-height: 30px;">
                                 <li>1-3 Update Daily</li>
                                 <li>Daily Exercise</li>
                                 <li>Physical and Mental Enrichment</li>
