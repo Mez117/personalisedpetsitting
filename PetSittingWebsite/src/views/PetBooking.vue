@@ -1,15 +1,15 @@
 <template>
-    <Content />
+    <Booking />
 </template>
 
 <script>
-import Content from "@/components/Content.vue"
+
+import Booking from '@/components/Booking.vue'
 
 export default {
     components: {
-        Content
+        Booking
     }
 }
-
 
 </script>

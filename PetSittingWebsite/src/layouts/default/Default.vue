@@ -1,12 +1,24 @@
 <template>
   <v-app>
-    <default-bar />
-
-    <default-view />
+    <app-bar />
+    <v-main>
+      <View />
+    </v-main>
   </v-app>
 </template>
 
-<script setup>
-  import DefaultBar from './AppBar.vue'
-  import DefaultView from './View.vue'
+<script>
+  import AppBar from './AppBar.vue'
+  import View from './View.vue'
+
+  export default {
+    components: {
+      AppBar,
+      View
+    }
+  }
+</script>
+
+<script>
+
 </script>

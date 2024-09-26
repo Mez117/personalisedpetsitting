@@ -1,9 +1,11 @@
 <template>
-  <v-main>
     <router-view />
-  </v-main>
 </template>
 
-<script setup>
-  //
+<script>
+
+export default {
+  name: 'View'
+}
+
 </script>

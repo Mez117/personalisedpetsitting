@@ -1,5 +1,5 @@
 {
-  "name": "PetSittingWebsite",
+  "name": "petsitting",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -13,18 +13,20 @@
     "@mdi/font": "7.0.96",
     "@mdi/js": "^7.4.47",
     "@popperjs/core": "^2.11.8",
-    "@vue-stripe/vue-stripe": "^4.5.0",
+    "@vuepic/vue-datepicker": "^9.0.3",
     "core-js": "^3.29.0",
+    "emailjs-com": "^3.2.0",
     "mdi": "^2.2.43",
     "p-try": "^3.0.0",
     "roboto-fontface": "*",
-    "stripe": "^15.4.0",
     "swiper": "^11.1.1",
     "v-calendar": "^3.1.2",
-    "vee-validate": "^4.12.6",
+    "vee-validate": "^4.13.2",
     "vue": "^3.4.21",
+    "vue-cal": "^4.9.0",
     "vue-calendars": "^1.2.2",
     "vue-router": "^4.0.0",
+    "vue3-daterange-picker": "^1.0.1",
     "vuetify": "^3.5.15"
   },
   "devDependencies": {

@@ -1,19 +1,20 @@
 // Composables
-import PetPackages from '@/views/PetPackages.vue'
+// import PetPackages from '@/views/PetPackages.vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import PetSitting from '@/views/PetSitting.vue';
+import DefaultLayout from '@/layouts/default/Default.vue';
+import Booking from '@/views/PetBooking.vue';
+
 
 const routes = [
   {
     path: '/',
-    component: () => import('@/layouts/default/Default.vue'),
+    component: DefaultLayout,
     children: [
       {
-        path: '',
-        name: 'Home',
-        // route level code-splitting
-        // this generates a separate chunk (Home-[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import('@/views/Home.vue'),
+        path: '/',
+        name: 'Petsitting',
+        component: PetSitting,
       },
       {
         path: '/petsitting',
@@ -25,11 +26,13 @@ const routes = [
         component: () => import('@/views/PetPackages.vue')
       },
       {
-        path: '/checkout',
-        name: 'Checkout',
-        component: () => import("@/views/Checkout.vue")
+        path: '/bookings',
+        name: 'Bookings',
+        component: Booking,
       },
     ],
+    // path: '/',
+    // component: PetSitting,
   },
 ]
 

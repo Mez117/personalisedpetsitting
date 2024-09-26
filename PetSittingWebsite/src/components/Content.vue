@@ -1,17 +1,17 @@
 <template>
-<v-container>
+<v-container id="section1">
     <v-responsive class="align-center text-center fill-height">
-            <v-row justify="center" class="bg-cyan-darken-3 ma-0 pa-16 rounded-lg">
+            <v-row justify="center" style="background: rgb(56,128,147);" class="ma-0 pa-16 rounded-lg">
                 <v-col cols="12">
-                    <h1 class="text-h2">Personalised Petsitting</h1>
+                    <v-img src="/logo/pet-logo.png"  draggable="false" />
                 </v-col>
                 <v-col cols="12" justify="center">
                     <h1 class="text-h3" >Pet Care Personalised Your Way!</h1>
-                </v-col>
-                <v-btn size="large" class="bg-purple " style="margin-top: 150px;">Learn More</v-btn>
+                </v-col >
+                    <v-btn size="large" class="bg-purple " style="margin-top: 50px;" @click="scrollToSection4">Learn More</v-btn>
             </v-row>
 
-            <v-row justify="center" class="bg-purple-darken-2 pa-16 ma-0 mt-5 rounded-lg">
+            <v-row justify="center" class="bg-purple-darken-2 pa-16 ma-0 mt-5 rounded-lg" id="section2">
 
                 <v-col cols="5" class="ma-5 pa-2">
                     <h1 class="text-h2 mt-1">About Us</h1>
@@ -33,58 +33,39 @@
                 </v-col>
                 
             </v-row>
-            <div class="bg-pink-lighten-4 major-divs mt-5 mb-5" style="padding: 50px;">
+            <div class="bg-pink-lighten-4 major-divs mt-5 mb-5" style="padding: 50px;" id="section3">
                 <h1 class="text-h5 my-3">We love your pets.</h1>
                 <v-row no-gutters>
-                    <v-col class="boxes"><img src="/lara_dogs/dog1.jpg" alt="" class="gap"></v-col>
-                    <v-col class="boxes"><img src="/lara_dogs/dog2.jpg" alt="" class="gap"></v-col>
-                    <v-col class="boxes"><img src="/lara_dogs/dog3.jpg" alt="" class="gap"></v-col>
-                    <v-col class="boxes"><img src="/lara_dogs/dog4.jpeg" alt="" class="gap"></v-col>
-                    <v-col class="boxes"><img src="/lara_dogs/dog5.jpg" alt="" class="gap"></v-col>
-                    <v-col class="boxes"><img src="/lara_dogs/dog6.jpg" alt="" class="gap"></v-col>
+                    <v-col
+                        v-for="item in dogpics1"
+                        :key="item"
+                        class="boxes"
+                    >
+                        <img :src=" item " alt="" class="gap" />
+                    </v-col>
                 </v-row>
                 <v-row no-gutters>
-                    <v-col class="boxes"><img src="/lara_dogs/dog7.jpg" alt="" class="gap"></v-col>
-                    <v-col class="boxes"><img src="/lara_dogs/dog8.jpg" alt="" class="gap"></v-col>
-                    <v-col class="boxes"><img src="/lara_dogs/dog9.jpg" alt="" class="gap"></v-col>
-                    <v-col class="boxes"><img src="/lara_dogs/dog10.jpg" alt="" class="gap"></v-col>
-                    <v-col class="boxes"><img src="/lara_dogs/dog11.jpg" alt="" class="gap"></v-col>
-                    <v-col class="boxes"><img src="/lara_dogs/dog12.jpg" alt="" class="gap"></v-col>
+                    <v-col
+                        v-for="item in dogpics2"
+                        :key="item"
+                        class="boxes"
+                    >
+                        <img :src=" item " alt="" class="gap" />
+                    </v-col>
                 </v-row>
 
                 <p class="mt-5 text-body-1">
-                    Personalised Petsitting is
-                    committed to not only
-                    providing the best care they
-                    can but becoming your pet’s
-                    new friend. 
+                    Personalised Petsitting is committed to not only providing the best care they can but becoming your pet’s new friend. 
                 </p>
             </div>
-            <div class="bg-white" style="padding: 10px;">
-                <!-- <h1 class="text-h2">Our Petsitting Packages</h1> 
-                <img src="https://picsum.photos/201/300" alt="" class="ma-10">
-                <img src="https://picsum.photos/202/300" alt="" class="ma-10">
-                <img src="https://picsum.photos/200/300" alt="" class="ma-10">
-                <div>
-                    <div class="textbox">
-                        <h2 class="text-h4">Independent Fur Child</h2>
-                        <p>Best for Pets with the routine of their parents leaving them for over 8 hours a day</p>
-                    </div>
-                    <div class="textbox">
-                        <h2 class="text-h4">The Fur Baby</h2>
-                        <p>Best for Pets that can be left alone for up to 6 hours a day. </p>
-                    </div>
-                    <div class="textbox">
-                        <h2 class="text-h4">Seperation Anxiety</h2>
-                        <p>Best for Pets who have a routine of always being with parents.</p>
-                    </div>
-                </div> -->
+            <h1 class="text-h4 mb-2 pa-7" style=" color:rgb(56,127,147)">We've got a range of 3 amazing packages for whatever level of care best suits your needs!</h1>
+            <div class="bg-white" style="padding: 10px;" id="section4">
                 <v-carousel hide-delimiters>
                     <v-carousel-item>
                         <div class="d-flex justify-center">
                         <v-card class="bg-orange-lighten-4" style="width: 100%;">
                             <v-row>
-                                <v-col cols="4">
+                                <v-col cols="3">
                                     <v-img
                                     :src="fur3"
                                     :height="500"
@@ -92,24 +73,29 @@
                                     cover
                                     ></v-img>
                                 </v-col>
-                                <v-col cols="6" class="pa-5">
+                                <v-col cols="8" class="pa-5">
                                     <h1 class="text-h3 pt-5">Independent Fur Child</h1>
                                     <h1 class="text-subtitle-1 pt-5 mb-10">This package is amazing for pets that have a regular routine of being left at home whilst their owner is at work.</h1>
-                                    <ul class="furlist ms-auto" style="text-align: left">
-                                        <li>1-3 Update Daily</li>
-                                        <li>Daily Exercise</li>
-                                        <li>Physical and Mental Enrichment</li>
-                                        <li>Feeding all meals</li>
-                                        <li>Administering of any Medication</li>
-                                        <li>Maintaining pet's routine to the best of the petsitters ability</li>
-                                        <li>Cleaning of all pets waste</li>
-                                        <li>Grooming pet (if required, not including bath)</li>
-                                    </ul>
+                                    <v-list class="furlist bg-orange-lighten-4">
+                                        <v-list-item
+                                            v-for="item in pack1"
+                                            :key="item"
+                                            rounded
+                                            class="custom-list-item long-list"
+                                            :border="black"
+                                        >
+
+                                            <v-list-item-content>
+                                                <v-list-item-title>{{ item }}</v-list-item-title>
+                                            </v-list-item-content>
+                                        </v-list-item>
+                                    </v-list>
+                                    <p class="text-subtitle-2">+ more</p>
                                     <router-link 
                                     to="/packages/"
                                     style="text-decoration: none;"
                                     ><v-btn 
-                                        class="mt-10"
+                                        class="mt-6"
                                         rounded="0"
                                         variant="flat" 
                                         color="primary"
@@ -135,12 +121,38 @@
                                 </v-col>
                                 <v-col cols="6" class="pa-5">
                                     <h1 class="text-h3 pt-5">The Fur Baby Package</h1>
-                                    <h1 class="text-subtitle-1 pt-5 mb-10">This is our most popular package!! This package is great for any owners that loves regular updates and doesn’t have pets that suffer from separation anxiety.This package <br /><br />INCLUDES everything in the Independent Fur Child, PLUS:</h1>
-                                    <ul class="furlist ms-auto" style="text-align: left">
-                                        <li>3-6 updates daily</li>
-                                        <li>Pet can be left a max of 6 hours </li>
-                                        <li>General tidy + sanitised all surfaces</li>
-                                    </ul>
+                                    <h1 class="text-subtitle-1 pt-5 mb-8">This is our most popular package!! This package is great for any owners that loves regular updates and doesn’t have pets that suffer from separation anxiety.This package></h1>
+                                    <v-list class="furlist bg-orange-lighten-4" align="center">
+
+                                        <v-list-item rounded class="custom-list-item" :border="black">
+                                            <v-list-item-title style="color: blue;">INCLUDES EVERYTHING FROM THE INDEPENDENT FUR CHILD PACKAGE</v-list-item-title>
+                                        </v-list-item>
+
+                                        <v-list-item
+                                            v-for="item in pack2"
+                                            :key="item"
+                                            rounded
+                                            class="custom-list-item"
+                                            :border="black"
+                                        >
+
+                                            <v-list-item-content>
+                                                
+                                                <v-list-item-title>{{ item }}</v-list-item-title>
+                                            </v-list-item-content>
+                                        </v-list-item>
+                                    </v-list>
+                                    <router-link 
+                                    to="/packages/"
+                                    style="text-decoration: none;"
+                                    ><v-btn 
+                                        class="mt-3"
+                                        rounded="0"
+                                        variant="flat" 
+                                        color="primary"
+                                        >More Info and Booking
+                                    </v-btn>
+                                    </router-link>
                                 </v-col>
                             </v-row>
                         </v-card>
@@ -160,13 +172,38 @@
                                 </v-col>
                                 <v-col cols="6" class="pa-5">
                                     <h1 class="text-h3 pt-5">The Separation Anxiety Package</h1>
-                                    <h1 class="text-subtitle-1 pt-5 mb-10">This package is the best package for any pets that suffer from separation anxiety and require the petsitter to be with your pet consistently throughout the booking. If you as the owner also suffer from separation anxiety from your beloved pets this package includes 6-10 updates daily and a FaceTime call to you every second day This package <br /><br />INCLUDES everything listed in package 1, PLUS:</h1>
-                                    <ul class="furlist ms-auto" style="text-align: left">
-                                        <li>6-10 daily updates</li>
-                                        <li>1 FaceTime every other day during the booking.</li>
-                                        <li>Spotless home</li>
-                                        <li>The petsitter not leaving your pets for more than 2 hours.</li>
-                                    </ul>
+                                    <h1 class="text-subtitle-1 pt-5 mb-8">This package is the best package for any pets that suffer from separation anxiety and require the petsitter to be with your pet consistently throughout the booking. This package includes...</h1>
+                                    <v-list class="furlist bg-orange-lighten-4" align="center">
+
+                                        <v-list-item rounded class="custom-list-item" :border="black">
+                                            <v-list-item-title style="color: blue;">INCLUDES EVERYTHING FROM THE INDEPENDENT FUR CHILD PACKAGE</v-list-item-title>
+                                        </v-list-item>
+
+                                        <v-list-item
+                                            v-for="item in pack3"
+                                            :key="item"
+                                            rounded
+                                            class="custom-list-item"
+                                            :border="black"
+                                        >
+
+                                            <v-list-item-content>
+                                                
+                                                <v-list-item-title>{{ item }}</v-list-item-title>
+                                            </v-list-item-content>
+                                        </v-list-item>
+                                    </v-list>
+                                    <router-link 
+                                    to="/packages/"
+                                    style="text-decoration: none;"
+                                    ><v-btn 
+                                        class="mt-3"
+                                        rounded="0"
+                                        variant="flat" 
+                                        color="primary"
+                                        >More Info and Booking
+                                    </v-btn>
+                                    </router-link>
                                 </v-col>
                             </v-row>
                         </v-card>
@@ -184,6 +221,7 @@
                     @swiper="onSwiper"
                     @slideChange="onSlideChange"
                     :loop="true"
+                    id="section5"
                 >
 
                     <swiper-slide>
@@ -352,7 +390,7 @@
                     </v-col>
                 </v-row>
             </div>
-            <div class="bg-purple-lighten-1 pa-2 major-divs mb-5">
+            <div class="bg-purple-lighten-1 pa-2 major-divs mb-5" id="section6">
                 <h1 class="text-h5 mt-5">Frequently Asked Questions</h1>
                 <v-row class="ma-5 text-justify">
                     <v-col cols="6 pr-10">
@@ -398,7 +436,7 @@
                     label="E-mail"
                     ></v-text-field>
 
-                    <v-select
+                    <!-- <v-select
                     v-model="select.value.value"
                     :error-messages="select.errorMessage.value"
                     :items="items"
@@ -411,7 +449,7 @@
                     label="Option"
                     type="checkbox"
                     value="1"
-                    ></v-checkbox>
+                    ></v-checkbox> -->
 
                     <v-btn
                     class="me-4"
@@ -450,6 +488,22 @@ const attrs = ref([
 </script>
 
 <script>
+import { ref } from 'vue';
+
+
+const selectedColor = ref('purple');
+const attrs = ref([
+  {
+    key: 'tests',
+    highlight: true,
+    dates: [[new Date(2024, 1, 2), new Date(2024, 1, 4) ],
+    [new Date(2024, 1, 13), new Date(2024, 1, 16)],
+    [new Date(2024, 1, 19), new Date(2024, 1, 24)],
+    [new Date(2024, 1, 26), new Date(2024, 1, 27)],
+    [new Date(2024, 2, 14), new Date(2024, 2, 22)],
+    ],
+  },
+]);
 //////////////////////////////////////////////////////////////////////////////
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/vue';
@@ -512,6 +566,9 @@ const submit = handleSubmit(values => {
 
 SwiperCore.use([Navigation]).use([Pagination])
 export default {
+    name: 'Section1',
+    name: 'Section2',
+    // name: 'Content',
     data() {
         return {
             fur1: "/fur_packs/fur1.jpg",
@@ -524,7 +581,59 @@ export default {
             r5: "/reviews/r5.jpg",
             r6: "/reviews/r6.jpg",
             r7: "/reviews/r7.jpg",
+            dogpics1: [
+                '/lara_dogs/dog1.jpg',
+                '/lara_dogs/dog2.jpg',
+                '/lara_dogs/dog3.jpg',
+                '/lara_dogs/dog4.jpeg',
+                '/lara_dogs/dog5.jpg',
+                '/lara_dogs/dog6.jpg',
+            ],
+            dogpics2: [
+                '/lara_dogs/dog7.jpg',
+                '/lara_dogs/dog8.jpg',
+                '/lara_dogs/dog9.jpg',
+                '/lara_dogs/dog10.jpg',
+                '/lara_dogs/dog11.jpg',
+                '/lara_dogs/dog12.jpg',
+            ],
+            pack1: [
+                '1-3 Update Daily',
+                'Daily Exercise',
+                'Physical and Mental Enrichment',
+                'Feeding all meals',
+                'Administering of any Medication',
+                "Maintaining pet's routine to the best of the petsitters ability",
+                'Cleaning of all pets waste',
+                'Grooming pet (if required, not including bath)',
+            ],
+            pack2: [
+                '3-6 updates daily',
+                'Pet can be left a max of 6 hours',
+                'General tidy + sanitised all surfaces',
+            ],
+            pack3: [
+                '6-10 daily updates',
+                'Spotless home',
+                'The petsitter not leaving your pets for more than 2 hours',
+            ],
         }
+    },
+    methods: {
+        scrollToSection4() {
+        const section = document.getElementById('section4');
+            if (section) {
+                let offsetTop;
+
+                const sectionRect = section.getBoundingClientRect();
+                offsetTop = sectionRect.top + window.scrollY - window.innerHeight / 2 + sectionRect.height / 2;
+
+                window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+                });
+            }
+        },
     },
 
     // methods: {
