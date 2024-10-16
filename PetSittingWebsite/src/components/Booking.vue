@@ -63,9 +63,12 @@
                     <v-col cols="6">
                         <VueDatePicker 
                         v-model="dateRange" 
-                        range 
+                        :range="{ noDisabledRange: true }"
                         multi-calendars 
                         :format="customFormat" 
+                        :disabled-dates="disabledDates"
+                        required
+                        :min-date="minDate"
                         ></VueDatePicker>
                     </v-col>
 
@@ -118,8 +121,80 @@
 import emailjs from '@emailjs/browser';
 import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css';
+import { db, collection, getDocs } from '../firebase';
 
+// export default {
+//     components: {
+//         VueDatePicker,
+//     },
+//     data() {
+//         return {
+//             valid: false,
+//             firstName: '',
+//             lastName: '',
+//             phoneNumber: '',
+//             email: '',
+//             address: '',
+//             dateRange: null,
+//             selectedPackage: '',
+//             packages: ['Independant Fur Child Package', 'Fur Baby Package', 'Seperation Anxiety Package'],
+//             howManyPets: '',
+//             petOptions: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+//             whatPets: '',
+//             additionalInfo: '',
+//             rules: {
+//                 required: value => !!value || 'Required.',
+//                 email: value => /.+@.+\..+/.test(value),
+//                 phone: value => /^\d+( \d+)*$/.test(value),
+//             },
+//         };
+//     },
+//     methods: {
+//         submitForm() {
+//             if (this.$refs.form.validate()) {
 
+//                 console.log(this.dateRange);
+
+//                 const formattedDateRange = this.customFormat(this.dateRange);
+
+//                 console.log(formattedDateRange);
+
+//                 const templateParams = {
+//                     firstName: this.firstName,
+//                     lastName: this.lastName,
+//                     phoneNumber: this.phoneNumber,
+//                     email: this.email,
+//                     address: this.address,
+//                     selectedPackage: this.selectedPackage,
+//                     howManyPets: this.howManyPets,
+//                     whatPets: this.whatPets,
+//                     additionalInfo: this.additionalInfo,
+//                     dateRange: formattedDateRange,
+//                 };
+
+//                 emailjs.send("service_3uq0j9x", "template_tbhhsvd", templateParams, { publicKey: 'y28Njxa62kEbnjheZ',})
+//                     .then(() => alert('Booking request sent!'))
+//                     .catch(error => console.error('Failed to send booking request:', error));
+//             }
+//         },
+//         customFormat(date) {
+//             const formatDate = (d) => {
+//                 if (d != null) {
+//                 const day = String(d.getDate()).padStart(2, '0');
+//                 const month = String(d.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+//                 const year = d.getFullYear();
+//                 return `${day}/${month}/${year}`;
+//                 }
+//             };
+            
+//             if (Array.isArray(date)) {
+//                 return `${formatDate(date[0])} - ${formatDate(date[1])}`;
+//             }
+//             return '';
+//         },
+//     },
+    
+// }
 export default {
     components: {
         VueDatePicker,
@@ -133,6 +208,8 @@ export default {
             email: '',
             address: '',
             dateRange: null,
+            disabledDates: [],
+            minDate: new Date(),
             selectedPackage: '',
             packages: ['Independant Fur Child Package', 'Fur Baby Package', 'Seperation Anxiety Package'],
             howManyPets: '',
@@ -147,14 +224,82 @@ export default {
         };
     },
     methods: {
+        // customFormat(date) {
+        //     if (!date || !(date instanceof Date)) {
+        //         return ''
+        //     }
+        //     const day = String(date.getDate()).padStart(2, '0');
+        //     const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+        //     const year = date.getFullYear();
+        //     return `${day}/${month}/${year}`;
+        // },
+        customFormat(date) {
+            const formatDate = (d) => {
+
+                if (d != null) {
+                const day = String(d.getDate()).padStart(2, '0');
+                const month = String(d.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+                const year = d.getFullYear();
+                return `${day}/${month}/${year}`;
+                }
+
+            };
+            
+            if (Array.isArray(date)) {
+                return `${formatDate(date[0])} - ${formatDate(date[1])}`;
+            }
+            return '';
+        },
+
+        formatToJavascriptObject(dateString) {
+            const [year, month, day] = dateString.split("-").map(Number);
+            const dateObject = new Date (year, month - 1, day);
+            return dateObject;
+        },
+
+        async fetchUnavailableDates() {
+
+            Date.prototype.addDays = function(days) {
+                const date = new Date(this.valueOf());
+                date.setDate(date.getDate() + days);
+                return date;
+            }
+
+            function getDates(startDate, endDate) {
+                let dateArray = new Array();
+                let currentDate = startDate;
+                while (currentDate <= endDate) {
+                    dateArray.push(new Date (currentDate));
+                    currentDate = currentDate.addDays(1);
+                }
+                return dateArray;
+            }
+
+            const unavailableDates = [];
+            try {
+                const querySnapshot = await getDocs(collection(db, 'unavailableDates'));
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    const startDate = (this.formatToJavascriptObject(data.startDate))
+                    const endDate = (this.formatToJavascriptObject(data.endDate))
+
+                    if (startDate && endDate) {
+
+                        const datesBeingRemoved = getDates(startDate, endDate);
+
+                        unavailableDates.push(...datesBeingRemoved);
+                    }
+                });
+                this.disabledDates = unavailableDates;
+            } catch (error) {
+                console.error('Error fetching unavailable dates:', error);
+            }
+        },
+
         submitForm() {
             if (this.$refs.form.validate()) {
 
-                console.log(this.dateRange);
-
                 const formattedDateRange = this.customFormat(this.dateRange);
-
-                console.log(formattedDateRange);
 
                 const templateParams = {
                     firstName: this.firstName,
@@ -174,22 +319,11 @@ export default {
                     .catch(error => console.error('Failed to send booking request:', error));
             }
         },
-        customFormat(date) {
-            const formatDate = (d) => {
-                if (d != null) {
-                const day = String(d.getDate()).padStart(2, '0');
-                const month = String(d.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
-                const year = d.getFullYear();
-                return `${day}/${month}/${year}`;
-                }
-            };
-            
-            if (Array.isArray(date)) {
-                return `${formatDate(date[0])} - ${formatDate(date[1])}`;
-            }
-            return '';
-        },
     },
+
+    created() {
+        this.fetchUnavailableDates();
+    }
     
 }
 </script>

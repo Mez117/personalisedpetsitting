@@ -36,7 +36,6 @@
             >
               {{ item.title }}
             </v-btn>
-            <v-btn rounded="0" variant="flat" color="primary" href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAANAAWF-ElxUNUNMMldHTE1QS1E3WTlDRzAxSlVIMVBGQi4u" target="_blank">Create a Booking</v-btn>
     </v-menu>
     <v-btn 
       class="ml-4 pa-5 py-7 d-flex align-center" 
@@ -83,6 +82,7 @@
       items: [
         { title: 'Petsitting', link: '/petsitting/'},
         { title: 'Fur Packages', link: '/packages/'},
+        { title: 'Make a Booking', link: '/bookings/'},
         // { title: 'Create a Booking', link: 'https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAANAAWF-ElxUNUNMMldHTE1QS1E3WTlDRzAxSlVIMVBGQi4u'},
       ],
       // menu: false,
