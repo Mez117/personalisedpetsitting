@@ -15,6 +15,7 @@
                         label="First Name"
                         :rules="[rules.required]"
                         required
+                        hide-details
                         ></v-text-field>
                     </v-col>
                         
@@ -24,6 +25,7 @@
                         label="Last Name"
                         :rules="[rules.required]"
                         required
+                        hide-details
                     ></v-text-field>
                     </v-col>
                 </v-row>
@@ -37,6 +39,7 @@
                         label="Phone Number"
                         :rules="[rules.required, rules.phone]"
                         required
+                        hide-details
                         ></v-text-field>
                     </v-col>
 
@@ -46,16 +49,33 @@
                         label="Email"
                         :rules="[rules.required, rules.email]"
                         required
+                        hide-details
                         ></v-text-field>
                     </v-col>
                 </v-row>
 
-                <v-text-field
-                v-model="address"
-                label="Address"
-                :rules="[rules.required]"
-                required
-                ></v-text-field>
+                <v-row>
+                    <v-col cols="6">
+                        <v-text-field
+                        v-model="address"
+                        label="Suburb"
+                        :rules="[rules.required]"
+                        required
+                        hide-details
+                        ></v-text-field>
+                        <p class="text-caption ml-1">We will contact you later to ask for your specific address once the booking process is complete</p>
+                    </v-col>
+                    <v-col cols="6">
+                        <v-select
+                            v-model="selectedContact"
+                            :items="contactMethods"
+                            label="How would you like to be contacted"
+                            :rules="[rules.required]"
+                            required
+                            hide-details
+                        ></v-select>
+                    </v-col>
+                </v-row>
 
                 <h1 class="text-h4 my-3">Booking Details</h1>
                 
@@ -67,9 +87,10 @@
                         multi-calendars 
                         :format="customFormat" 
                         :disabled-dates="disabledDates"
-                        required
+                        :required="true"
                         :min-date="minDate"
                         ></VueDatePicker>
+                        <span v-if="formSubmitted && !dateRange" style="color: red; font-size: 12px;">Date is required</span>
                     </v-col>
 
                     <v-col cols="6">
@@ -91,6 +112,7 @@
                         :items="petOptions"
                         label="How Many Pets"
                         :rules="[rules.required]"
+                        hide-details
                         ></v-select>
                     </v-col>
 
@@ -99,15 +121,29 @@
                         v-model="whatPets"
                         label="What Pets"
                         :rules="[rules.required]"
+                        hide-details
                         ></v-text-field>
                     </v-col>
                 </v-row>
 
-                <v-text-field
+                <v-textarea
                     v-model="additionalInfo"
                     label="Additional Information"
-                ></v-text-field>
+                    class="mt-5"
+                    auto-grow
+                ></v-textarea>
 
+                <v-checkbox
+                    required
+                    :rules="[rules.required]"
+                    hide-details
+                >
+                <template v-slot:label>
+                    <span>
+                        By ticking, you are confirming that you have read, understood and agree to Personalised Petsitting (PP) 
+                        <router-link style="text-decoration: none;" to="/terms">terms and conditions.
+                    </router-link></span>
+                </template></v-checkbox>
 
                 <v-btn @click="submitForm" :disabled="!valid" class="mt-5">Submit Booking Request</v-btn>
             </v-form>
@@ -212,6 +248,8 @@ export default {
             minDate: new Date(),
             selectedPackage: '',
             packages: ['Independant Fur Child Package', 'Fur Baby Package', 'Seperation Anxiety Package'],
+            selectedContact: '',
+            contactMethods: ['Phone', 'Email'],
             howManyPets: '',
             petOptions: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
             whatPets: '',
@@ -221,6 +259,7 @@ export default {
                 email: value => /.+@.+\..+/.test(value),
                 phone: value => /^\d+( \d+)*$/.test(value),
             },
+            formSubmitted: false,
         };
     },
     methods: {
@@ -297,7 +336,10 @@ export default {
         },
 
         submitForm() {
-            if (this.$refs.form.validate()) {
+
+            this.formSubmitted = true;
+
+            if (this.$refs.form.validate() && this.dateRange) {
 
                 const formattedDateRange = this.customFormat(this.dateRange);
 
@@ -307,6 +349,7 @@ export default {
                     phoneNumber: this.phoneNumber,
                     email: this.email,
                     address: this.address,
+                    contactMethod: this.selectedContact,
                     selectedPackage: this.selectedPackage,
                     howManyPets: this.howManyPets,
                     whatPets: this.whatPets,
@@ -317,6 +360,8 @@ export default {
                 emailjs.send("service_3uq0j9x", "template_tbhhsvd", templateParams, { publicKey: 'y28Njxa62kEbnjheZ',})
                     .then(() => alert('Booking request sent!'))
                     .catch(error => console.error('Failed to send booking request:', error));
+            } else {
+                console.log('Form not submitted. Date required');
             }
         },
     },

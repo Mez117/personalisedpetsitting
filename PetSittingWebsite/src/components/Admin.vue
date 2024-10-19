@@ -26,6 +26,8 @@
                 </v-list-item-action>
             </v-list-item>
         </v-list>
+
+        <v-btn @click="signOut">Sign out</v-btn>
     </v-container>
 </template>
 
@@ -33,6 +35,7 @@
 import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css';
 import { db, addDoc, deleteDoc, collection, query, where, getDocs } from '../firebase';
+import { getAuth, signOut } from 'firebase/auth';
 
 export default {
     components: {
@@ -176,6 +179,19 @@ export default {
                 console.error('Error removing unavailable date', error);
             }
         },
+
+        async signOut() {
+            const auth = getAuth();
+
+            try {
+                await signOut(auth);
+                console.log('User successfully signed out');
+
+                this.$router.push('/login');
+            } catch(error) {
+                console.log('Error signing user out', error);
+            }
+        }
     },
     created() {
         this.fetchUnavailableDates();
