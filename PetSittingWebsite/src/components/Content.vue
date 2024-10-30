@@ -1,20 +1,29 @@
 <template>
-<v-container id="section1">
-    <v-responsive class="align-center text-center fill-height">
-            <v-row justify="center" style="background: rgb(56,128,147);" class="ma-0 pa-16 rounded-lg">
-                <v-col cols="12">
-                    <v-img src="/logo/pet-logo.png"  draggable="false" />
+<v-container id="section1" align="center">
+    <v-responsive class="align-center text-center fill-height" style="max-width: 1500px">
+            <v-row  
+            align="center"
+            style="
+                background: rgb(56,128,147);
+                background: linear-gradient(to right, rgba(56, 128, 147, 1),  rgba(56, 128, 147, 1) 20%, white 70%);
+                border: 2px solid #aac9d1;
+            " 
+            class="ma-0 pa-5 rounded-lg " >
+                <v-col cols="2">
+                    <v-img src="/logo/square.png"  draggable="false" />
                 </v-col>
-                <v-col cols="12" justify="center">
-                    <h1 class="text-h3" >Pet Care Personalised Your Way!</h1>
+                <v-col cols="8">
+                    <h1 class="text-h3">Pet Care Personalised Your Way!</h1>
                 </v-col >
-                    <v-btn size="large" class="bg-purple " style="margin-top: 50px;" @click="scrollToSection4">Learn More</v-btn>
+                <v-col cols="2">
+                    <v-btn size="large" class="bg-purple " @click="scrollToSection4">Learn More</v-btn>
+                </v-col>
             </v-row>
 
-            <v-row justify="center" class="bg-purple-darken-2 pa-16 ma-0 mt-5 rounded-lg" id="section2">
+            <v-row justify="center" class="pa-4 ma-0 mt-5 rounded-lg" id="section2">
 
-                <v-col cols="5" class="ma-5 pa-2">
-                    <h1 class="text-h2 mt-1">About Us</h1>
+                <v-col cols="5" class="pa-10 bg-purple-darken-2 rounded-lg">
+                    <h1 class="text-h2 mt-1 text-left">About Us</h1>
                     <p class="mt-12 text-justify">
                     Personalised Petsitting was create to provide owners with a
                     pet care service they can tailor that their every need. To
@@ -22,28 +31,31 @@
                     owner but the pets with a petsitter that they loves and cares
                     for them.
                     </p>
-                </v-col>
- 
-
-                <v-col cols="5" class="ma-5 pa-2">
-                    <h1 class="text-h4" style="margin: 0 auto">Getting to know our Personalised Petsitter Lara</h1>
-                    <p class="mt-7 text-justify" style="width: 90%; margin: 0 auto">
+                    <h1 class="text-h4 mt-7 text-left" style="margin: 0 auto">Getting to know our Personalised Petsitter Lara</h1>
+                    <p class="mt-7 text-justify" style="margin: 0 auto">
                     Lara has an abundance of love for anything with 4 legs, the bigger the better is her motto when it comes to dogs. She has been petsitting for over 4 years, she currently works in the animal care industry and has been for over 1 year. Lara not only has her Certificate 2 in Animals Studies, she also has her animal first aid and is a wizard at administering medication to any types of pets. Lara has quite the nack for looking after pets that aren’t hers as she has fosters over 20 animals from the RSPCA, from a mum and her 7 puppies, 2 rescue kittens for over 2 months, an 8 week old Great Dane pup for 8 months and many more. 
                     </p>
                 </v-col>
+ 
+
+                <v-col cols="7" class="pa-0 overflow-y-auto" v-scroll.self="onScroll" style="max-height: 600px;">
+                    <v-banner class="text-h5 justify-center mx-auto" sticky style="width: 90%;">We love your pets.</v-banner>
+                        <div v-if="dogpics && dogpics.length > 0">
+                        <div
+                            
+                            v-for="item in dogpics"
+                            :key="item"
+                            class="boxes"
+                        >
+                            <img :src=" item " alt="" class="gap" />
+                        </div>
+                        </div>
+                </v-col>
                 
             </v-row>
-            <div class="bg-pink-lighten-4 major-divs mt-5 mb-5" style="padding: 50px;" id="section3">
+            <!-- <div class="bg-pink-lighten-4 major-divs mt-5 mb-5" style="padding: 50px;" id="section3">
                 <h1 class="text-h5 my-3">We love your pets.</h1>
-                <v-row no-gutters>
-                    <v-col
-                        v-for="item in dogpics1"
-                        :key="item"
-                        class="boxes"
-                    >
-                        <img :src=" item " alt="" class="gap" />
-                    </v-col>
-                </v-row>
+
                 <v-row no-gutters>
                     <v-col
                         v-for="item in dogpics2"
@@ -57,7 +69,7 @@
                 <p class="mt-5 text-body-1">
                     Personalised Petsitting is committed to not only providing the best care they can but becoming your pet’s new friend. 
                 </p>
-            </div>
+            </div> -->
             <h1 class="text-h4 mb-2 pa-7" style=" color:rgb(56,127,147)">We've got a range of 3 amazing packages for whatever level of care best suits your needs!</h1>
             <div class="bg-white" style="padding: 10px;" id="section4">
                 <v-carousel hide-delimiters>
@@ -581,15 +593,13 @@ export default {
             r5: "/reviews/r5.jpg",
             r6: "/reviews/r6.jpg",
             r7: "/reviews/r7.jpg",
-            dogpics1: [
+            dogpics: [
                 '/lara_dogs/dog1.jpg',
                 '/lara_dogs/dog2.jpg',
                 '/lara_dogs/dog3.jpg',
                 '/lara_dogs/dog4.jpeg',
                 '/lara_dogs/dog5.jpg',
                 '/lara_dogs/dog6.jpg',
-            ],
-            dogpics2: [
                 '/lara_dogs/dog7.jpg',
                 '/lara_dogs/dog8.jpg',
                 '/lara_dogs/dog9.jpg',
