@@ -7,9 +7,12 @@ import ViteFonts from 'unplugin-fonts/vite'
 import { defineConfig } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 
+// module.exports = {
+//   publicPath: process.env.NODE_ENV === "production" ? "/PetSitting/" : "/",
+// };
+
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/viewpreview/",
   plugins: [
     vue({
       template: { transformAssetUrls }
