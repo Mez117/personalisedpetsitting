@@ -199,15 +199,16 @@
                     </v-carousel-item>
                 </v-carousel>
             </div>
+            <!-- :modules="modules" @swiper="onSwiper" @slideChange="onSlideChange"-->
                 <swiper 
                     class="mb-5 pa-10"
-
+                    
                     :slides-per-view="3"
                     :space-between="50"
                     :navigation="true"
                     :pagination="{ clickable: true }"
-                    @swiper="onSwiper"
-                    @slideChange="onSlideChange"
+                   
+
                     :loop="true"
                     id="section5"
                 >
@@ -644,9 +645,9 @@ export default {
             console.log('slide change');
         };
         return {
-            onSwiper,
-            onSlideChange,
-            modules: [Scrollbar, A11y],
+            // onSwiper,
+            // onSlideChange,
+            // modules: [Scrollbar, A11y],
         };
     },
 };
