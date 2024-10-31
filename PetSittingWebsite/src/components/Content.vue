@@ -201,7 +201,7 @@
             </div>
                 <swiper 
                     class="mb-5 pa-10"
-                    :modules="modules"
+
                     :slides-per-view="3"
                     :space-between="50"
                     :navigation="true"
