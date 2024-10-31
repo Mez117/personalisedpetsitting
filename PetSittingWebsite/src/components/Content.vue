@@ -22,7 +22,7 @@
 
             <v-row justify="center" class="pa-4 ma-0 mt-5 rounded-lg" id="section2">
 
-                <v-col cols="5" class="pa-10 bg-purple-darken-2 rounded-lg">
+                <v-col cols="5" class="pa-10 bg-purple-darken-2 rounded-lg" id="left-col">
                     <h1 class="text-h2 mt-1 text-left">About Us</h1>
                     <p class="mt-12 text-justify">
                     Personalised Petsitting was create to provide owners with a
@@ -38,62 +38,41 @@
                 </v-col>
  
 
-                <v-col cols="7" class="pa-0 overflow-y-auto" v-scroll.self="onScroll" style="max-height: 600px;">
+                <v-col cols="7" class="pa-0 overflow-y-auto" style="height: 750px;">
                     <v-banner class="text-h5 justify-center mx-auto" sticky style="width: 90%;">We love your pets.</v-banner>
-                        <div v-if="dogpics && dogpics.length > 0">
-                        <div
-                            
+                        <div 
                             v-for="item in dogpics"
                             :key="item"
                             class="boxes"
                         >
                             <img :src=" item " alt="" class="gap" />
                         </div>
-                        </div>
                 </v-col>
                 
             </v-row>
-            <!-- <div class="bg-pink-lighten-4 major-divs mt-5 mb-5" style="padding: 50px;" id="section3">
-                <h1 class="text-h5 my-3">We love your pets.</h1>
-
-                <v-row no-gutters>
-                    <v-col
-                        v-for="item in dogpics2"
-                        :key="item"
-                        class="boxes"
-                    >
-                        <img :src=" item " alt="" class="gap" />
-                    </v-col>
-                </v-row>
-
-                <p class="mt-5 text-body-1">
-                    Personalised Petsitting is committed to not only providing the best care they can but becoming your pet’s new friend. 
-                </p>
-            </div> -->
-            <h1 class="text-h4 mb-2 pa-7" style=" color:rgb(56,127,147)">We've got a range of 3 amazing packages for whatever level of care best suits your needs!</h1>
-            <div class="bg-white" style="padding: 10px;" id="section4">
-                <v-carousel hide-delimiters>
+            <v-divider />
+            <h1 class="mb-2 pa-7 package-title" >We've got a range of 3 amazing packages for whatever level of care best suits your needs!</h1>
+            <v-divider class="mb-5"/>
+            <div class="bg-white" id="section4">
+                <v-carousel hide-delimiters class="h-auto">
                     <v-carousel-item>
-                        <div class="d-flex justify-center">
-                        <v-card class="bg-orange-lighten-4" style="width: 100%;">
+                        <v-card class="border">
                             <v-row>
                                 <v-col cols="3">
                                     <v-img
                                     :src="fur3"
-                                    :height="500"
-                                    :width="350"
+                                    :height="550"
                                     cover
                                     ></v-img>
                                 </v-col>
                                 <v-col cols="8" class="pa-5">
                                     <h1 class="text-h3 pt-5">Independent Fur Child</h1>
                                     <h1 class="text-subtitle-1 pt-5 mb-10">This package is amazing for pets that have a regular routine of being left at home whilst their owner is at work.</h1>
-                                    <v-list class="furlist bg-orange-lighten-4">
+                                    <v-list>
                                         <v-list-item
                                             v-for="item in pack1"
                                             :key="item"
-                                            rounded
-                                            class="custom-list-item long-list"
+                                            class="custom-list-item long-list rounded-lg"
                                             :border="black"
                                         >
 
@@ -117,34 +96,32 @@
                                 </v-col>
                             </v-row>
                         </v-card>
-                        </div>
                     </v-carousel-item>
                     <v-carousel-item>
                         <div class="d-flex justify-center">
-                        <v-card class="bg-orange-lighten-4" style="width: 100%;">
+                        <v-card class="border">
                             <v-row>
-                                <v-col cols="4">
+                                <v-col cols="3">
                                     <v-img
                                     :src="fur1"
-                                    :height="500"
-                                    :width="350"
+                                    :height="550"
                                     cover
                                     ></v-img>
                                 </v-col>
-                                <v-col cols="6" class="pa-5">
+                                <v-col cols="8" class="pa-5">
                                     <h1 class="text-h3 pt-5">The Fur Baby Package</h1>
                                     <h1 class="text-subtitle-1 pt-5 mb-8">This is our most popular package!! This package is great for any owners that loves regular updates and doesn’t have pets that suffer from separation anxiety.This package></h1>
-                                    <v-list class="furlist bg-orange-lighten-4" align="center">
+                                    <v-list class="furlist" align="center">
 
-                                        <v-list-item rounded class="custom-list-item" :border="black">
-                                            <v-list-item-title style="color: blue;">INCLUDES EVERYTHING FROM THE INDEPENDENT FUR CHILD PACKAGE</v-list-item-title>
+                                        <v-list-item class="custom-list-item rounded-lg" :border="black" style="background: white !important;">
+                                            <v-list-item-title style="color: black;">INCLUDES EVERYTHING FROM THE INDEPENDENT FUR CHILD PACKAGE</v-list-item-title>
                                         </v-list-item>
 
                                         <v-list-item
                                             v-for="item in pack2"
                                             :key="item"
                                             rounded
-                                            class="custom-list-item"
+                                            class="custom-list-item rounded-lg"
                                             :border="black"
                                         >
 
@@ -172,23 +149,22 @@
                     </v-carousel-item>
                     <v-carousel-item>
                         <div class="d-flex justify-center">
-                        <v-card class="bg-orange-lighten-4" style="width: 100%;">
+                        <v-card class="border">
                             <v-row>
-                                <v-col cols="4">
+                                <v-col cols="3">
                                     <v-img
                                     :src="fur2"
-                                    :height="500"
-                                    :width="350"
+                                    :height="550"
                                     cover
                                     ></v-img>
                                 </v-col>
-                                <v-col cols="6" class="pa-5">
+                                <v-col cols="8" class="pa-5">
                                     <h1 class="text-h3 pt-5">The Separation Anxiety Package</h1>
                                     <h1 class="text-subtitle-1 pt-5 mb-8">This package is the best package for any pets that suffer from separation anxiety and require the petsitter to be with your pet consistently throughout the booking. This package includes...</h1>
-                                    <v-list class="furlist bg-orange-lighten-4" align="center">
+                                    <v-list class="furlist" align="center">
 
-                                        <v-list-item rounded class="custom-list-item" :border="black">
-                                            <v-list-item-title style="color: blue;">INCLUDES EVERYTHING FROM THE INDEPENDENT FUR CHILD PACKAGE</v-list-item-title>
+                                        <v-list-item class="custom-list-item rounded-lg" :border="black" style="background: white !important;">
+                                            <v-list-item-title style="color: black;">INCLUDES EVERYTHING FROM THE INDEPENDENT FUR CHILD PACKAGE</v-list-item-title>
                                         </v-list-item>
 
                                         <v-list-item
@@ -502,7 +478,6 @@ const attrs = ref([
 <script>
 import { ref } from 'vue';
 
-
 const selectedColor = ref('purple');
 const attrs = ref([
   {
@@ -577,6 +552,7 @@ const submit = handleSubmit(values => {
 })
 
 SwiperCore.use([Navigation]).use([Pagination])
+
 export default {
     name: 'Section1',
     name: 'Section2',
@@ -593,6 +569,11 @@ export default {
             r5: "/reviews/r5.jpg",
             r6: "/reviews/r6.jpg",
             r7: "/reviews/r7.jpg",
+            dogpics1: [
+                '/lara_dogs/dog1.jpg',
+                '/lara_dogs/dog2.jpg',
+                '/lara_dogs/dog3.jpg',
+            ],
             dogpics: [
                 '/lara_dogs/dog1.jpg',
                 '/lara_dogs/dog2.jpg',
@@ -627,6 +608,7 @@ export default {
                 'Spotless home',
                 'The petsitter not leaving your pets for more than 2 hours',
             ],
+            left: [],
         }
     },
     methods: {
@@ -645,27 +627,8 @@ export default {
             }
         },
     },
-
-    // methods: {
-    //     onSubmit(values) {
-    //         console.log(values);
-    //     },
-
-    //     validateEmail(value) {
-    //     // if the field is empty
-    //     if (!value) {
-    //         return 'This field is required';
-    //     }
-    //     // if the field is not a valid email
-    //     const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-    //     if (!regex.test(value)) {
-    //         return 'This field must be a valid email';
-    //     }
-    //     // All is good
-    //     return true;
-    // },
-    // },
     
+
     components: {
         Swiper,
         SwiperSlide,
@@ -754,6 +717,13 @@ export default {
 
 .swiper-button-next {
     padding-left: 20px;
+}
+
+.package-title {
+    font-family: "Concert One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 40px;
 }
 
 /* .fade {

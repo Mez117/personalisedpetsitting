@@ -7,9 +7,10 @@
 </script>
 
 <style> 
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
 
 .custom-list-item {
-    background: rgba(255, 255, 255, 0.3) !important;
+    background: rgba(56, 128, 147, 1) !important;
     margin: 0 10px;
     border: 1px solid #e0e0e0;
     padding: 12px 16px;
@@ -18,6 +19,7 @@
     transition: background-color 0.3s ease;
     width: 85%;
     text-align: center;
+    color: white;
 }
 
 .long-list {
@@ -42,6 +44,7 @@
 
 .custom-list-item:hover {
   background-color: #ffffff !important;
+  color: black;
 }
 
 .mint-green {
