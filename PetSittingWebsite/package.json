@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "homepage": "https://mez117.github.io/PetSitting/",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
