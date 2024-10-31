@@ -1,6 +1,6 @@
 // Composables
 // import PetPackages from '@/views/PetPackages.vue'
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter,  createWebHashHistory } from 'vue-router'
 import PetSitting from '@/views/PetSitting.vue';
 import DefaultLayout from '@/layouts/default/Default.vue';
 import Booking from '@/views/PetBooking.vue';
@@ -48,7 +48,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHashHistory(process.env.BASE_URL),
   routes,
 });
 
