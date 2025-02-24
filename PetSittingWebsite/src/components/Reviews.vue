@@ -303,14 +303,17 @@ export default {
 
 @media (max-width: 800px) {
     .card {
-        width: 306px;
+        width: 328px;
     }
     .card-slider {
-        max-width: 450px;
+        max-width: 390px;
+    }
+    ::v-deep(.v-slide-group__prev), ::v-deep(.v-slide-group__next) {
+        min-width: 0px;
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 400px) {
     .card {
         width: 282px;
     }
