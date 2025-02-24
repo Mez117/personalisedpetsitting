@@ -10,6 +10,10 @@ import Login from '@/components/Login.vue';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '@/firebase';
 
+import Reviews from '@/components/Reviews.vue';
+import Gallery from '@/components/Gallery.vue';
+import Faqs from '@/components/Faqs.vue';
+
 const routes = [
   {
     path: '/',
@@ -40,6 +44,21 @@ const routes = [
         name: 'Admin',
         component: Admin,
         meta: { requiresAuth: true },
+      },
+      {
+        path: '/reviews',
+        name: 'Reviews',
+        component: Reviews,
+      },
+      {
+        path: '/faqs',
+        name: 'Faqs',
+        component: Faqs,
+      },
+      {
+        path: '/gallery',
+        name: 'Gallery',
+        component: Gallery,
       },
     ],
     // path: '/',

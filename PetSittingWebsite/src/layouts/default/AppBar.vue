@@ -1,132 +1,153 @@
 <template>
-  <v-app-bar app flat color="rgb(56,127,147)" style="border-bottom: 3px solid rgba(0, 0, 0, 0.5);">
-    <!-- <v-app-bar-nav-icon icon="mdi-menu"></v-app-bar-nav-icon> -->
-    <v-menu 
-      open-on-hover
-    >
-      <template v-slot:activator="{ props }">
-        <v-btn 
-          icon="mdi-menu" 
-          color="green-lighten-3"
-          v-bind="props"
-        ></v-btn>
-      </template>
-          <!-- <router-link 
+  <v-app-bar app flat color="rgb(56,127,147)" style="border-bottom: 3px solid white">
+    <v-btn 
+      v-if="mdAndUp"
+      icon="mdi-home" 
+      to="/petsitting"
+      variant="plain"
+      @click="scrollToTopAfter()"
+    ></v-btn>
+    <v-menu v-if="smAndDown">
+    <template v-slot:activator="{ props }">
+        <v-btn v-bind="props" icon="mdi-menu"></v-btn>
+    </template>
+          <v-btn 
             
             v-for="(item, index) in items"
             :key="index"
             :to="item.link"
             style="text-decoration: none;"
-            ><v-btn 
-              width="150"
-              rounded="0"
-              variant="flat" 
-              color="primary"
-            >{{ item.title }}
-            </v-btn>
-          </router-link> -->
+            width="150"
+            rounded="0"
+            variant="flat" 
+            color="primary"
+            draggable="false"
+            @click="scrollToTopAfter()"
+          >{{ item.title }}</v-btn>
            
-            <v-btn 
-              v-for="(item, index) in items"
-              :key="index"
-              :to="item.link"
-              rounded="0"
-              variant="flat" 
-              color="primary"
-            >
-              {{ item.title }}
-            </v-btn>
+          <!-- <router-link 
+            v-for="(item, index) in items"
+            :key="index"
+            :to="item.link"
+            rounded="0"
+            variant="flat" 
+            color="primary"
+            draggable="false"
+          ><v-btn draggable="false">
+            {{ item.title }}
+          </v-btn>
+        </router-link> -->
     </v-menu>
+
     <v-btn 
-      class="ml-4 pa-5 py-7 d-flex align-center" 
+      to="/petsitting" 
+      @click="scrollToTopAfter()"
+      class="py-7 d-flex align-center" 
+      :class="[smAndDown ? 'ml-0 pa-1' : 'ml-2 pa-5']"
       variant="plain" 
       style="opacity: 100% !important;" 
       draggable="false"
-      @click="handleSectionClick('section1')"
     >
       <v-row>
         <v-col cols="12" class="d-flex align-center">
-          <img src="/logo/square.png" style="max-height: 50px;" class="mr-6"  draggable="false" :href="'#section1'" />
-          <h1 class="text-h5">Personalised Petsitting</h1>
+          <img src="/logo/square.png" style="max-height: 50px;" :class="[smAndDown ? 'mr-2' : 'mr-6']"  draggable="false" :href="'#section1'" />
+          <h1 :class="[smAndDown ? 'text-body-1' : 'text-h5']">Personalised Petsitting</h1>
         </v-col>
       </v-row>
     </v-btn>
-    <template v-slot:append>
-      <v-btn @click="handleSectionClick('section2')">
-        About Us
+    <template v-if="mdAndUp" v-slot:append>
+      <v-btn to="/bookings" @click="scrollToTopAfter()">
+        Booking
       </v-btn>
-      <v-btn @click="handleSectionClick('section3')">
+      <v-btn to="/gallery" @click="scrollToTopAfter()">
         Gallery
       </v-btn>
-      <v-btn @click="handleSectionClick('section4')">
+      <v-btn to="/packages" @click="scrollToTopAfter()">
         Packages
       </v-btn>
-      <v-btn @click="handleSectionClick('section5')">
+      <v-btn to="/reviews" @click="scrollToTopAfter()">
         Reviews
       </v-btn>
-      <v-btn @click="handleSectionClick('section6')">
+      <v-btn to="/faqs" @click="scrollToTopAfter()">
         FAQs
       </v-btn>
     </template>
   </v-app-bar>
 </template>
 
-<script setup>
+<!-- <script setup>
   //
-</script>
+</script> -->
 
 <script>
+import { useDisplay } from 'vuetify'
 
   export default {
     data: () => ({
       items: [
         { title: 'Petsitting', link: '/petsitting/'},
-        { title: 'Fur Packages', link: '/packages/'},
-        { title: 'Make a Booking', link: '/bookings/'},
-        // { title: 'Create a Booking', link: 'https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAANAAWF-ElxUNUNMMldHTE1QS1E3WTlDRzAxSlVIMVBGQi4u'},
-      ],
-      // menu: false,
+        { title: 'Packages', link: '/packages/'},
+        { title: 'Booking', link: '/bookings/'},
+        { title: 'Gallery', link: '/gallery/'},
+        { title: 'Reviews', link: '/reviews/'},
+        { title: 'FAQs', link: '/faqs/'},
+      ]
     }),
+
     methods: {
-      handleSectionClick(sectionId) {
-        // Check if the current route is "/petsitting"
-        if (this.$route.path === '/petsitting') {
-          // If already on "/petsitting", scroll to the "About" section
-          this.ScrollToSection(sectionId);
-        } else {
-          // If not on "/petsitting", navigate to the "/petsitting" route
-          this.$router.push('/petsitting').then(() => {
-            // Use nextTick to ensure the scroll happens after navigation
-            this.$nextTick(() => {
-              this.ScrollToSection(sectionId);
-            });
-          });
-        }
-      },
-      ScrollToSection(sectionId) {
-        const section = document.getElementById(sectionId);
+      scrollToTopAfter() {
+            setTimeout(() => { 
+              window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+              });
+            }, 50);
+        return;
+      //   // Check if the current route is "/petsitting"
+      //   if (this.$route.path === '/petsitting') {
+      //     // If already on "/petsitting", scroll to the "About" section
+      //     this.ScrollToSection(sectionId);
+      //   } else {
+      //     // If not on "/petsitting", navigate to the "/petsitting" route
+      //     this.$router.push('/petsitting').then(() => {
+      //       // Use nextTick to ensure the scroll happens after navigation
+      //       this.$nextTick(() => {
+      //         this.ScrollToSection(sectionId);
+      //       });
+      //     });
+      //   }
+      // },
+      // ScrollToSection(sectionId) {
+      //   const section = document.getElementById(sectionId);
 
-        if (section) {
-          let offsetTop;
+      //   if (section || sectionId === 'section1') {
+      //     let offsetTop;
 
-          // Check if it's section1 and scroll to the top
-          if (sectionId === 'section1') {
-            offsetTop = 0; // Scroll to the very top of the page
-          } else {
-            // Calculate the offset to center the section in the viewport
-            const sectionRect = section.getBoundingClientRect();
-            offsetTop = sectionRect.top + window.scrollY - window.innerHeight / 2 + sectionRect.height / 2;
-          }
-
-          window.scrollTo({
-            top: offsetTop,
-            behavior: 'smooth'
-          });
-        }
+      //     // Check if it's section1 and scroll to the top
+      //     if (sectionId === 'section1') {
+      //       offsetTop = 0; // Scroll to the very top of the page
+      //     } else {
+      //       // Calculate the offset to center the section in the viewport
+      //       const sectionRect = section.getBoundingClientRect();
+      //       offsetTop = sectionRect.top + window.scrollY - window.innerHeight / 2 + sectionRect.height / 2;
+      //     }
+      //     window.scrollTo({
+      //       top: offsetTop,
+      //       behavior: 'smooth'
+      //     });
+      //   }
       }
-    }
+    },
+    setup() {
+      const { smAndDown, mdAndUp } = useDisplay();
 
-  }
+      return {
+        smAndDown,
+        mdAndUp,
+      };
+    },
+
+  };
 </script>
 
 <style>

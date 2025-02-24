@@ -1,28 +1,85 @@
 <template>
-<v-container id="section1" align="center" class="h-100 px-10" style="max-width: 1500px">
+<v-container id="section1" align="center" class="h-100" style="max-width: 1500px;">
     <v-responsive class="align-center text-center fill-height ">
             <v-row  
-            align="center"
+            justify="center"
             style="
-                background: linear-gradient(to right, rgba(56, 128, 147, 1),  rgba(56, 128, 147, 1) 20%, white 70%);
-                border: 2px solid #aac9d1;
+                /* background: linear-gradient(to right, rgba(56, 128, 147, 1),  rgba(56, 128, 147, 1) 20%, white 70%); */
+                /* border: 2px solid #aac9d1; */
             " 
-            class="ma-0 pa-5 rounded-lg " >
-                <v-col cols="2">
-                    <v-img src="/logo/square.png"  draggable="false" />
+            class="ma-0 rounded-lg" >
+                <v-col align-self="center" align="center">
+                    <v-img src="/logo/square.png" style="max-width: 1000px;" draggable="false" />
                 </v-col>
-                <v-col cols="8">
-                    <h1 class="text-h3">Pet Care Personalised Your Way!</h1>
+            <!-- </v-row>
+            <v-row> -->
+                <v-col cols="12">
+                    <h1 :class="[smAndDown ? 'text-h5' : 'text-h3']">Pet Care Personalised Your Way!</h1>
                 </v-col >
-                <v-col cols="2">
-                    <v-btn size="large" class="bg-purple " @click="scrollToSection4">Learn More</v-btn>
+            </v-row>
+
+            <v-row>
+
+                <!-- <v-col cols="12" class="pa-0"> -->
+                    <h1 class="justify-center mx-auto mb-6" :class="[smAndDown ? 'text-h4' : 'text-h2']" sticky style="width: 90%;">We love your pets.</h1>
+                    <div>
+                        <div 
+                            v-for="item in dogpics"
+                            :key="item"
+                            class="boxes"
+                            :class="[smAndDown ? 'mobileBox' : null]"
+                        >
+                            <img :src=" item " alt="" class="gap" />
+                        </div>
+                    </div>
+                <!-- </v-col> -->
+                
+            </v-row>
+
+            
+            <v-row justify="center" class="ma-0 rounded-lg" id="section2">
+                
+                <v-col :cols="[smAndDown ? '12' : '4']" :class="[smAndDown ? 'pa-2 mt-4' : 'pa-10']" class="rounded-lg" id="left-col">
+                    <h1 class="text-h2 mt-1 text-left">About Us</h1>
+                    <p class="mt-7 text-justify">
+                        Personalised Petsitting was create to provide owners with a
+                        pet care service they can tailor that their every need. To
+                        help form coherent relationship with not only the pet
+                        owner but the pets with a petsitter that they loves and cares
+                        for them.
+                    </p>
+                </v-col>
+                <v-col :cols="[smAndDown ? '12' : '8']" :class="[smAndDown ? 'pa-2 mt-4' : 'pa-10']">
+                    <h1 class="text-h4 text-left">Getting to know our Personalised Petsitter Lara</h1>
+                    <p class="mt-7 text-justify">
+                        Lara has an abundance of love for anything with 4 legs, the bigger the better is her motto when it comes to dogs. She has been petsitting for over 4 years, she currently works in the animal care industry and has been for over 1 year. Lara not only has her Certificate 2 in Animals Studies, she also has her animal first aid and is a wizard at administering medication to any types of pets. Lara has quite the nack for looking after pets that aren’t hers as she has fosters over 20 animals from the RSPCA, from a mum and her 7 puppies, 2 rescue kittens for over 2 months, an 8 week old Great Dane pup for 8 months and many more. 
+                    </p>
+                </v-col>
+                
+            </v-row>
+            
+            <v-row justify="center">
+                <v-col :cols="[smAndDown ? '4' : '2']">
+                    <v-btn class="w-100 bg-purple" to="/packages" @click="scrollToTopAfter()">Packages</v-btn>
+                </v-col>
+                <v-col :cols="[smAndDown ? '4' : '2']">
+                    <v-btn class="w-100 bg-purple" to="/bookings" @click="scrollToTopAfter()">Booking</v-btn>
+                </v-col>
+                <v-col :cols="[smAndDown ? '4' : '2']">
+                    <v-btn class="w-100 bg-purple" to="reviews" @click="scrollToTopAfter()">Reviews</v-btn>
+                </v-col>
+                <v-col :cols="[smAndDown ? '4' : '2']">
+                    <v-btn class="w-100 bg-purple" to="gallery" @click="scrollToTopAfter()">Gallery</v-btn>
+                </v-col>
+                <v-col :cols="[smAndDown ? '4' : '2']">
+                    <v-btn class="w-100 bg-purple" to="faqs" @click="scrollToTopAfter()">FAQs</v-btn>
                 </v-col>
             </v-row>
 
-            <v-divider class="mt-5"/>
+            <!-- <v-divider class="mt-5"/>
             <h1 class="mb-2 pa-7 package-title" >We've got a range of 3 amazing packages for whatever level of care best suits your needs!</h1>
-            <v-divider class="mb-5"/>
-            <div class="bg-white" id="section4">
+            <v-divider class="mb-5"/> -->
+            <!-- <div class="bg-white" id="section4">
                 <v-carousel hide-delimiters class="h-auto">
                     <v-carousel-item>
                         <v-card class="border rounded-lg">
@@ -168,118 +225,7 @@
                         </div>
                     </v-carousel-item>
                 </v-carousel>
-            </div>
-
-            <v-row justify="center" class="pa-4 ma-0 mt-5 rounded-lg" id="section2">
-
-                <v-col cols="5" class="pa-10 bg-purple-darken-2 rounded-lg" id="left-col">
-                    <h1 class="text-h2 mt-1 text-left">About Us</h1>
-                    <p class="mt-12 text-justify">
-                    Personalised Petsitting was create to provide owners with a
-                    pet care service they can tailor that their every need. To
-                    help form coherent relationship with not only the pet
-                    owner but the pets with a petsitter that they loves and cares
-                    for them.
-                    </p>
-                    <h1 class="text-h4 mt-7 text-left" style="margin: 0 auto">Getting to know our Personalised Petsitter Lara</h1>
-                    <p class="mt-7 text-justify" style="margin: 0 auto">
-                    Lara has an abundance of love for anything with 4 legs, the bigger the better is her motto when it comes to dogs. She has been petsitting for over 4 years, she currently works in the animal care industry and has been for over 1 year. Lara not only has her Certificate 2 in Animals Studies, she also has her animal first aid and is a wizard at administering medication to any types of pets. Lara has quite the nack for looking after pets that aren’t hers as she has fosters over 20 animals from the RSPCA, from a mum and her 7 puppies, 2 rescue kittens for over 2 months, an 8 week old Great Dane pup for 8 months and many more. 
-                    </p>
-                </v-col>
- 
-
-                <v-col cols="7" class="pa-0 overflow-y-auto" style="height: 750px;">
-                    <v-banner class="text-h5 justify-center mx-auto" sticky style="width: 90%;">We love your pets.</v-banner>
-                        <div 
-                            v-for="item in dogpics"
-                            :key="item"
-                            class="boxes"
-                        >
-                            <img :src=" item " alt="" class="gap" />
-                        </div>
-                </v-col>
-                
-            </v-row>
-            
-                <swiper 
-                    class="mb-5 pa-10"
-                    :slides-per-view="3"
-                    :space-between="50"
-                    :navigation="true"
-                    :pagination="{ clickable: true }"
-                   
-
-                    :loop="true"
-                    id="section5"
-                >
-
-                    <swiper-slide>
-                        <v-card class="pa-5 card-background review-cards overflow-y-auto" :height="computedHeight / 1.5" style="min-height: 600px;">
-                            <v-row justify="center mt-0">
-                                <div class="boxes tiny-boxes mr-2">
-                                    <v-img :src="r1" class="gap" cover alt=""></v-img>
-                                </div>
-                                <div class="boxes tiny-boxes" style="margin-top: 75px">
-                                    <v-img :src="r2" class="gap" cover alt=""></v-img>
-                                </div>
-                            </v-row>
-                            <h1 class="text-h5 text-center mt-10">Emma, Ruari & Ted</h1>
-                            <p class="mt-2">
-                                "Lara has looked after our Labrador, Ruari and cat, Ted several times over the past few years while also housesitting. She is trustworthy, reliable and caring. Lara LOVES animals and they love her. I think she is our dog’s favourite human - Ruari gets so excited when she sees her. She understands how to keep pets happy, safe and secure and I wouldn’t in recommending her." 
-                            </p>
-                        </v-card>
-                    </swiper-slide>
-                    <swiper-slide>
-                        <v-card class="pa-5 review-cards overflow-y-auto text-center" :height="computedHeight / 1.5" style="min-height: 600px;">
-                            <div class="boxes tiny-boxes big-img">
-                                <v-img :src="r3" class="gap" cover alt=""></v-img>
-                            </div>
-                            <h1 class="text-h5 mt-5">Sally & Banjo </h1>
-                            <p class="mt-2 text-justify">
-                                Lara looked after our much loved Golden Retriever, Banjo for 5 days whilst we were on holidays. Lara took the time to meet Banjo and learn his routine prior to our holiday. She cared for Banjo like he was in a 5 star hotel whilst at his own house! She checked in with us and provided updates during this time. She walked him regularly and played with him, building a strong friendship. Lara has a very caring nature and is trustworthy, making it easy for us to leave our beloved pet at home with her. We will definitely use Lara in the future which I am sure Banjo will love.   
-                                
-                            </p>
-                        </v-card>
-                    </swiper-slide>
-                    <swiper-slide>
-                        <v-card class="pa-5 review-cards overflow-y-auto text-center" :height="computedHeight / 1.5" style="min-height: 600px;">
-                            <div class="boxes tiny-boxes big-img">
-                                <v-img :src="r4" class="gap" cover alt=""></v-img>
-                            </div> 
-                            <h1 class="text-h5 mt-5">Madison, Ruby & Hollie</h1>
-                            <p class="mt-2 text-justify">
-                                Lara is very thoughtful and passionate about her job!  My family and I went away for 10 days to NZ and Lara took great care of the house and our fluffy companions. Ruby (dog) loved her daily walks and Holly (cat) just wanted to snuggle with Lara every chance she got! Would highly recommend her business to anyone looking for a great petsitter. 
-                            </p>
-                        </v-card>
-                    </swiper-slide>
-                    <swiper-slide>
-                        <v-card class="pa-5 review-cards overflow-y-auto text-center" :height="computedHeight / 1.5" style="min-height: 600px;">
-                            <div class="boxes tiny-boxes big-img">  
-                                <v-img :src="r5" class="gap" cover alt=""></v-img>
-                            </div> 
-                            <h1 class="text-h5 mt-5">Taylor & Luna</h1>
-                            <p class="mt-2 text-justify">
-                                Lara did an incredible job looking after my dog Luna while I was away for a month. She not only ensured Luna’s basic needs were meet, but she went the extra mile to provide her with fulfilling and enriching experiences. From long daily walks and enrichment to exciting trips to the beach, Lara truly understood Luna’s needs and catered to them with enthusiasm and dedication. Lara regularly provided updates, photos and messages which instantly eased my anxieties about being separated from Luna. Lara was always responsive and respectful about any requested I made. Most importantly, it was evident that Lara treated Luna with an abundance of love and attention. Her genuine affection for animals shone through in her interactions with Luna, making me confident that Luna was in the best hands!  Luna and I are truly grateful for her exceptional care and wouldn’t hesitate to recommending her to anyone needing a trusted pet sitter!
-                            </p>
-                        </v-card>
-                    </swiper-slide>
-                    <swiper-slide>
-                        <v-card class="pa-5 review-cards overflow-y-auto text-center" :height="computedHeight / 1.5" style="min-height: 600px;">
-                            <v-row justify="center mt-0">
-                                <div class="boxes tiny-boxes mr-2" style="margin-top: 75px">
-                                    <v-img :src="r6" class="gap" cover alt=""></v-img>
-                                </div>
-                                <div class="boxes tiny-boxes">
-                                    <v-img :src="r7" class="gap" cover alt=""></v-img>
-                                </div>
-                            </v-row>
-                            <h1 class="text-h5 mt-10">Emma, Isabelle & Vasilli</h1>
-                            <p class="mt-2 text-justify">
-                                Lara did an incredible job looking after my two cats. They absolutely adored Lara and were so comfortable around her they even suggled up to her, which is a BIG DEAL because they don’t snuggle up to just anyone. They were so happy with her which made us so happy with Lara.  Will definitely be booking Lara again in the future  
-                            </p>
-                        </v-card>
-                    </swiper-slide>
-                </swiper>
+            </div> -->
             <!-- <div class="bg-cyan-darken-3 pa-2">
                 <div class="reviews">
                     <img src="https://picsum.photos/201/300" alt="">
@@ -366,7 +312,7 @@
                     </ul>
                 </div>
             </div> -->
-            <div class="bg-cyan-darken-2 mb-10 major-divs" style="padding: 2%">
+            <!-- <div class="bg-cyan-darken-2 mb-10 major-divs" style="padding: 2%">
                 <v-row>
                     <v-col cols="5" align-self="center">
                         <h1 class="text-h2 mb-10">Up to Date Calender Availability</h1>
@@ -374,8 +320,8 @@
                     <v-col>
                     </v-col>
                 </v-row>
-            </div>
-            <div class="bg-purple-darken-2 pa-2 major-divs mb-5" id="section6">
+            </div> -->
+            <!-- <div class="bg-purple-darken-2 pa-2 major-divs mb-5" id="section6">
                 <h1 class="text-h3 mt-5">Frequently Asked Questions</h1>
                 <v-divider class="mt-5" />
                 <v-row class="ma-3 text-justify">
@@ -395,11 +341,11 @@
                         <p class="mt-2 p-black">The earlier the better is always best as it ensures that you secure the dates of your booking. If you are booking the separation anxiety package over a month is a minimal requirement as your petsitter will need to organised work related affairs. </p>
                     </v-col>
                 </v-row>
-            </div>
-            <div class=" pa-10 major-divs">
-                <h1 class="text-h2">Have any Questions?</h1>
+            </div> -->
+            <div class="mt-10 major-divs">
+                <h1 class="text-h4">Have any Questions?</h1>
                 <h1 class="text-h3 mt-5">Get in Touch</h1>
-                <v-form ref="form" v-model="valid" lazy-validation style="width: 1200px;" class="mx-auto mb-15">
+                <v-form ref="form" v-model="valid" lazy-validation style="max-width: 1200px;" class="mx-auto mb-15">
                     <v-row class="my-5">
                     <v-col cols="6">
                         <v-text-field
@@ -436,6 +382,8 @@
                     class="mt-5"
                     auto-grow
                     ></v-textarea>
+
+                    <v-btn @click="submitForm" :disabled="!valid" class="mt-5" justify-self="center">Submit Booking Request</v-btn>
                 </v-form>
             </div>
     </v-responsive>
@@ -449,6 +397,8 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import SwiperCore from 'swiper'
 import { ref, onMounted, onUnmounted } from 'vue';
 import emailjs from '@emailjs/browser';
+import { useDisplay } from 'vuetify'
+
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -490,14 +440,25 @@ SwiperCore.use([Navigation]).use([Pagination])
 const heightOfPage = window.innerHeight;
 const width = window.innerWidth;
 
+
 export default {
     components: {
         Swiper,
         SwiperSlide,
-        heightOfPage,
     },
     data() {
         return {
+            valid: false,
+            firstName: '',
+            lastName: '',
+            email: '',
+            additionalInfo: '',
+            rules: {
+                required: value => !!value || 'Required.',
+                email: value => /.+@.+\..+/.test(value),
+            },
+            horziontalScrollContent: '',
+            formSubmitted: false,
             fur1: "/PetSitting/fur_packs/fur1.jpg",
             fur2: "/PetSitting/fur_packs/fur2.jpg",
             fur3: "/PetSitting/fur_packs/fur3.jpg",
@@ -508,24 +469,13 @@ export default {
             r5: "/PetSitting/reviews/r5.jpg",
             r6: "/PetSitting/reviews/r6.jpg",
             r7: "/PetSitting/reviews/r7.jpg",
-            dogpics1: [
-                '/lara_dogs/dog1.jpg',
-                '/lara_dogs/dog2.jpg',
-                '/lara_dogs/dog3.jpg',
-            ],
             dogpics: [
-                '/PetSitting/lara_dogs/dog1.jpg',
-                '/PetSitting/lara_dogs/dog2.jpg',
-                '/PetSitting/lara_dogs/dog3.jpg',
-                '/PetSitting/lara_dogs/dog4.jpeg',
+                '/PetSitting/lara_dogs/dog13.jpg',
                 '/PetSitting/lara_dogs/dog5.jpg',
-                '/PetSitting/lara_dogs/dog6.jpg',
-                '/PetSitting/lara_dogs/dog7.jpg',
+                '/PetSitting/lara_dogs/dog14.jpg',
                 '/PetSitting/lara_dogs/dog8.jpg',
+                '/PetSitting/lara_dogs/dog15.jpg',
                 '/PetSitting/lara_dogs/dog9.jpg',
-                '/PetSitting/lara_dogs/dog10.jpg',
-                '/PetSitting/lara_dogs/dog11.jpg',
-                '/PetSitting/lara_dogs/dog12.jpg',
             ],
             pack1: [
                 '1-3 Update Daily',
@@ -547,75 +497,93 @@ export default {
                 'Spotless home',
                 'The petsitter not leaving your pets for more than 2 hours',
             ],
-            valid: false,
-            firstName: '',
-            lastName: '',
-            email: '',
-            additionalInfo: '',
-            rules: {
-                required: value => !!value || 'Required.',
-                email: value => /.+@.+\..+/.test(value),
-            },
-        }
+        };
     },
     methods: {
-        scrollToSection4() {
-        const section = document.getElementById('section4');
-            if (section) {
-                let offsetTop;
+        // scrollToSection4() {
+        // const section = document.getElementById('section4');
+        //     if (section) {
+        //         let offsetTop;
 
-                const sectionRect = section.getBoundingClientRect();
-                offsetTop = sectionRect.top + window.scrollY - window.innerHeight / 2 + sectionRect.height / 2;
+        //         const sectionRect = section.getBoundingClientRect();
+        //         offsetTop = sectionRect.top + window.scrollY - window.innerHeight / 2 + sectionRect.height / 2;
 
-                window.scrollTo({
-                top: offsetTop,
+        //         window.scrollTo({
+        //         top: offsetTop,
+        //         behavior: 'smooth'
+        //         });
+        //     }
+        // },
+        scrollToTopAfter() {
+            setTimeout(() => { 
+              window.scrollTo({
+                top: 0,
                 behavior: 'smooth'
-                });
+              });
+            }, 50);
+            return;
+        },
+
+        submitForm() {
+
+            this.formSubmitted = true;
+
+            if (this.$refs.form.validate()) {
+
+                const templateParams = {
+                    firstName: this.firstName,
+                    lastName: this.lastName,
+                    email: this.email,
+                    additionalInfo: this.additionalInfo,
+                };
+
+                emailjs.send("service_3uq0j9x", "template_xci4bq8", templateParams, { publicKey: 'y28Njxa62kEbnjheZ',})
+                    .then(() => alert('Booking request sent!'))
+                    .catch(error => console.error('Failed to send booking request:', error));
             }
         },
     },
     setup() {
+        const { smAndDown, mdAndUp } = useDisplay();
         const computedHeight = ref(window.innerHeight);
 
         const updateHeight = () => {
             computedHeight.value = window.innerHeight;
         };
 
+        // const horziontalScrollContent = ref(null);
+
+        // const handleScroll = () => {
+        //     horziontalScrollContent.value.scrollLeft = window.scrollY;
+        // };
+
         onMounted(() => {
             window.addEventListener('resize', updateHeight);
+            // window.addEventListener('scroll', handleScroll);
         });
         onUnmounted(() => {
             window.removeEventListener('resize', updateHeight);
+            // window.removeEventListener('scroll', handleScroll);
         });
 
+
+
         return {
-            computedHeight
+            computedHeight,
+            // horziontalScrollContent,
+            smAndDown,
+            mdAndUp,
         };
     },
-
-    submitForm() {
-
-        this.formSubmitted = true;
-
-        if (this.$refs.form.validate()) {
-
-            const templateParams = {
-                firstName: this.firstName,
-                lastName: this.lastName,
-                email: this.email,
-                additionalInfo: this.additionalInfo,
-            };
-
-            emailjs.send("service_3uq0j9x", "template_xci4bq8", templateParams, { publicKey: 'y28Njxa62kEbnjheZ',})
-                .then(() => alert('Booking request sent!'))
-                .catch(error => console.error('Failed to send booking request:', error));
-        }
-    },
-
 };
 </script>
 
 <style>
+
+main {
+    background-color: rgba(56, 128, 147, 1);
+    color: white;
+}
 
 .para {
     margin: 10px 0;
@@ -624,14 +592,14 @@ export default {
 .boxes {
     border: 5px solid #000;
     height: 200px;
-    width: 200px;
+    width: 13%;
     margin: 20px;
     display: inline-block;
 }
 
 .tiny-boxes {
     height: 175px;
-    width: 175px;
+    width: 40%;
     margin: 0;
     border-radius: 40px;
     overflow: hidden;
@@ -683,10 +651,6 @@ export default {
     padding-left: 7px;
 }
 
-.furlist>li {
-    list-style-type: circle;
-}
-
 .swiper-button-prev {
     padding-right: 20px;
 }
@@ -707,19 +671,4 @@ export default {
     border-radius: 7px;
     padding: 5px;
 }
-</style>
-
-<style scoped>
-
-.review-cards {
-    text-align: justify;
-    background: linear-gradient(to top, rgba(56, 128, 147, 1),  rgba(56, 128, 147, 1) 40%, white 80%);
-    color: white;
-}
-
-.major-divs {
-    border-radius: 8px;
-}
-
-
 </style>

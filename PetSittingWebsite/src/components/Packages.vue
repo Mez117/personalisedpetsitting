@@ -1,33 +1,41 @@
 <template>
-    <v-container class="fill-height">
+    <v-container class="fill-height" style="max-width: 1500px;">
         <v-responsive>
-            <!-- <v-row> -->
-                <v-card class="bg-purple-darken-2">
-                    <h1 class="text-h1 text-center ma-10">Package Options Information</h1>
-                </v-card>
-                <v-row class="ml-2 my-8">
-                    <v-card class="mr-4"><p class="text-h4 px-5 mt-1">$85 Per Night</p></v-card>
-                    <h1 class="text-h3">Independent Fur Child</h1>
+                <h1 class="text-center ma-10" :class="[smAndDown ? 'text-h2' : 'text-h1']">Package Options</h1>
+                <v-divider></v-divider>
+                <v-row no-gutters class="ml-2 my-4">
+                    <v-col cols="me-auto">
+                        <h1 :class="[smAndDown ? 'text-h5' : 'text-h3']">Independent Fur Child</h1>
+                    </v-col>
+                    <v-col cols="auto">
+                        <v-card class="py-1" justify="end"><p :class="[smAndDown ? 'px-1' : 'text-h4 px-5']">$85 / Night</p></v-card>
+                    </v-col>
                 </v-row>
                 <v-card variant="outlined pr-4">
-                    <v-row>
-                        <v-col cols="2">
+                    <v-row style="max-height: 580px">
+                        <v-col v-if="mdAndUp" cols="auto">
                             <v-img
                             src="/fur_packs/fur3.jpg"
-                            :height="500"
-                            :width="350"
+                            :height=500
+                            :width=300
                             cover
                             ></v-img>
                         </v-col>
-                        <v-col cols="9" class="pl-5 ">
+                        <v-col :cols="[smAndDown ? 12 : 9]" class="pl-5">
                             
-                            <p class="text-h5 my-5 mb-2">This package is amazing for pets that have a regular routine of being left at home whilst their owner is at work. <br /><br /> This package Includes:</p>
-                            <v-list class="furlist list-bottom">
+                            <p 
+                            class="my-3 text-center"
+                            :class="[xs ? 'text-subtitle-1' : 'text-h6 my-5']"
+                            >This package is amazing for pets that have a regular routine of being left at home whilst their owner is at work.</p>
+                            <p 
+                            :class="[xs ? 'text-h6 mt-3 text-center' : 'text-h5 mt-5 ml-2']"
+                            >This package Includes...</p>
+                            <v-list class="overflow-auto pb-10" style="background-color: inherit; max-height: 375px;">
                                 <v-list-item
                                     v-for="item in pack1"
                                     :key="item"
-                                    rounded
-                                    class="custom-list-item long-list packages-long-list"
+                                    class="custom-list-item long-list rounded-lg"
+                                    :class="[xs ? 'phone-list' : 'packages-long-list']"
                                     :border="black"
                                 >
 
@@ -37,109 +45,152 @@
                                 </v-list-item>
                             </v-list>
                         </v-col>
-                        <v-col cols="1" align-self="center">
-                            <v-btn color="primary" size="large" :height="75" to="/bookings/" target="_blank">Book Now</v-btn>
-                        </v-col>
                     </v-row>
                 </v-card> 
-
-                <v-row class="ml-2 my-8">
-                    <v-card class="mr-4"><p class="text-h4 px-5 mt-1">$120 Per Night</p></v-card>
-                    <h1 class="text-h3">Fur Baby Package</h1>
+                <v-row justify="center">
+                    <v-col cols="auto" class="mt-3">
+                        <v-btn
+                        color="primary" 
+                        size="large" 
+                        to="/bookings/" 
+                        target="_blank"
+                        :width="250"
+                        >Book Now</v-btn>
+                    </v-col>
+                </v-row>
+                <v-row no-gutters class="ml-2 my-4 mt-8">
+                    <v-col cols="me-auto">
+                        <h1 :class="[smAndDown ? 'text-h5' : 'text-h3']">Fur Baby Package</h1>
+                    </v-col>
+                    <v-col cols="auto">
+                        <v-card class="py-1" justify="end"><p :class="[smAndDown ? 'px-1' : 'text-h4 px-5']">$120 / Night</p></v-card>
+                    </v-col>
                 </v-row>
                 <v-card variant="outlined">
-                    <v-row>
-                        <v-col cols="2">
+                    <v-row style="max-height: 580px">
+                        <v-col v-if="mdAndUp" cols="auto">
                             <v-img
                             src="/fur_packs/fur1.jpg"
                             :height="500"
-                            :width="350"
+                            :width="300"
                             cover
                             ></v-img>
                         </v-col>
-                        <v-col cols="8" class="pa-5 pr-10">
-                            <p class="text-h5 my-5">This is our most popular package!! This package is great for any owners that loves regular updates and doesn’t have pets that suffer from separation anxiety.<br /><br />This Package Includes:</p>
-                            <v-list class="furlist">
+                        <v-col :cols="[smAndDown ? 12 : 9]" class="pl-5">
+                            <p 
+                            class="my-3 text-center"
+                            :class="[xs ? 'text-subtitle-1' : 'text-h6 my-5']"
+                            >This is our most popular package!! This package is great for any owners that loves regular updates and doesn’t have pets that suffer from separation anxiety.
+                            </p>
+                            <p
+                            :class="[xs ? 'text-h6 mt-3 text-center' : 'text-h5 mt-5 ml-2']"
+                            >This Package Includes:</p>
+                            <v-list style="background-color: inherit">
 
-                                <v-list-item class="custom-list-item rounded-lg" :border="black" style="background: white !important;">
-                                    <v-list-item-title style="color: black;">INCLUDES EVERYTHING FROM THE INDEPENDENT FUR CHILD PACKAGE</v-list-item-title>
+                                <v-list-item class="custom-list-item rounded-lg mx-auto" :border="black" style="background: white !important;">
+                                    <v-list-item-title style="color: black;" class="v-list-title">INCLUDES EVERYTHING FROM THE INDEPENDENT FUR CHILD PACKAGE</v-list-item-title>
                                 </v-list-item>
 
                                 <v-list-item
                                     v-for="item in pack2"
                                     :key="item"
-                                    rounded
-                                    class="custom-list-item"
+                                    class="custom-list-item rounded-lg mx-auto"
                                     :border="black"
                                 >
 
                                     <v-list-item-content>
                                         
-                                        <v-list-item-title>{{ item }}</v-list-item-title>
+                                        <v-list-item-title class="v-list-title">{{ item }}</v-list-item-title>
                                     </v-list-item-content>
                                 </v-list-item>
                             </v-list>
                         </v-col>
-                        <v-col cols="2" align-self="center">
-                            <v-btn color="primary" size="large" :height="75" to="/bookings/" target="_blank">Book Now</v-btn>
-                        </v-col>
                     </v-row>
                 </v-card>
 
-                <v-row class="ml-2 my-8">
-                    <v-card class="mr-4"><p class="text-h4 px-5 mt-1">$250 Per Night</p></v-card>
-                    <h1 class="text-h3">The Separation Anxiety Package</h1>
+                <v-row justify="center">
+                    <v-col cols="auto" class="mt-3">
+                        <v-btn
+                        color="primary" 
+                        size="large" 
+                        to="/bookings/" 
+                        target="_blank"
+                        :width="250"
+                        >Book Now</v-btn>
+                    </v-col>
+                </v-row>
+
+                <v-row no-gutters class="ml-2 my-4" align="center">
+                    <v-col cols="me-auto">
+                        <h1 :class="[smAndDown ? 'text-h5' : 'text-h3']">The Separation Anxiety Package</h1>
+                    </v-col>
+                    <v-col cols="auto">
+                        <v-card class="py-1" justify="end"><p :class="[smAndDown ? 'px-1' : 'text-h4 px-5']">$250 / Night</p></v-card>
+                    </v-col>
                 </v-row>
 
                 <v-card variant="outlined">
                     <v-row>
-                        <v-col cols="2">
+                        <v-col v-if="mdAndUp" cols="auto">
                             <v-img
                             src="/fur_packs/fur2.jpg"
                             :height="500"
-                            :width="350"
+                            :width="300"
                             cover
                             ></v-img>
                         </v-col>
-                        <v-col cols="8" class="pa-5 pr-10">
-                            <p class="text-h5 my-5 mb-2">This package is the best package for any pets that suffer from separation anxiety and require the petsitter to be with your pet consistently throughout the booking. If you as the owner also suffer from separation anxiety from your beloved pets this package includes 6-10 updates daily and a FaceTime call to you every second day<br /><br />This Package Includes:</p>
-                            <v-list class="furlist">
+                        <v-col :cols="[smAndDown ? 12 : 9]" class="pl-5">
+                            <p 
+                            class="my-3 text-center"
+                            :class="[xs ? 'text-subtitle-1 px-2' : 'text-h6 my-5']"
+                            >This package is the best package for any pets that suffer from separation anxiety and require the petsitter to be with your pet consistently throughout the booking. <br /><br />If you as the owner also suffer from separation anxiety from your beloved pets this package includes 6-10 updates daily and a FaceTime call to you every second day</p>
+                            <p
+                            :class="[xs ? 'text-h6 mt-3 text-center' : 'text-h5 mt-5 ml-2']"
+                            >This Package Includes:</p>
+                            <v-list style="background-color: inherit">
 
-                                <v-list-item class="custom-list-item rounded-lg" :border="black" style="background: white !important;">
-                                    <v-list-item-title style="color: black;">INCLUDES EVERYTHING FROM THE INDEPENDENT FUR CHILD PACKAGE</v-list-item-title>
+                                <v-list-item class="custom-list-item rounded-lg mx-auto" :border="black" style="background: white !important;">
+                                    <v-list-item-title style="color: black;" class="v-list-title">INCLUDES EVERYTHING FROM THE INDEPENDENT FUR CHILD PACKAGE</v-list-item-title>
                                 </v-list-item>
 
                                 <v-list-item
                                     v-for="item in pack3"
                                     :key="item"
-                                    rounded
-                                    class="custom-list-item"
+                                    class="custom-list-item rounded-lg mx-auto"
                                     :border="black"
                                 >
 
                                     <v-list-item-content>
                                         
-                                        <v-list-item-title>{{ item }}</v-list-item-title>
+                                        <v-list-item-title class="v-list-title">{{ item }}</v-list-item-title>
                                     </v-list-item-content>
                                 </v-list-item>
                             </v-list>
                         </v-col>
-                        <v-col cols="2" align-self="center">
-                            <v-btn color="primary" size="large" :height="75" to="/bookings/" target="_blank">Book Now</v-btn>
-                        </v-col>
                     </v-row>
                     </v-card>
+
+                    <v-row justify="center">
+                    <v-col cols="auto" class="mt-3">
+                        <v-btn
+                        color="primary" 
+                        size="large" 
+                        to="/bookings/" 
+                        target="_blank"
+                        :width="250"
+                        >Book Now</v-btn>
+                    </v-col>
+                </v-row>
                 
             <!-- </v-row> -->
         </v-responsive>
     </v-container>
 </template>
 
-<script setup>
 
-</script>
 
 <script>
+import { useDisplay } from 'vuetify'
 
 export default {
     data() {
@@ -174,6 +225,15 @@ export default {
                 '1 FaceTime every other day during the booking.',
             ],
 
+        }
+    },
+    setup() {
+        const { smAndDown, mdAndUp, xs } = useDisplay();
+        
+        return {
+            smAndDown,
+            mdAndUp, 
+            xs,
         }
     }
 }

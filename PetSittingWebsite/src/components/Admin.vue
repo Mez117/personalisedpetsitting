@@ -9,6 +9,7 @@
             :format="customFormat"
             :disabled-dates="disabledDates"
             :min-date="minDate"
+            teleport-center
         ></vue-date-picker>
 
         <v-btn @click="addUnavailableDates">Add Unavailable dates</v-btn>

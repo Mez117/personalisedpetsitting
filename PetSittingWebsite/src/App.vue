@@ -3,15 +3,14 @@
 </template>
 
 <script setup>
-  //
 </script>
 
 <style> 
 @import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
 
 .custom-list-item {
-    background: rgba(56, 128, 147, 1) !important;
-    margin: 0 10px;
+    background: rgb(37, 111, 129) !important;
+    margin: 0 8px;
     border: 1px solid #e0e0e0;
     padding: 12px 16px;
     margin-bottom: 8px;
@@ -28,7 +27,12 @@
 }
 
 .packages-long-list {
-  width: 31%;
+  width: 30%;
+  vertical-align: top;
+}
+
+.phone-list {
+  width: 90%;
   vertical-align: top;
 }
 
@@ -54,6 +58,15 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+.v-field--error:not(.v-field--disabled) .v-label.v-field-label {
+  color: rgb(130, 26, 45);
+}
+
+.mobileBox {
+    width: 30%;
+    margin: 3px;
 }
 
 </style>

@@ -3,14 +3,15 @@
     <v-container>
         <v-responsive class="fill-height">
 
-            <h1 class="text-h2 text-center ma-10" >Book your Personal Petsitter Today!</h1>
-            <v-form ref="form" v-model="valid" lazy-validation style="width: 800px;" class="mx-auto mb-15">
+            <h1 class="text-center my-10" :class="[xs ? 'text-h4' : 'text-h2 mx-10']">Book your Personal Petsitter Today!</h1>
+            <v-form ref="form" v-model="valid" lazy-validation style="max-width: 800px;" class="mx-auto mb-5">
 
                 <h1 class="text-h4 my-3">Name</h1>
 
                 <v-row>
                     <v-col cols="6">
                         <v-text-field
+                        :class="[xs ? 'xs-text' : '']"
                         v-model="firstName"
                         label="First Name"
                         :rules="[rules.required]"
@@ -21,6 +22,7 @@
                         
                     <v-col cols="6">
                         <v-text-field
+                        :class="[xs ? 'xs-text' : '']"
                         v-model="lastName"
                         label="Last Name"
                         :rules="[rules.required]"
@@ -33,18 +35,9 @@
                 <h1 class="text-h4 my-3">Contact Details</h1>
                     
                 <v-row>
-                    <v-col cols="6">
+                    <v-col :cols="[xs ? 12 : 6]">
                         <v-text-field
-                        v-model="phoneNumber"
-                        label="Phone Number"
-                        :rules="[rules.required, rules.phone]"
-                        required
-                        hide-details
-                        ></v-text-field>
-                    </v-col>
-
-                    <v-col cols="6">
-                        <v-text-field
+                        :class="[xs ? 'xs-text' : '']"
                         v-model="email"
                         label="Email"
                         :rules="[rules.required, rules.email]"
@@ -52,11 +45,43 @@
                         hide-details
                         ></v-text-field>
                     </v-col>
-                </v-row>
 
-                <v-row>
+                    <v-row style="width: 100%" class="pr-3" justify="end" v-if="xs">
+                        <v-col cols="6">
+                        <p style="font-size: 10px">How would you like to be contacted?</p>
+                        </v-col>
+                    </v-row>
+
                     <v-col cols="6">
                         <v-text-field
+                        :class="[xs ? 'xs-text' : '']"
+                        v-model="phoneNumber"
+                        label="Phone Number"
+                        :rules="[rules.required, rules.phone]"
+                        required
+                        hide-details
+                        ></v-text-field>
+                    </v-col>
+                <!-- </v-row> -->
+
+                <!-- <v-row> -->
+                    <v-col cols="6">
+                        
+                        <v-select
+                        v-model="selectedContact"
+                        :items="contactMethods"
+                        :label="[xs ? '' : 'How would you like to be contacted']"
+                        :hint="[xs ? 'How would you like to be contacted' : '']"
+                        :rules="[rules.required]"
+                        required
+                        hide-details
+                        persistent-hint
+                        ></v-select>
+                    </v-col>
+
+                    <v-col :cols="[xs ? 12 : 6]">
+                        <v-text-field
+                        :class="[xs ? 'xs-text' : '']"
                         v-model="address"
                         label="Suburb"
                         :rules="[rules.required]"
@@ -65,23 +90,15 @@
                         ></v-text-field>
                         <p class="text-caption ml-1">We will contact you later to ask for your specific address once the booking process is complete</p>
                     </v-col>
-                    <v-col cols="6">
-                        <v-select
-                            v-model="selectedContact"
-                            :items="contactMethods"
-                            label="How would you like to be contacted"
-                            :rules="[rules.required]"
-                            required
-                            hide-details
-                        ></v-select>
-                    </v-col>
                 </v-row>
 
                 <h1 class="text-h4 my-3">Booking Details</h1>
                 
                 <v-row>
-                    <v-col cols="6">
+                    <v-col :cols="[xs ? 12 : 6]">
                         <VueDatePicker 
+                        dark
+                        teleport-center
                         v-model="dateRange" 
                         :range="{ noDisabledRange: true }"
                         multi-calendars 
@@ -93,7 +110,7 @@
                         <span v-if="formSubmitted && !dateRange" style="color: red; font-size: 12px;">Date is required</span>
                     </v-col>
 
-                    <v-col cols="6">
+                    <v-col :cols="[xs ? 12 : 6]">
                         <v-select
                         v-model="selectedPackage"
                         :items="packages"
@@ -103,10 +120,10 @@
                         hide-details
                         ></v-select>
                     </v-col>
-                </v-row>
+                <!-- </v-row>
                 
-                <v-row>
-                    <v-col cols="6">
+                <v-row> -->
+                    <v-col :cols="[xs ? 12 : 6]">
                         <v-select
                         v-model="howManyPets"
                         :items="petOptions"
@@ -116,10 +133,11 @@
                         ></v-select>
                     </v-col>
 
-                    <v-col cols="6">
+                    <v-col :cols="[xs ? 12 : 6]">
                         <v-text-field
+                        :class="[xs ? 'xs-text' : '']"
                         v-model="whatPets"
-                        label="What Pets"
+                        label="What Pet/s"
                         :rules="[rules.required]"
                         hide-details
                         ></v-text-field>
@@ -239,7 +257,7 @@ import emailjs from '@emailjs/browser';
 import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css';
 import { db, collection, getDocs } from '../firebase';
-import { day, month } from 'vue-cal/dist/i18n/en.cjs';
+import { useDisplay } from 'vuetify'
 
 // export default {
 //     components: {
@@ -448,6 +466,16 @@ export default {
         },
     },
 
+    setup() {
+        const { smAndDown, mdAndUp, xs } = useDisplay();
+        
+        return {
+            smAndDown,
+            mdAndUp, 
+            xs,
+        }
+    },
+
     created() {
         this.fetchUnavailableDates();
     }
@@ -458,5 +486,19 @@ export default {
 <style>
 :root {
     --dp-input-padding: 14px 30px 14px 12px;
+}
+
+.dp__theme_dark {
+    --dp-background-color: rgba(56, 128, 147, 1);
+    --dp-icon-color: white;
+    --dp-border-color: white;
+    --dp-primary-color: rgb(112, 1, 112);
+    --dp-secondary-color: #e1e1e18c;
+    --dp-range-between-dates-background-color: rgba(180, 0, 180, 0.744);
+    --dp-range-between-border-color: 0px
+}
+
+.xs-text .v-field__input {
+    font-size: 12px;
 }
 </style>
