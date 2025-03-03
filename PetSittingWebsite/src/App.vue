@@ -1,8 +1,81 @@
 <template>
-  <router-view />
+  <div v-if="isLoaded">
+    <router-view />
+  </div>
+  <div v-else>{{ console.log('notLoaded') }}</div>
 </template>
 
-<script setup>
+<script>
+export default {
+  data () {
+    return {
+      logIt: false,
+      isLoaded: false,
+      imageFiles: [
+        '/PetSitting/lara_dogs/dog13.jpg',
+        '/PetSitting/lara_dogs/dog5.jpg',
+        '/PetSitting/lara_dogs/pbatchtwo1.jpg',
+        '/PetSitting/lara_dogs/dog14.jpg',
+        '/PetSitting/lara_dogs/dog8.jpg',
+        '/PetSitting/lara_dogs/dog15.jpg',
+        '/PetSitting/lara_dogs/pbatchtwo2.jpg',
+        '/PetSitting/lara_dogs/dog9.jpg',
+        '/PetSitting/lara_dogs/pbatchtwo3.jpg',
+        '/PetSitting/lara_dogs/dog1.jpg',
+        '/PetSitting/lara_dogs/pbatchtwo4.jpg',
+        '/PetSitting/lara_dogs/dog2.jpg',
+        '/PetSitting/lara_dogs/pbatchtwo5.jpg',
+        '/PetSitting/lara_dogs/dog3.jpg',
+        '/PetSitting/lara_dogs/pbatchtwo6.jpg',
+        '/PetSitting/lara_dogs/dog4.jpeg',
+        '/PetSitting/lara_dogs/dog6.jpg',
+        '/PetSitting/lara_dogs/pbatchtwo7.jpg',
+        '/PetSitting/lara_dogs/dog7.jpg',
+        '/PetSitting/lara_dogs/dog10.jpg',
+        '/PetSitting/lara_dogs/pbatchtwo8.jpg',
+        '/PetSitting/lara_dogs/dog11.jpg',
+        '/PetSitting/lara_dogs/pbatchtwo9.jpg',
+        '/PetSitting/lara_dogs/dog12.jpg',
+        '/fur_packs/fur1.jpg',
+        '/fur_packs/fur2.jpg',
+        '/fur_packs/fur3.jpg',
+        '/logo/pet-logo.png',
+        '/logo/square.png',
+        '/reviews/r1.jpg',
+        '/reviews/r2.jpg',
+        '/reviews/r3.jpg',
+        '/reviews/r4.jpg',
+        '/reviews/r5.jpg',
+        '/reviews/r6.jpg',
+        '/reviews/r7.jpg',
+      ],
+    }
+  },
+  methods: {
+    preloadImages(urls) {
+      return new Promise((resolve) => {
+      let loadedCount = 0;
+
+        urls.forEach((url) => {
+          const img = new Image();
+          img.src = url;
+          img.onload = () => {
+            loadedCount++;
+            if (loadedCount === urls.length) {
+              resolve();
+            }
+          };
+        });
+      });
+    }
+  },
+  mounted() {
+    this.preloadImages(this.imageFiles).then(() => {
+      this.isLoaded = true
+      console.log('loaded');
+    })
+  }
+}
 </script>
 
 <style> 

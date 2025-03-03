@@ -7,36 +7,52 @@
                 class="mx-auto"
                 style="background-color: inherit"
             >
-            <!-- <swiper 
-                class="mb-5 py-2"
-                :class="[xs ? '' : 'px-10']"
-                :slides-per-view="[xs ? 1 : smAndDown ? 2 : 3]"
-                :space-between="50"
+            <swiper 
+                :key="swiperKey"
+                class="card-slider"
+                :slides-per-view="cardsPerSlide"
+                :space-between="60"
                 :navigation="true"
-                :pagination="{ clickable: true }"
+                :pagination="{
+                    dynamicBullets: true,
+                }"
                 :loop="true"
-                id="section5"
+                @swiper="onSwiper"
+                @slideChange="onSlideChange"
+                :effect="isMobile ? 'cards' : 'slide'"
+                :modules="[EffectCards, EffectFade]"
+                :grabCursor="true"
             >
                 <swiper-slide>
-                    <v-card class="pa-5 card-background review-cards overflow-y-auto" :height="computedHeight - (computedHeight / 5)" style="max-height: 800px; min-width: 310px;">
+                    <v-card 
+                        class="pa-5 card review-cards overflow-y-auto text-center" 
+                        :height="computedHeight - (computedHeight / 5)" 
+                        style="max-height: 800px;"
+                        @click="toggle"
+                    >
                         <v-row justify="center mt-0">
                             <div class="boxes tiny-boxes mr-2">
-                                <v-img :src="r1" class="gap" cover alt=""></v-img>
+                                <v-img draggable="false" :src="r1" class="gap" cover alt=""></v-img>
                             </div>
                             <div class="boxes tiny-boxes" style="margin-top: 75px">
-                                <v-img :src="r2" class="gap" cover alt=""></v-img>
+                                <v-img draggable="false" :src="r2" class="gap" cover alt=""></v-img>
                             </div>
                         </v-row>
-                        <h1 class="text-h5 text-center mt-10">Emma, Ruari & Ted</h1>
-                        <p class="mt-2">
+                        <h1 class="text-h5 mt-10">Emma, Ruari & Ted</h1>
+                        <p class="mt-2 text-justify">
                             "Lara has looked after our Labrador, Ruari and cat, Ted several times over the past few years while also housesitting. She is trustworthy, reliable and caring. Lara LOVES animals and they love her. I think she is our dog’s favourite human - Ruari gets so excited when she sees her. She understands how to keep pets happy, safe and secure and I wouldn’t in recommending her." 
                         </p>
                     </v-card>
                 </swiper-slide>
                 <swiper-slide>
-                    <v-card class="pa-5 review-cards overflow-y-auto text-center" :height="computedHeight - (computedHeight / 5)" style="max-height: 800px; min-width: 310px;">
+                    <v-card 
+                        class="pa-5 card review-cards overflow-y-auto text-center" 
+                        :height="computedHeight - (computedHeight / 5)" 
+                        style="max-height: 800px;"
+                        @click="toggle"
+                    >
                         <div class="boxes tiny-boxes big-img">
-                            <v-img :src="r3" class="gap" cover alt=""></v-img>
+                            <v-img draggable="false" :src="r3" class="gap" cover alt=""></v-img>
                         </div>
                         <h1 class="text-h5 mt-5">Sally & Banjo </h1>
                         <p class="mt-2 text-justify">
@@ -46,9 +62,14 @@
                     </v-card>
                 </swiper-slide>
                 <swiper-slide>
-                    <v-card class="pa-5 review-cards overflow-y-auto text-center" :height="computedHeight - (computedHeight / 5)" style="max-height: 800px; min-width: 310px;">
+                    <v-card 
+                        class="pa-5 card review-cards overflow-y-auto text-center" 
+                        :height="computedHeight - (computedHeight / 5)" 
+                        style="max-height: 800px;"
+                        @click="toggle"
+                    >
                         <div class="boxes tiny-boxes big-img">
-                            <v-img :src="r4" class="gap" cover alt=""></v-img>
+                            <v-img draggable="false" :src="r4" class="gap" cover alt=""></v-img>
                         </div> 
                         <h1 class="text-h5 mt-5">Madison, Ruby & Hollie</h1>
                         <p class="mt-2 text-justify">
@@ -57,9 +78,14 @@
                     </v-card>
                 </swiper-slide>
                 <swiper-slide>
-                    <v-card class="pa-5 review-cards overflow-y-auto text-center" :height="computedHeight - (computedHeight / 5)" style="max-height: 800px; min-width: 310px;">
+                    <v-card 
+                        class="pa-5 card review-cards overflow-y-auto text-center" 
+                        :height="computedHeight - (computedHeight / 5)" 
+                        style="max-height: 800px;"
+                        @click="toggle"
+                    >
                         <div class="boxes tiny-boxes big-img">  
-                            <v-img :src="r5" class="gap" cover alt=""></v-img>
+                            <v-img draggable="false" :src="r5" class="gap" cover alt=""></v-img>
                         </div> 
                         <h1 class="text-h5 mt-5">Taylor & Luna</h1>
                         <p class="mt-2 text-justify">
@@ -68,13 +94,18 @@
                     </v-card>
                 </swiper-slide>
                 <swiper-slide>
-                    <v-card class="pa-5 review-cards overflow-y-auto text-center" :height="computedHeight - (computedHeight / 5)" style="max-height: 800px; min-width: 310px;">
+                    <v-card 
+                        class="pa-5 card review-cards overflow-y-auto text-center" 
+                        :height="computedHeight - (computedHeight / 5)" 
+                        style="max-height: 800px;"
+                        @click="toggle"
+                    >
                         <v-row justify="center mt-0">
                             <div class="boxes tiny-boxes mr-2" style="margin-top: 75px">
-                                <v-img :src="r6" class="gap" cover alt=""></v-img>
+                                <v-img draggable="false" :src="r6" class="gap" cover alt=""></v-img>
                             </div>
                             <div class="boxes tiny-boxes">
-                                <v-img :src="r7" class="gap" cover alt=""></v-img>
+                                <v-img draggable="false" :src="r7" class="gap" cover alt=""></v-img>
                             </div>
                         </v-row>
                         <h1 class="text-h5 mt-10">Emma, Isabelle & Vasilli</h1>
@@ -83,8 +114,8 @@
                         </p>
                     </v-card>
                 </swiper-slide>
-            </swiper> -->
-            <v-slide-group
+            </swiper>
+            <!-- <v-slide-group
                 v-model="model"
                 class="pa-1 mx-auto card-slider"
                 center-active
@@ -181,7 +212,7 @@
                         </p>
                     </v-card>
                 </v-slide-group-item>
-            </v-slide-group>
+            </v-slide-group> -->
             <!-- <v-pagination
                 v-if="xs"
                 v-model="page"
@@ -197,15 +228,18 @@
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import SwiperCore from 'swiper'
 import { Navigation, Pagination } from 'swiper/modules'
-import { ref, onMounted, onUnmounted, computed } from 'vue';
+import { EffectCards, EffectFade } from 'swiper/modules';
+import { ref, onMounted, onUnmounted, computed, watch } from 'vue';
 import { useDisplay } from 'vuetify'
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import 'swiper/css/effect-cards';
+import 'swiper/css/effect-fade';
 
-// SwiperCore.use([Navigation]).use([Pagination])
+SwiperCore.use([Navigation]).use([Pagination])
 export default {
     components: {
         Swiper,
@@ -226,16 +260,28 @@ export default {
     setup() {
         const computedHeight = ref(window.innerHeight);
         const computedWidth = ref(window.innerWidth);
-        console.log(computedWidth);
+        const cardsPerSlide = ref(3);
+        const swiperKey = ref(0);
+
         const updateHeight = () => {
             computedHeight.value = window.innerHeight;
         };
         const updateWidth = () => {
             computedWidth.value = window.innerWidth;
+            if (computedWidth.value >= 1250) {
+                cardsPerSlide.value = 3
+
+            } else if (computedWidth.value > 800) {
+                cardsPerSlide.value = 2
+            } else {
+                cardsPerSlide.value = 1
+            }
         };
         const { smAndDown, mdAndUp, xs, smAndUp } = useDisplay();
+        const isMobile = computed(() => computedWidth.value <= 800)
 
         onMounted(() => {
+            updateWidth();
             window.addEventListener('resize', updateHeight);
             window.addEventListener('resize', updateWidth);
         });
@@ -243,13 +289,24 @@ export default {
             window.removeEventListener('resize', updateHeight);
             window.removeEventListener('resize', updateWidth);
         });
+        
+        watch(isMobile, () => {
+            swiperKey.value++;
+        });
 
         return {
             computedHeight,
+            computedWidth,
+            cardsPerSlide,
             smAndDown,
             smAndUp,
             mdAndUp, 
             xs,
+            modules: [EffectCards],
+            isMobile,
+            EffectCards,
+            EffectFade,
+            swiperKey,
         };
     }
 }
@@ -276,16 +333,17 @@ export default {
 }
 
 .card {
-    width: 420px;
+    width: 380px !important;
 }
 
 .card-slider {
     max-width: 1500px;
+    padding: 0 40px;
 }
 
 @media (max-width: 1500px) {
     .card {
-        width: 330px;
+        width: 300px !important;
     }
     .card-slider {
         max-width: 1200px;
@@ -294,7 +352,7 @@ export default {
 
 @media (max-width: 1250px) {
     .card {
-        width: 300px;
+        width: 280px !important;
     }
     .card-slider {
         max-width: 780px;
@@ -303,25 +361,52 @@ export default {
 
 @media (max-width: 800px) {
     .card {
-        width: 328px;
+        width: 340px !important;
     }
     .card-slider {
-        max-width: 390px;
+        max-width: 500px;
+        padding: 0 60px;
     }
     ::v-deep(.v-slide-group__prev), ::v-deep(.v-slide-group__next) {
         min-width: 0px;
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 540px) {
     .card {
-        width: 282px;
+        width: 310px !important;
     }
     .card-slider {
-        max-width: 370px;
+        max-width: 390px;
+        padding: 0 20px;
     }
     ::v-deep(.v-slide-group__prev), ::v-deep(.v-slide-group__next) {
         min-width: 0px;
+    }
+}
+
+@media (max-width: 420px) {
+    .card {
+        width: 260px !important;
+    }
+    .card-slider {
+        max-width: 335px;
+    }
+    ::v-deep(.v-slide-group__prev), ::v-deep(.v-slide-group__next) {
+        min-width: 0px;
+    }
+}
+
+@media (max-width: 360px) {
+    .card {
+        width: 230px !important;
+    }
+    .card-slider {
+        padding: 0 10px;
+    }
+    .big-img {
+        height: 220px;
+        width: 220px;
     }
 }
 </style>
