@@ -3,7 +3,7 @@
     <v-container>
         <v-responsive class="fill-height">
 
-            <h1 class="text-center my-10" :class="[xs ? 'text-h4' : 'text-h2 mx-10']">Book your Personal Petsitter Today!</h1>
+            <h1 class="text-center" :class="[xs ? 'text-h4 my-4' : 'text-h2 ma-10']">Book your Personal Petsitter Today!</h1>
             <v-form ref="form" v-model="valid" lazy-validation style="max-width: 800px;" class="mx-auto mb-5">
 
                 <h1 class="text-h4 my-3">Name</h1>

@@ -68,17 +68,19 @@ export default {
     background: rgb(37, 111, 129) !important;
     margin: 0 8px;
     border: 1px solid #e0e0e0;
-    padding: 12px 16px;
     margin-bottom: 8px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
     width: 85%;
     text-align: center;
     color: white;
+    min-height: 60px !important;
+    align-items: center !important;
 }
 
 .long-list {
-    display: inline-block !important;
+    display: inline-flex !important;
+    justify-content: center;
     width: 45%;
 }
 
@@ -94,12 +96,7 @@ export default {
 
 .v-list-title {
   white-space: normal !important;
-  word-wrap: break-word !important;
   overflow-wrap: break-word !important;
-}
-
-.list-bottom {
-  vertical-align: bottom;
 }
 
 .custom-list-item:hover {
@@ -121,8 +118,9 @@ html {
 }
 
 .mobileBox {
-    width: 30%;
+    width: 44%;
     margin: 3px;
+    height: 130px;
 }
 
 </style>

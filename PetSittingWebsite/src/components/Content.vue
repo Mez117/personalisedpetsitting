@@ -1,6 +1,6 @@
 <template>
 <v-container id="section1" align="center" class="h-100" style="max-width: 1500px;">
-    <v-responsive class="align-center text-center fill-height ">
+    <v-responsive class="align-center text-center fill-height">
             <v-row  
             justify="center"
             style="
@@ -21,7 +21,7 @@
             <v-row>
 
                 <!-- <v-col cols="12" class="pa-0"> -->
-                    <h1 class="justify-center mx-auto mb-6" :class="[smAndDown ? 'text-h4' : 'text-h2']" sticky style="width: 90%;">We love your pets.</h1>
+                    <h1 class="justify-center mx-auto mb-6" :class="[smAndDown ? 'text-h4' : 'text-h2']">We love your pets.</h1>
                     <div>
                         <div 
                             v-for="item in dogpics"
@@ -39,20 +39,26 @@
             
             <v-row justify="center" class="ma-0 rounded-lg" id="section2">
                 
-                <v-col :cols="[smAndDown ? '12' : '4']" :class="[smAndDown ? 'pa-2 mt-4' : 'pa-10']" class="rounded-lg" id="left-col">
-                    <h1 class="text-h2 mt-1 text-left">About Us</h1>
+                <v-col :cols="[smAndDown ? '12' : mdAndDown ? '5' : '4']" :class="[smAndDown ? 'pa-2 mt-4' : 'pa-10']">
+                    <div class="" :style="[smAndDown ? '' : mdAndDown ? 'height: 390px; padding-top: 20px;' : '']">
+                    <h1 :class="[smAndDown ? 'text-center' : 'text-left']" class="text-h4">Getting to know our Personalised Petsitter Lara</h1>
+                        <p class="mt-7 text-justify">
+                            Lara has an abundance of love for anything with 4 legs, the bigger the better is her motto when it comes to dogs. She has been petsitting for over 4 years, she currently works in the animal care industry and has been for over 1 year. Lara not only has her Certificate 2 in Animals Studies, she also has her animal first aid and is a wizard at administering medication to any types of pets. Lara has quite the nack for looking after pets that aren’t hers as she has fosters over 20 animals from the RSPCA, from a mum and her 7 puppies, 2 rescue kittens for over 2 months, an 8 week old Great Dane pup for 8 months and many more. 
+                        </p>
+                    </div>
+                </v-col>
+                <v-col :cols="[smAndDown ? '12' : mdAndDown ? '7' :  '6']" :class="[smAndDown ? 'pa-2 mt-4' : 'pa-10']" class="rounded-lg" id="left-col">
+                    <h1 class="text-h2 text-left">About Us</h1>
                     <p class="mt-7 text-justify">
-                        Personalised Petsitting was create to provide owners with a
+                        Personalised Petsitting was created to provide owners with a
                         pet care service they can tailor that their every need. To
                         help form coherent relationship with not only the pet
                         owner but the pets with a petsitter that they loves and cares
                         for them.
                     </p>
-                </v-col>
-                <v-col :cols="[smAndDown ? '12' : '8']" :class="[smAndDown ? 'pa-2 mt-4' : 'pa-10']">
-                    <h1 class="text-h4 text-left">Getting to know our Personalised Petsitter Lara</h1>
+                    <h1 class="text-h2 mt-7 text-left">History Behind the Business</h1>
                     <p class="mt-7 text-justify">
-                        Lara has an abundance of love for anything with 4 legs, the bigger the better is her motto when it comes to dogs. She has been petsitting for over 4 years, she currently works in the animal care industry and has been for over 1 year. Lara not only has her Certificate 2 in Animals Studies, she also has her animal first aid and is a wizard at administering medication to any types of pets. Lara has quite the nack for looking after pets that aren’t hers as she has fosters over 20 animals from the RSPCA, from a mum and her 7 puppies, 2 rescue kittens for over 2 months, an 8 week old Great Dane pup for 8 months and many more. 
+                        Lara grew up with a love for anything animals. This love truly began with her childhood dog of 15 years Odie. To honour the start of her animal love Lara got her first tattoo. An outline of Odie’s ears. When Lara started this business and was designing a logo, she thought what better way to honour her origin love for animal than to make her Odie tattoo, the logo! 
                     </p>
                 </v-col>
                 
@@ -381,6 +387,9 @@
                     label="What's your inquiry"
                     class="mt-5"
                     auto-grow
+                    :rules="[rules.required]"
+                    required
+                    hide-details
                     ></v-textarea>
 
                     <v-btn @click="submitForm" :disabled="!valid" class="mt-5" justify-self="center">Submit Booking Request</v-btn>
@@ -391,61 +400,11 @@
 </template>
 
 <script>
-//////////////////////////////////////////////////////////////////////////////
-import { Navigation, Pagination } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import SwiperCore from 'swiper'
 import { ref, onMounted, onUnmounted } from 'vue';
 import emailjs from '@emailjs/browser';
 import { useDisplay } from 'vuetify'
 
-
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-
-// const { handleSubmit, handleReset } = useForm({
-//     validationSchema: {
-//       name (value) {
-//         if (value?.length >= 2) return true
-
-//         return 'Name needs to be at least 2 characters.'
-//       },
-//       phone (value) {
-//         if (value?.length > 9 && /[0-9-]+/.test(value)) return true
-
-//         return 'Phone number needs to be at least 9 digits.'
-//       },
-//       email (value) {
-//         if (/^[a-z.-]+@[a-z.-]+\.[a-z]+$/i.test(value)) return true
-
-//         return 'Must be a valid e-mail.'
-//       },
-//       select (value) {
-//         if (value) return true
-
-//         return 'Select an item.'
-//       },
-//       checkbox (value) {
-//         if (value === '1') return true
-
-//         return 'Must be checked.'
-//       },
-//     },
-// })
-
-SwiperCore.use([Navigation]).use([Pagination])
-
-const heightOfPage = window.innerHeight;
-const width = window.innerWidth;
-
-
 export default {
-    components: {
-        Swiper,
-        SwiperSlide,
-    },
     data() {
         return {
             valid: false,
@@ -459,16 +418,6 @@ export default {
             },
             horziontalScrollContent: '',
             formSubmitted: false,
-            fur1: "/PetSitting/fur_packs/fur1.jpg",
-            fur2: "/PetSitting/fur_packs/fur2.jpg",
-            fur3: "/PetSitting/fur_packs/fur3.jpg",
-            r1: "/PetSitting/reviews/r1.jpg",
-            r2: "/PetSitting/reviews/r2.jpg",
-            r3: "/PetSitting/reviews/r3.jpg",
-            r4: "/PetSitting/reviews/r4.jpg",
-            r5: "/PetSitting/reviews/r5.jpg",
-            r6: "/PetSitting/reviews/r6.jpg",
-            r7: "/PetSitting/reviews/r7.jpg",
             dogpics: [
                 '/PetSitting/lara_dogs/dog13.jpg',
                 '/PetSitting/lara_dogs/dog5.jpg',
@@ -476,26 +425,8 @@ export default {
                 '/PetSitting/lara_dogs/dog8.jpg',
                 '/PetSitting/lara_dogs/dog15.jpg',
                 '/PetSitting/lara_dogs/dog9.jpg',
-            ],
-            pack1: [
-                '1-3 Update Daily',
-                'Daily Exercise',
-                'Physical and Mental Enrichment',
-                'Feeding all meals',
-                'Administering of any Medication',
-                "Maintaining pet's routine to the best of the petsitters ability",
-                'Cleaning of all pets waste',
-                'Grooming pet (if required, not including bath)',
-            ],
-            pack2: [
-                '3-6 updates daily',
-                'Pet can be left a max of 6 hours',
-                'General tidy + sanitised all surfaces',
-            ],
-            pack3: [
-                '6-10 daily updates',
-                'Spotless home',
-                'The petsitter not leaving your pets for more than 2 hours',
+                '/PetSitting/reviews/r10.jpg',
+                '/PetSitting/lara_dogs/dog16.png',
             ],
         };
     },
@@ -544,7 +475,7 @@ export default {
         },
     },
     setup() {
-        const { smAndDown, mdAndUp } = useDisplay();
+        const { smAndDown, mdAndUp, mdAndDown } = useDisplay();
         const computedHeight = ref(window.innerHeight);
 
         const updateHeight = () => {
@@ -573,6 +504,7 @@ export default {
             // horziontalScrollContent,
             smAndDown,
             mdAndUp,
+            mdAndDown,
         };
     },
 };
@@ -592,8 +524,8 @@ main {
 .boxes {
     border: 5px solid #000;
     height: 200px;
-    width: 13%;
-    margin: 20px;
+    width: 21%;
+    margin: 16px;
     display: inline-block;
 }
 
