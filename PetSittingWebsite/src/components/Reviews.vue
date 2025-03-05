@@ -1,7 +1,7 @@
 <template>
     <v-container style="max-width: 1500px;">
         <v-responsive>
-            <h1 class="text-center" :class="[xs ? 'text-h4 my-5' : 'text-h2 ma-7']">Reviews from our customers</h1>
+            <h1 class="text-center" :class="[xs ? 'text-h4 my-5' : 'text-h2 ma-7']">Reviews from our Customers</h1>
             <v-sheet
                 justify="center"
                 class="mx-auto"
