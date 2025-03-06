@@ -79,7 +79,7 @@
                         <v-col :cols="[smAndDown ? 12 : 9]" class="pl-5">
                             <p 
                             class="my-3 text-center"
-                            :class="[xs ? 'smallerFontSize' : 'largerFontSize my-5 pr-3']"
+                            :class="[xs ? 'smallerFontSize px-2' : 'largerFontSize my-5 pr-3']"
                             >This is our most popular package!! This package is great for any owners that loves regular updates and doesn’t have pets that suffer from separation anxiety.
                             </p>
                             <p
@@ -147,7 +147,7 @@
                             >This package is the best package for any pets that suffer from separation anxiety and require the petsitter to be with your pet consistently throughout the booking. If you as the owner also suffer from separation anxiety from your beloved pets this packages includes the largest amount of daily update!</p>
                             <p
                             :class="[xs ? 'text-h6 mt-3 text-center' : 'text-h5 ml-2']"
-                            >This Package Includes everything listed in the Independant Fur Child Plus:</p>
+                            >This Package Includes:</p>
                             <v-list class="overflow-auto pb-8 mt-3" style="background-color: inherit;" :style="[mdAndDown ? 'max-height: 233px;' : '']">
 
                                 <!-- <v-list-item class="custom-list-item rounded-lg mx-auto" :border="black" style="background: white !important;">
