@@ -419,13 +419,13 @@ export default {
             horziontalScrollContent: '',
             formSubmitted: false,
             dogpics: [
-                '/PetSitting/lara_dogs/dog13.jpg',
+                '/PetSitting/reviews/r18.jpg',
                 '/PetSitting/lara_dogs/dog5.jpg',
                 '/PetSitting/lara_dogs/dog14.jpg',
                 '/PetSitting/lara_dogs/dog8.jpg',
                 '/PetSitting/lara_dogs/dog15.jpg',
                 '/PetSitting/lara_dogs/dog9.jpg',
-                '/PetSitting/reviews/r10.jpg',
+                '/PetSitting/lara_dogs/dog17.jpg',
                 '/PetSitting/lara_dogs/dog16.png',
             ],
         };
@@ -545,7 +545,7 @@ main {
 .gap {
     width: 100%;
     height: 100%;
-    object-fit: cover;;
+    object-fit: cover;
 }
 
 .textbox {
