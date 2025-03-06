@@ -2,10 +2,11 @@
   <div v-if="isLoaded">
     <router-view />
   </div>
-  <div v-else>{{ console.log('notLoaded') }}</div>
 </template>
 
 <script>
+import { ref, onMounted } from 'vue';
+
 export default {
   data () {
     return {
@@ -55,8 +56,55 @@ export default {
   mounted() {
     this.preloadImages(this.imageFiles).then(() => {
       this.isLoaded = true
-      console.log('loaded');
     })
+  },
+  setup() {
+    const allPhotos = ref([
+      { src: '/PetSitting/lara_dogs/dog3.jpg' },
+      { src: '/PetSitting/lara_dogs/dog4.jpeg' },
+      { src: '/PetSitting/lara_dogs/dog6.jpg' },
+      { src: '/PetSitting/lara_dogs/dog7.jpg' },
+      { src: '/PetSitting/lara_dogs/dog10.jpg' },
+      { src: '/PetSitting/lara_dogs/dog11.jpg' },
+      { src: '/PetSitting/lara_dogs/dog12.jpg' },
+      { src: '/PetSitting/lara_dogs/dog16.jpg' },
+      { src: '/PetSitting/lara_dogs/dog16.png' },
+      { src: '/PetSitting/lara_dogs/dog17.jpg' },
+      { src: '/PetSitting/reviews/r5.jpg' },
+      { src: '/PetSitting/reviews/r6.jpg' },
+      { src: '/PetSitting/reviews/r7.jpg' },
+      { src: '/PetSitting/reviews/r8.jpg' },
+      { src: '/PetSitting/reviews/r9.jpg' },
+      { src: '/PetSitting/reviews/r10.jpg' },
+      { src: '/PetSitting/reviews/r11.jpg' },
+      { src: '/PetSitting/reviews/r12.jpg' },
+      { src: '/PetSitting/reviews/r13.jpg' },
+      { src: '/PetSitting/reviews/r14.jpg' },
+      { src: '/PetSitting/reviews/r15.jpg' },
+      { src: '/PetSitting/reviews/r16.jpg' },
+      { src: '/PetSitting/reviews/r17.jpg' },
+      { src: '/PetSitting/reviews/r18.jpg' },
+      { src: '/PetSitting/lara_dogs/pbatchtwo5' },
+      { src: '/PetSitting/lara_dogs/pbatchtwo6' },
+      { src: '/PetSitting/lara_dogs/pbatchtwo7' },
+      { src: '/PetSitting/lara_dogs/pbatchtwo8' },
+      { src: '/PetSitting/lara_dogs/pbatchtwo9' },
+      { src: '/PetSitting/fur_packs/fur1.jpg' },
+      { src: '/PetSitting/fur_packs/fur2.jpg' },
+    ]);
+
+    const afterLoad = () => {
+      allPhotos.value.forEach((photo) => {
+        const img = new Image();
+        img.src = photo.src;
+      });
+    };
+
+    onMounted(() => {
+      setTimeout(afterLoad, 3000)
+    });
+
+    return { afterLoad }
   }
 }
 </script>
