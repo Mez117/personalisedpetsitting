@@ -3,7 +3,7 @@
     <v-btn 
       v-if="mdAndUp"
       icon="mdi-home" 
-      to="/petsitting"
+      to="/"
       variant="plain"
       @click="scrollToTopAfter()"
     ></v-btn>
@@ -24,23 +24,11 @@
             draggable="false"
             @click="scrollToTopAfter()"
           >{{ item.title }}</v-btn>
-           
-          <!-- <router-link 
-            v-for="(item, index) in items"
-            :key="index"
-            :to="item.link"
-            rounded="0"
-            variant="flat" 
-            color="primary"
-            draggable="false"
-          ><v-btn draggable="false">
-            {{ item.title }}
-          </v-btn>
-        </router-link> -->
+
     </v-menu>
 
     <v-btn 
-      to="/petsitting" 
+      to="/" 
       @click="scrollToTopAfter()"
       class="py-7 d-flex align-center" 
       :class="[smAndDown ? 'ml-0 pa-1' : 'ml-2 pa-5']"
@@ -75,17 +63,13 @@
   </v-app-bar>
 </template>
 
-<!-- <script setup>
-  //
-</script> -->
-
 <script>
 import { useDisplay } from 'vuetify'
 
   export default {
     data: () => ({
       items: [
-        { title: 'Petsitting', link: '/petsitting/'},
+        { title: 'Petsitting', link: '/'},
         { title: 'Packages', link: '/packages/'},
         { title: 'Booking', link: '/bookings/'},
         { title: 'Gallery', link: '/gallery/'},
@@ -103,39 +87,6 @@ import { useDisplay } from 'vuetify'
               });
             }, 50);
         return;
-      //   // Check if the current route is "/petsitting"
-      //   if (this.$route.path === '/petsitting') {
-      //     // If already on "/petsitting", scroll to the "About" section
-      //     this.ScrollToSection(sectionId);
-      //   } else {
-      //     // If not on "/petsitting", navigate to the "/petsitting" route
-      //     this.$router.push('/petsitting').then(() => {
-      //       // Use nextTick to ensure the scroll happens after navigation
-      //       this.$nextTick(() => {
-      //         this.ScrollToSection(sectionId);
-      //       });
-      //     });
-      //   }
-      // },
-      // ScrollToSection(sectionId) {
-      //   const section = document.getElementById(sectionId);
-
-      //   if (section || sectionId === 'section1') {
-      //     let offsetTop;
-
-      //     // Check if it's section1 and scroll to the top
-      //     if (sectionId === 'section1') {
-      //       offsetTop = 0; // Scroll to the very top of the page
-      //     } else {
-      //       // Calculate the offset to center the section in the viewport
-      //       const sectionRect = section.getBoundingClientRect();
-      //       offsetTop = sectionRect.top + window.scrollY - window.innerHeight / 2 + sectionRect.height / 2;
-      //     }
-      //     window.scrollTo({
-      //       top: offsetTop,
-      //       behavior: 'smooth'
-      //     });
-      //   }
       }
     },
     setup() {

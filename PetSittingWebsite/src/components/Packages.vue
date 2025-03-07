@@ -58,6 +58,9 @@
                         >Book Now</v-btn>
                     </v-col>
                 </v-row>
+
+                <v-divider class="border-opacity-50 mt-5" color="info" :thickness="2"></v-divider>
+
                 <v-row no-gutters class="ml-2 my-4 mt-8">
                     <v-col cols="me-auto">
                         <h1 :class="[smAndDown ? 'text-h5' : 'text-h3']">Fur Baby Package</h1>
@@ -86,10 +89,6 @@
                             :class="[xs ? 'text-h6 mt-3 text-center' : 'text-h5 mt-5 ml-2']"
                             >This Package Includes:</p>
                             <v-list class="overflow-auto pb-8 mt-3" style="background-color: inherit; max-height: 320px;">
-<!-- 
-                                <v-list-item class="custom-list-item rounded-lg mx-auto" :border="black" style="background: white !important;">
-                                    <v-list-item-title style="color: black;" class="v-list-title">INCLUDES EVERYTHING FROM THE INDEPENDENT FUR CHILD PACKAGE</v-list-item-title>
-                                </v-list-item> -->
 
                                 <v-list-item
                                     v-for="item in pack2"
@@ -121,6 +120,8 @@
                     </v-col>
                 </v-row>
 
+                <v-divider class="border-opacity-50 mt-5" color="info" :thickness="2"></v-divider>
+
                 <v-row no-gutters class="ml-2 my-4 mt-8" align="center">
                     <v-col cols="me-auto">
                         <h1 :class="[smAndDown ? 'text-h5' : 'text-h3']">The Separation Anxiety Package</h1>
@@ -148,7 +149,7 @@
                             <p
                             :class="[xs ? 'text-h6 mt-3 text-center' : 'text-h5 ml-2']"
                             >This Package Includes:</p>
-                            <v-list class="overflow-auto pb-8 mt-3" style="background-color: inherit;" :style="[mdAndDown ? 'max-height: 233px;' : '']">
+                            <v-list class="overflow-auto pb-8 mt-3" style="background-color: inherit;" :style="[smAndDown ? 'max-height: 320px;' : mdAndDown ? 'max-height: 233px;' : '']">
 
                                 <!-- <v-list-item class="custom-list-item rounded-lg mx-auto" :border="black" style="background: white !important;">
                                     <v-list-item-title style="color: black;" class="v-list-title">INCLUDES EVERYTHING FROM THE INDEPENDENT FUR CHILD PACKAGE</v-list-item-title>
