@@ -1,19 +1,33 @@
 <template>
+
+  <!-- Check if important images are loaded -->
+
   <div v-if="isLoaded">
+
     <router-view />
+
   </div>
+
 </template>
 
 <script>
 import { ref, onMounted } from 'vue';
 
 export default {
+
   data () {
+    
     return {
       logIt: false,
       isLoaded: false,
+
+      //--------Important Images----------//
+
       imageFiles: [
+        '/PetSitting/reviews/r18.jpg',
         '/PetSitting/lara_dogs/dog13.jpg',
+        '/PetSitting/lara_dogs/dog17.jpg',
+        '/PetSitting/lara_dogs/dog16.png',
         '/PetSitting/lara_dogs/dog5.jpg',
         '/PetSitting/lara_dogs/pbatchtwo1.jpg',
         '/PetSitting/lara_dogs/dog14.jpg',
@@ -35,30 +49,47 @@ export default {
       ],
     }
   },
-  methods: {
-    preloadImages(urls) {
-      return new Promise((resolve) => {
-      let loadedCount = 0;
 
-        urls.forEach((url) => {
+  methods: {
+
+    preloadImages(urls) { //Preload Important Images Function
+
+      return new Promise((resolve) => {
+
+        let loadedCount = 0;
+
+        urls.forEach((url) => { //For each url or file in "urls"
+
           const img = new Image();
           img.src = url;
+
           img.onload = () => {
-            loadedCount++;
-            if (loadedCount === urls.length) {
-              resolve();
+
+            loadedCount++; //When the image is loaded add 1 to the loadedCount
+
+            if (loadedCount === urls.length) { //If the loadedCount is equal to the total number of images in "urls" 
+              resolve(); //Resolves once all images are loaded
             }
+
           };
         });
       });
     }
   },
+
   mounted() {
-    this.preloadImages(this.imageFiles).then(() => {
-      this.isLoaded = true
+
+    this.preloadImages(this.imageFiles).then(() => { //If the imageFiles are all loaded then....
+
+      this.isLoaded = true //isLoaded is now set to true to show contents of page
+
     })
   },
+
   setup() {
+
+    ////////////Remaining Images////////////////
+
     const allPhotos = ref([
       { src: '/PetSitting/lara_dogs/dog3.jpg' },
       { src: '/PetSitting/lara_dogs/dog4.jpeg' },
@@ -68,8 +99,6 @@ export default {
       { src: '/PetSitting/lara_dogs/dog11.jpg' },
       { src: '/PetSitting/lara_dogs/dog12.jpg' },
       { src: '/PetSitting/lara_dogs/dog16.jpg' },
-      { src: '/PetSitting/lara_dogs/dog16.png' },
-      { src: '/PetSitting/lara_dogs/dog17.jpg' },
       { src: '/PetSitting/reviews/r5.jpg' },
       { src: '/PetSitting/reviews/r6.jpg' },
       { src: '/PetSitting/reviews/r7.jpg' },
@@ -83,7 +112,6 @@ export default {
       { src: '/PetSitting/reviews/r15.jpg' },
       { src: '/PetSitting/reviews/r16.jpg' },
       { src: '/PetSitting/reviews/r17.jpg' },
-      { src: '/PetSitting/reviews/r18.jpg' },
       { src: '/PetSitting/lara_dogs/pbatchtwo5' },
       { src: '/PetSitting/lara_dogs/pbatchtwo6' },
       { src: '/PetSitting/lara_dogs/pbatchtwo7' },
@@ -93,24 +121,29 @@ export default {
       { src: '/PetSitting/fur_packs/fur2.jpg' },
     ]);
 
-    const afterLoad = () => {
+    const afterLoad = () => { //Preload Remaining Images by loading each photo in "allPhotos"
+
       allPhotos.value.forEach((photo) => {
+
         const img = new Image();
         img.src = photo.src;
+
       });
     };
 
     onMounted(() => {
-      setTimeout(afterLoad, 3000)
+
+      setTimeout(afterLoad, 3000) //Loads all the Remaining Images AFTER the site loads, so that they do not need to be loaded when viewing them for the first time
+
     });
 
     return { afterLoad }
+
   }
 }
 </script>
 
 <style> 
-@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
 
 .custom-list-item {
     background: rgb(37, 111, 129) !important;
@@ -152,11 +185,6 @@ export default {
   color: black;
 }
 
-.mint-green {
-  background-color: #A8E6CF; 
-  color: #2E2E2E; 
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -171,4 +199,11 @@ html {
     height: 130px;
 }
 
+.swiper-button-prev {
+    padding-right: 20px;
+}
+
+.swiper-button-next {
+    padding-left: 20px;
+}
 </style>

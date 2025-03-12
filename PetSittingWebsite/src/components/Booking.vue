@@ -1,6 +1,6 @@
 <template>
-
     <v-container>
+        
         <v-responsive class="fill-height">
 
             <h1 class="text-center" :class="[xs ? 'text-h4 my-4' : 'text-h2 ma-10']">Book your Personal Petsitter Today!</h1>
@@ -97,10 +97,9 @@
                 <v-row>
                     <v-col :cols="[xs ? 12 : 6]">
                         <VueDatePicker 
-                        dark
                         teleport-center
                         v-model="dateRange" 
-                        :range="{ noDisabledRange: true }"
+                        :range="{ noDisabledRange: true, partialRange: false }"
                         multi-calendars 
                         :format="customFormat" 
                         :disabled-dates="disabledDates"
@@ -259,78 +258,6 @@ import '@vuepic/vue-datepicker/dist/main.css';
 import { db, collection, getDocs } from '../firebase';
 import { useDisplay } from 'vuetify'
 
-// export default {
-//     components: {
-//         VueDatePicker,
-//     },
-//     data() {
-//         return {
-//             valid: false,
-//             firstName: '',
-//             lastName: '',
-//             phoneNumber: '',
-//             email: '',
-//             address: '',
-//             dateRange: null,
-//             selectedPackage: '',
-//             packages: ['Independant Fur Child Package', 'Fur Baby Package', 'Seperation Anxiety Package'],
-//             howManyPets: '',
-//             petOptions: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-//             whatPets: '',
-//             additionalInfo: '',
-//             rules: {
-//                 required: value => !!value || 'Required.',
-//                 email: value => /.+@.+\..+/.test(value),
-//                 phone: value => /^\d+( \d+)*$/.test(value),
-//             },
-//         };
-//     },
-//     methods: {
-//         submitForm() {
-//             if (this.$refs.form.validate()) {
-
-//                 console.log(this.dateRange);
-
-//                 const formattedDateRange = this.customFormat(this.dateRange);
-
-//                 console.log(formattedDateRange);
-
-//                 const templateParams = {
-//                     firstName: this.firstName,
-//                     lastName: this.lastName,
-//                     phoneNumber: this.phoneNumber,
-//                     email: this.email,
-//                     address: this.address,
-//                     selectedPackage: this.selectedPackage,
-//                     howManyPets: this.howManyPets,
-//                     whatPets: this.whatPets,
-//                     additionalInfo: this.additionalInfo,
-//                     dateRange: formattedDateRange,
-//                 };
-
-//                 emailjs.send("service_3uq0j9x", "template_tbhhsvd", templateParams, { publicKey: 'y28Njxa62kEbnjheZ',})
-//                     .then(() => alert('Booking request sent!'))
-//                     .catch(error => console.error('Failed to send booking request:', error));
-//             }
-//         },
-//         customFormat(date) {
-//             const formatDate = (d) => {
-//                 if (d != null) {
-//                 const day = String(d.getDate()).padStart(2, '0');
-//                 const month = String(d.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
-//                 const year = d.getFullYear();
-//                 return `${day}/${month}/${year}`;
-//                 }
-//             };
-            
-//             if (Array.isArray(date)) {
-//                 return `${formatDate(date[0])} - ${formatDate(date[1])}`;
-//             }
-//             return '';
-//         },
-//     },
-    
-// }
 export default {
     components: {
         VueDatePicker,
@@ -363,15 +290,6 @@ export default {
         };
     },
     methods: {
-        // customFormat(date) {
-        //     if (!date || !(date instanceof Date)) {
-        //         return ''
-        //     }
-        //     const day = String(date.getDate()).padStart(2, '0');
-        //     const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
-        //     const year = date.getFullYear();
-        //     return `${day}/${month}/${year}`;
-        // },
         customFormat(date) {
             const formatDate = (d) => {
 
@@ -488,17 +406,19 @@ export default {
     --dp-input-padding: 14px 30px 14px 12px;
 }
 
-.dp__theme_dark {
-    --dp-background-color: rgba(56, 128, 147, 1);
+.dp__theme_light {
+    /* --dp-background-color: rgba(56, 128, 147, 1);
     --dp-icon-color: white;
     --dp-border-color: white;
-    --dp-primary-color: rgb(112, 1, 112);
-    --dp-secondary-color: #e1e1e18c;
-    --dp-range-between-dates-background-color: rgba(180, 0, 180, 0.744);
-    --dp-range-between-border-color: 0px
+    --dp-primary-color: rgb(112, 1, 112); */
+    --dp-secondary-color: #ab000063;
+    /* --dp-range-between-dates-background-color: rgba(180, 0, 180, 0.587);
+    --dp-range-between-border-color: 0px;
+    --dp-hover-color: #a71111; */
 }
 
 .xs-text .v-field__input {
     font-size: 12px;
 }
+
 </style>

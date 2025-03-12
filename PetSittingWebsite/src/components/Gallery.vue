@@ -26,36 +26,7 @@ import { useDisplay } from 'vuetify';
 import { ref, computed } from 'vue';
 
 export default {
-    // data() {
-    //     return {
-    //         dogpics: [
-    //             '/PetSitting/lara_dogs/dog13.jpg',
-    //             '/PetSitting/lara_dogs/dog5.jpg',
-    //             '/PetSitting/lara_dogs/pbatchtwo1.jpg',
-    //             '/PetSitting/lara_dogs/dog14.jpg',
-    //             '/PetSitting/lara_dogs/dog8.jpg',
-    //             '/PetSitting/lara_dogs/dog15.jpg',
-    //             '/PetSitting/lara_dogs/pbatchtwo2.jpg',
-    //             '/PetSitting/lara_dogs/dog9.jpg',
-    //             '/PetSitting/lara_dogs/pbatchtwo3.jpg',
-    //             '/PetSitting/lara_dogs/dog1.jpg',
-    //             '/PetSitting/lara_dogs/pbatchtwo4.jpg',
-    //             '/PetSitting/lara_dogs/dog2.jpg',
-    //             '/PetSitting/lara_dogs/pbatchtwo5.jpg',
-    //             '/PetSitting/lara_dogs/dog3.jpg',
-    //             '/PetSitting/lara_dogs/pbatchtwo6.jpg',
-    //             '/PetSitting/lara_dogs/dog4.jpeg',
-    //             '/PetSitting/lara_dogs/dog6.jpg',
-    //             '/PetSitting/lara_dogs/pbatchtwo7.jpg',
-    //             '/PetSitting/lara_dogs/dog7.jpg',
-    //             '/PetSitting/lara_dogs/dog10.jpg',
-    //             '/PetSitting/lara_dogs/pbatchtwo8.jpg',
-    //             '/PetSitting/lara_dogs/dog11.jpg',
-    //             '/PetSitting/lara_dogs/pbatchtwo9.jpg',
-    //             '/PetSitting/lara_dogs/dog12.jpg',
-    //         ],
-    //     }
-    // },
+    
     setup() {
     const allDogPics = ref([
         { src: "/PetSitting/lara_dogs/dog13.jpg", alt: "Petsitting Photo1" },
