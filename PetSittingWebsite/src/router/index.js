@@ -1,18 +1,16 @@
-// Composables
-// import PetPackages from '@/views/PetPackages.vue'
 import { createRouter,  createWebHashHistory } from 'vue-router'
-import PetSitting from '@/views/PetSitting.vue';
+import PetSitting from '@/components/Content.vue';
 import DefaultLayout from '@/layouts/default/Default.vue';
-import Booking from '@/views/PetBooking.vue';
-import Admin from '@/views/AdminPage.vue';
+import Booking from '@/components/Booking.vue';
+import Admin from '@/components/Admin.vue';
 import Login from '@/components/Login.vue';
-
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '@/firebase';
-
 import Reviews from '@/components/Reviews.vue';
 import Gallery from '@/components/Gallery.vue';
 import Faqs from '@/components/Faqs.vue';
+import Packages from '@/components/Packages.vue';
+
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '@/firebase';
 
 const routes = [
   {
@@ -24,21 +22,21 @@ const routes = [
         name: 'Petsitting',
         component: PetSitting,
       },
-      {
-        path: '/petsitting',
-        name: 'PetSitting',
-        component: () => import('@/views/PetSitting.vue'),
-      },
-      { path: '/packages',
+      { 
+        path: '/packages',
         name: 'Packages',
-        component: () => import('@/views/PetPackages.vue')
+        component: Packages
       },
       {
         path: '/bookings',
         name: 'Bookings',
         component: Booking,
       },
-      { path: '/login', name: 'Login', component: Login },
+      { 
+        path: '/login', 
+        name: 'Login', 
+        component: Login 
+      },
       {
         path: '/admin',
         name: 'Admin',
@@ -61,8 +59,6 @@ const routes = [
         component: Gallery,
       },
     ],
-    // path: '/',
-    // component: PetSitting,
   },
 ]
 

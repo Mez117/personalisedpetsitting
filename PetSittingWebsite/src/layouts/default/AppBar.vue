@@ -124,7 +124,6 @@ import { useDisplay } from 'vuetify'
 
                 top: 0,
                 behavior: 'smooth'
-
               });
             }, 50);
         return;

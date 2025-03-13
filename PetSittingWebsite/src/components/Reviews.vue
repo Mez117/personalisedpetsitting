@@ -1,35 +1,44 @@
 <template>
     <v-container style="max-width: 1500px;">
+
         <v-responsive>
+
             <h1 class="text-center" :class="[xs ? 'text-h4 my-5' : 'text-h2 ma-7']">Reviews from our Customers</h1>
+
             <v-sheet
-                justify="center"
-                class="mx-auto"
-                style="background-color: inherit"
+            justify="center"
+            class="mx-auto"
+            style="background-color: inherit"
             >
+
+            <!-----------------------------------------Swiper component-------------------------------------------------->
+
             <swiper 
-                :key="swiperKey"
-                class="card-slider py-8"
-                :slides-per-view="cardsPerSlide"
-                :space-between="60"
-                :navigation="true"
-                :pagination="{
-                    dynamicBullets: true,
-                }"
-                :loop="true"
-                @swiper="onSwiper"
-                @slideChange="onSlideChange"
-                :effect="isMobile ? 'cards' : 'slide'"
-                :modules="[EffectCards]"
-                :grabCursor="true"
+            :key="swiperKey"
+            class="card-slider py-8"
+            :slides-per-view="cardsPerSlide"
+            :space-between="60"
+            :navigation="true"
+            :pagination="{
+                dynamicBullets: true,
+            }"
+            :loop="true"
+            @swiper="onSwiper"
+            @slideChange="onSlideChange"
+            :effect="isMobile ? 'cards' : 'slide'"
+            :modules="[EffectCards]"
+            :grabCursor="true"
             >
+            
+            <!-----------------------------------------Review cards-------------------------------------------------->
+            
                 <swiper-slide>
                     <v-card 
-                        class="pa-5 card review-cards overflow-y-auto text-center"
-                        :elevation="isMobile ? 0 : 16" 
-                        style="max-height: 800px;"
-                        rounded="lg"
-                        @click="toggle"
+                    class="pa-5 card review-cards overflow-y-auto text-center"
+                    :elevation="isMobile ? 0 : 16" 
+                    style="max-height: 800px;"
+                    rounded="lg"
+                    @click="toggle"
                     >
                         <v-row justify="center mt-0">
                             <div class="boxes tiny-boxes mr-2">
@@ -53,12 +62,13 @@
                         </p>
                     </v-card>
                 </swiper-slide>
+
                 <swiper-slide>
                     <v-card 
-                        class="pa-5 card review-cards overflow-y-auto text-center" 
-                        style="max-height: 800px;"
-                        :elevation="isMobile ? 0 : 16" 
-                        @click="toggle"
+                    class="pa-5 card review-cards overflow-y-auto text-center" 
+                    style="max-height: 800px;"
+                    :elevation="isMobile ? 0 : 16" 
+                    @click="toggle"
                     >
                         <div class="boxes tiny-boxes big-img">
                             <v-img draggable="false" :src="r3" class="gap" cover alt="">
@@ -74,12 +84,13 @@
                         </p>
                     </v-card>
                 </swiper-slide>
+
                 <swiper-slide>
                     <v-card 
-                        class="pa-5 card review-cards overflow-y-auto text-center" 
-                        style="max-height: 800px;"
-                        :elevation="isMobile ? 0 : 16" 
-                        @click="toggle"
+                    class="pa-5 card review-cards overflow-y-auto text-center" 
+                    style="max-height: 800px;"
+                    :elevation="isMobile ? 0 : 16" 
+                    @click="toggle"
                     >
                         <div class="boxes tiny-boxes big-img">
                             <v-img draggable="false" :src="r4" class="gap" cover alt="">
@@ -94,12 +105,13 @@
                         </p>
                     </v-card>
                 </swiper-slide>
+
                 <swiper-slide>
                     <v-card 
-                        class="pa-5 card review-cards overflow-y-auto text-center" 
-                        style="max-height: 800px;"
-                        :elevation="isMobile ? 0 : 16" 
-                        @click="toggle"
+                    class="pa-5 card review-cards overflow-y-auto text-center" 
+                    style="max-height: 800px;"
+                    :elevation="isMobile ? 0 : 16" 
+                    @click="toggle"
                     >
                         <div class="boxes tiny-boxes big-img">  
                             <v-img draggable="false" :src="r5" class="gap" cover alt="">
@@ -114,12 +126,13 @@
                         </p>
                     </v-card>
                 </swiper-slide>
+
                 <swiper-slide>
                     <v-card 
-                        class="pa-5 card review-cards overflow-y-auto text-center" 
-                        style="max-height: 800px;"
-                        :elevation="isMobile ? 0 : 16" 
-                        @click="toggle"
+                    class="pa-5 card review-cards overflow-y-auto text-center" 
+                    style="max-height: 800px;"
+                    :elevation="isMobile ? 0 : 16" 
+                    @click="toggle"
                     >
                         <v-row justify="center mt-0">
                             <div class="boxes tiny-boxes mr-2" style="margin-top: 75px">
@@ -143,12 +156,13 @@
                         </p>
                     </v-card>
                 </swiper-slide>
+
                 <swiper-slide>
                     <v-card 
-                        class="pa-5 card review-cards overflow-y-auto text-center" 
-                        style="max-height: 800px;"
-                        :elevation="isMobile ? 0 : 16" 
-                        @click="toggle"
+                    class="pa-5 card review-cards overflow-y-auto text-center" 
+                    style="max-height: 800px;"
+                    :elevation="isMobile ? 0 : 16" 
+                    @click="toggle"
                     >
                         <div class="boxes tiny-boxes big-img">  
                             <v-img draggable="false" :src="r16" class="gap" cover alt="">
@@ -163,12 +177,13 @@
                         </p>
                     </v-card>
                 </swiper-slide>
+
                 <swiper-slide>
                     <v-card 
-                        class="pa-5 card review-cards overflow-y-auto text-center" 
-                        style="max-height: 800px;"
-                        :elevation="isMobile ? 0 : 16" 
-                        @click="toggle"
+                    class="pa-5 card review-cards overflow-y-auto text-center" 
+                    style="max-height: 800px;"
+                    :elevation="isMobile ? 0 : 16" 
+                    @click="toggle"
                     >
                         <div class="boxes tiny-boxes big-img">  
                             <v-img draggable="false" :src="r17" class="gap" cover alt="">
@@ -183,12 +198,13 @@
                         </p>
                     </v-card>
                 </swiper-slide>
+
                 <swiper-slide>
                     <v-card 
-                        class="pa-5 card review-cards overflow-y-auto text-center" 
-                        style="max-height: 800px;"
-                        :elevation="isMobile ? 0 : 16" 
-                        @click="toggle"
+                    class="pa-5 card review-cards overflow-y-auto text-center" 
+                    style="max-height: 800px;"
+                    :elevation="isMobile ? 0 : 16" 
+                    @click="toggle"
                     >
                         <div class="boxes tiny-boxes big-img">  
                             <v-img draggable="false" :src="r18" class="gap" cover alt="">
@@ -203,12 +219,13 @@
                         </p>
                     </v-card>
                 </swiper-slide>
+
                 <swiper-slide>
                     <v-card 
-                        class="pa-5 card review-cards overflow-y-auto text-center" 
-                        style="max-height: 800px;"
-                        :elevation="isMobile ? 0 : 16" 
-                        @click="toggle"
+                    class="pa-5 card review-cards overflow-y-auto text-center" 
+                    style="max-height: 800px;"
+                    :elevation="isMobile ? 0 : 16" 
+                    @click="toggle"
                     >
                         <div class="boxes tiny-boxes big-img">  
                             <v-img draggable="false" :src="r12" class="gap" cover alt="">
@@ -223,12 +240,13 @@
                         </p>
                     </v-card>
                 </swiper-slide>
+
                 <swiper-slide>
                     <v-card 
-                        class="pa-5 card review-cards overflow-y-auto text-center" 
-                        style="max-height: 800px;"
-                        :elevation="isMobile ? 0 : 16" 
-                        @click="toggle"
+                    class="pa-5 card review-cards overflow-y-auto text-center" 
+                    style="max-height: 800px;"
+                    :elevation="isMobile ? 0 : 16" 
+                    @click="toggle"
                     >
                         <div class="boxes tiny-boxes big-img">  
                             <v-img draggable="false" :src="r15" class="gap" cover alt="">
@@ -243,12 +261,13 @@
                         </p>
                     </v-card>
                 </swiper-slide>
+
                 <swiper-slide>
                     <v-card 
-                        class="pa-5 card review-cards overflow-y-auto text-center" 
-                        style="max-height: 800px;"
-                        :elevation="isMobile ? 0 : 16" 
-                        @click="toggle"
+                    class="pa-5 card review-cards overflow-y-auto text-center" 
+                    style="max-height: 800px;"
+                    :elevation="isMobile ? 0 : 16" 
+                    @click="toggle"
                     >
                         <v-row justify="center mt-0" no-gutters="">
                             <v-col cols="6">
@@ -283,12 +302,13 @@
                         </p>
                     </v-card>
                 </swiper-slide>
+
                 <swiper-slide>
                     <v-card 
-                        class="pa-5 card review-cards overflow-y-auto text-center" 
-                        style="max-height: 800px;"
-                        :elevation="isMobile ? 0 : 16" 
-                        @click="toggle"
+                    class="pa-5 card review-cards overflow-y-auto text-center" 
+                    style="max-height: 800px;"
+                    :elevation="isMobile ? 0 : 16" 
+                    @click="toggle"
                     >
                         <v-row justify="center mt-0" no-gutters="">
                             <v-col cols="6">
@@ -330,12 +350,13 @@
                         </p>
                     </v-card>
                 </swiper-slide>
+
                 <swiper-slide>
                     <v-card 
-                        class="pa-5 card review-cards overflow-y-auto text-center" 
-                        style="max-height: 800px;"
-                        :elevation="isMobile ? 0 : 16" 
-                        @click="toggle"
+                    class="pa-5 card review-cards overflow-y-auto text-center" 
+                    style="max-height: 800px;"
+                    :elevation="isMobile ? 0 : 16" 
+                    @click="toggle"
                     >
                         <div class="boxes tiny-boxes big-img">  
                             <v-img draggable="false" :src="r21" class="gap" cover alt="">
@@ -350,12 +371,13 @@
                         </p>
                     </v-card>
                 </swiper-slide>
+
                 <swiper-slide>
                     <v-card 
-                        class="pa-5 card review-cards overflow-y-auto text-center" 
-                        style="max-height: 800px;"
-                        :elevation="isMobile ? 0 : 16" 
-                        @click="toggle"
+                    class="pa-5 card review-cards overflow-y-auto text-center" 
+                    style="max-height: 800px;"
+                    :elevation="isMobile ? 0 : 16" 
+                    @click="toggle"
                     >
                         <v-row justify="center mt-0">
                             <div class="boxes tiny-boxes mr-2" style="margin-top: 75px">
@@ -379,12 +401,13 @@
                         </p>
                     </v-card>
                 </swiper-slide>
+
                 <swiper-slide>
                     <v-card 
-                        class="pa-5 card review-cards overflow-y-auto text-center" 
-                        style="max-height: 800px;"
-                        :elevation="isMobile ? 0 : 16" 
-                        @click="toggle"
+                    class="pa-5 card review-cards overflow-y-auto text-center" 
+                    style="max-height: 800px;"
+                    :elevation="isMobile ? 0 : 16" 
+                    @click="toggle"
                     >
                         <div class="boxes tiny-boxes big-img">  
                             <v-img draggable="false" :src="r11" class="gap" cover alt="">
@@ -400,110 +423,6 @@
                     </v-card>
                 </swiper-slide>
             </swiper>
-            <!-- <v-slide-group
-                v-model="model"
-                class="pa-1 mx-auto card-slider"
-                center-active
-                show-arrows
-            >
-                <v-slide-group-item class="card-wrapper">
-                    <v-card 
-                        class="pa-5 ma-4 card review-cards overflow-y-auto text-center" 
-                        :height="computedHeight - (computedHeight / 5)" 
-                        style="max-height: 800px;"
-                        @click="toggle"
-                    >
-                        <v-row justify="center mt-0">
-                            <div class="boxes tiny-boxes mr-2">
-                                <v-img :src="r1" class="gap" cover alt=""></v-img>
-                            </div>
-                            <div class="boxes tiny-boxes" style="margin-top: 75px">
-                                <v-img :src="r2" class="gap" cover alt=""></v-img>
-                            </div>
-                        </v-row>
-                        <h1 class="text-h5 mt-10">Emma, Ruari & Ted</h1>
-                        <p class="mt-2 text-justify">
-                            "Lara has looked after our Labrador, Ruari and cat, Ted several times over the past few years while also housesitting. She is trustworthy, reliable and caring. Lara LOVES animals and they love her. I think she is our dog’s favourite human - Ruari gets so excited when she sees her. She understands how to keep pets happy, safe and secure and I wouldn’t in recommending her." 
-                        </p>
-                    </v-card>
-                </v-slide-group-item>
-                <v-slide-group-item class="card-wrapper">
-                    <v-card 
-                        class="pa-5 ma-4 card review-cards overflow-y-auto text-center" 
-                        :height="computedHeight - (computedHeight / 5)" 
-                        style="max-height: 800px;"
-                        @click="toggle"
-                    >
-                        <div class="boxes tiny-boxes big-img">
-                            <v-img :src="r3" class="gap" cover alt=""></v-img>
-                        </div>
-                        <h1 class="text-h5 mt-5">Sally & Banjo </h1>
-                        <p class="mt-2 text-justify">
-                            Lara looked after our much loved Golden Retriever, Banjo for 5 days whilst we were on holidays. Lara took the time to meet Banjo and learn his routine prior to our holiday. She cared for Banjo like he was in a 5 star hotel whilst at his own house! She checked in with us and provided updates during this time. She walked him regularly and played with him, building a strong friendship. Lara has a very caring nature and is trustworthy, making it easy for us to leave our beloved pet at home with her. We will definitely use Lara in the future which I am sure Banjo will love.   
-                            
-                        </p>
-                    </v-card>
-                </v-slide-group-item>
-                <v-slide-group-item class="card-wrapper">
-                    <v-card 
-                        class="pa-5 ma-4 card review-cards overflow-y-auto text-center" 
-                        :height="computedHeight - (computedHeight / 5)" 
-                        style="max-height: 800px;"
-                        @click="toggle"
-                    >
-                        <div class="boxes tiny-boxes big-img">
-                            <v-img :src="r4" class="gap" cover alt=""></v-img>
-                        </div> 
-                        <h1 class="text-h5 mt-5">Madison, Ruby & Hollie</h1>
-                        <p class="mt-2 text-justify">
-                            Lara is very thoughtful and passionate about her job!  My family and I went away for 10 days to NZ and Lara took great care of the house and our fluffy companions. Ruby (dog) loved her daily walks and Holly (cat) just wanted to snuggle with Lara every chance she got! Would highly recommend her business to anyone looking for a great petsitter. 
-                        </p>
-                    </v-card>
-                </v-slide-group-item>
-                <v-slide-group-item class="card-wrapper">
-                    <v-card 
-                        class="pa-5 ma-4 card review-cards overflow-y-auto text-center" 
-                        :height="computedHeight - (computedHeight / 5)" 
-                        style="max-height: 800px;"
-                        @click="toggle"
-                    >
-                        <div class="boxes tiny-boxes big-img">  
-                            <v-img :src="r5" class="gap" cover alt=""></v-img>
-                        </div> 
-                        <h1 class="text-h5 mt-5">Taylor & Luna</h1>
-                        <p class="mt-2 text-justify">
-                            Lara did an incredible job looking after my dog Luna while I was away for a month. She not only ensured Luna’s basic needs were meet, but she went the extra mile to provide her with fulfilling and enriching experiences. From long daily walks and enrichment to exciting trips to the beach, Lara truly understood Luna’s needs and catered to them with enthusiasm and dedication. Lara regularly provided updates, photos and messages which instantly eased my anxieties about being separated from Luna. Lara was always responsive and respectful about any requested I made. Most importantly, it was evident that Lara treated Luna with an abundance of love and attention. Her genuine affection for animals shone through in her interactions with Luna, making me confident that Luna was in the best hands!  Luna and I are truly grateful for her exceptional care and wouldn’t hesitate to recommending her to anyone needing a trusted pet sitter!
-                        </p>
-                    </v-card>
-                </v-slide-group-item>
-                <v-slide-group-item class="card-wrapper">
-                    <v-card 
-                        class="pa-5 ma-4 card review-cards overflow-y-auto text-center" 
-                        :height="computedHeight - (computedHeight / 5)" 
-                        style="max-height: 800px;"
-                        @click="toggle"
-                    >
-                        <v-row justify="center mt-0">
-                            <div class="boxes tiny-boxes mr-2" style="margin-top: 75px">
-                                <v-img :src="r6" class="gap" cover alt=""></v-img>
-                            </div>
-                            <div class="boxes tiny-boxes">
-                                <v-img :src="r7" class="gap" cover alt=""></v-img>
-                            </div>
-                        </v-row>
-                        <h1 class="text-h5 mt-10">Emma, Isabelle & Vasilli</h1>
-                        <p class="mt-2 text-justify">
-                            Lara did an incredible job looking after my two cats. They absolutely adored Lara and were so comfortable around her they even suggled up to her, which is a BIG DEAL because they don’t snuggle up to just anyone. They were so happy with her which made us so happy with Lara.  Will definitely be booking Lara again in the future  
-                        </p>
-                    </v-card>
-                </v-slide-group-item>
-            </v-slide-group> -->
-            <!-- <v-pagination
-                v-if="xs"
-                v-model="page"
-                :length="5"
-                @update:modelValue="onPageChange"
-            ></v-pagination> -->
             </v-sheet>
         </v-responsive>
     </v-container>
@@ -525,13 +444,17 @@ import 'swiper/css/effect-cards';
 import 'swiper/css/effect-fade';
 
 SwiperCore.use([Navigation]).use([Pagination])
+
 export default {
+
     components: {
         Swiper,
         SwiperSlide,
     },
+
     data () {
-        return {
+
+        return { //All review Images
             model: null,
             r1: "/PetSitting/reviews/r1.jpg",
             r2: "/PetSitting/reviews/r2.jpg",
@@ -558,36 +481,36 @@ export default {
             r23: "/PetSitting/reviews/r18.jpg"
         }
     },
-    setup() {
-        const computedHeight = ref(window.innerHeight);
-        const computedWidth = ref(window.innerWidth);
-        const cardsPerSlide = ref(3);
-        const swiperKey = ref(0);
 
-        const updateHeight = () => {
-            computedHeight.value = window.innerHeight;
-        };
-        const updateWidth = () => {
+    setup() {
+
+        const computedWidth = ref(window.innerWidth); //Find the width of the page
+        const cardsPerSlide = ref(3); //Cards shown per page dynamic valid
+        const swiperKey = ref(0); 
+
+        const updateWidth = () => { //Checks what size the computedWidth is and applies the correct value to cardsPerSlide dependent on the page width
+
             computedWidth.value = window.innerWidth;
+
             if (computedWidth.value >= 1250) {
                 cardsPerSlide.value = 3
 
             } else if (computedWidth.value > 800) {
                 cardsPerSlide.value = 2
+
             } else {
                 cardsPerSlide.value = 1
             }
         };
-        const { smAndDown, mdAndUp, xs, smAndUp } = useDisplay();
-        const isMobile = computed(() => computedWidth.value <= 800)
+
+        const { smAndDown, mdAndUp, xs, smAndUp } = useDisplay(); //Display sizes to use as reference points to adjust the layout depending on the page width
+        const isMobile = computed(() => computedWidth.value <= 800) //isMobile = true when page width is less than or equal to 800
 
         onMounted(() => {
             updateWidth();
-            window.addEventListener('resize', updateHeight);
-            window.addEventListener('resize', updateWidth);
+            window.addEventListener('resize', updateWidth); //Runs the updateWidth function whenever the window size is readjusted
         });
         onUnmounted(() => {
-            window.removeEventListener('resize', updateHeight);
             window.removeEventListener('resize', updateWidth);
         });
         
@@ -596,7 +519,6 @@ export default {
         });
 
         return {
-            computedHeight,
             computedWidth,
             cardsPerSlide,
             smAndDown,
@@ -616,7 +538,6 @@ export default {
 <style scoped>
 
 .review-cards {
-    /* background: linear-gradient(to top, rgba(56, 128, 147, 1),  rgba(56, 128, 147, 1) 70%, white 80%); */
     background-color: rgb(39, 123, 147);
     color: white;
 }
@@ -656,6 +577,8 @@ export default {
 .single-name {
     padding: 5px 30px;
 }
+
+/* Custom sizing for all the cards and swiper components for all screen sizes to ensure it always fits and that the content looks great no matter what size */
 
 @media (max-width: 1500px) {
     .card {

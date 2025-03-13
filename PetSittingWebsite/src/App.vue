@@ -21,7 +21,7 @@ export default {
       logIt: false,
       isLoaded: false,
 
-      //--------Important Images----------//
+      ////////////Important Images/////////////
 
       imageFiles: [
         '/PetSitting/reviews/r18.jpg',

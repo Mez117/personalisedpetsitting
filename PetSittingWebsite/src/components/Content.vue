@@ -223,11 +223,12 @@ export default {
 
     methods: {
 
-        scrollToTopAfter() {
+        scrollToTopAfter() { //Scroll to top function taking you to the very top of the page after clicking on any link
 
-            setTimeout(() => { 
+            setTimeout(() => { //Timeout to prevent page loading and scroll function happening at the same time
 
                 window.scrollTo({
+
                     top: 0,
                     behavior: 'smooth'
                 });
@@ -237,29 +238,31 @@ export default {
             return;
         },
 
-        submitForm() {
+        submitForm() { //When the form is submitted, gather all the data from the form  "templateParams" and send the details via emailJS to a specified email
 
             this.formSubmitted = true;
 
-            if (this.$refs.form.validate()) {
+            if (this.$refs.form.validate()) { //If all the forms values are valid and a date range is selected
 
-                const templateParams = {
+                const templateParams = { //Data from the form for emailJS to read
                     firstName: this.firstName,
                     lastName: this.lastName,
                     email: this.email,
                     additionalInfo: this.additionalInfo,
                 };
 
-                emailjs.send("service_3uq0j9x", "template_xci4bq8", templateParams, { publicKey: 'y28Njxa62kEbnjheZ',})
+                emailjs.send("service_3uq0j9x", "template_xci4bq8", templateParams, { publicKey: 'y28Njxa62kEbnjheZ',}) //Using API and template keys to ensure the details get sent in the right layout to the right email
                     .then(() => alert('Booking request sent!'))
                     .catch(error => console.error('Failed to send booking request:', error));
+            } else {
+                console.log('Error Submitting form');
             }
         },
     },
 
     setup() {
 
-        const { smAndDown, mdAndUp, mdAndDown, xs } = useDisplay();
+        const { smAndDown, mdAndUp, mdAndDown, xs } = useDisplay(); //Display sizes to use as reference points to adjust the layout depending on the page width
 
         return {
             smAndDown,
