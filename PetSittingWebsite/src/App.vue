@@ -206,4 +206,11 @@ html {
 .swiper-button-next {
     padding-left: 20px;
 }
+
+img {
+  image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+
 </style>
