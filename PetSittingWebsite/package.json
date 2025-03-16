@@ -2,15 +2,14 @@
   "name": "petsitting",
   "version": "0.0.0",
   "private": true,
-  "homepage": "https://mez117.github.io/PetSitting/",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vue-cli-service build",
     "preview": "vite preview",
     "lint": "eslint . --fix --ignore-path .gitignore",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build && git push origin main"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
