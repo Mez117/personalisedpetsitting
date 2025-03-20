@@ -34,6 +34,7 @@
                             :height=500
                             :width=300
                             cover
+                            alt="pet package photo"
                             ></v-img>
                         </v-col>
 
@@ -109,6 +110,7 @@
                             :height="500"
                             :width="300"
                             cover
+                            alt="pet package photo"
                             ></v-img>
                         </v-col>
 
@@ -183,6 +185,7 @@
                             :height="500"
                             :width="300"
                             cover
+                            alt="pet package photo"
                             ></v-img>
                         </v-col>
 

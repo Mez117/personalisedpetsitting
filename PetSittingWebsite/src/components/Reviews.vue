@@ -42,14 +42,14 @@
                     >
                         <v-row justify="center mt-0">
                             <div class="boxes tiny-boxes mr-2">
-                                <v-img draggable="false" :src="r1" class="gap" cover alt="">
+                                <v-img draggable="false" :src="r1" class="gap" cover alt="pet review photo">
                                     <p class="pet-names">
                                         Ted
                                     </p>
                                 </v-img>
                             </div>
                             <div class="boxes tiny-boxes" style="margin-top: 75px">
-                                <v-img draggable="false" :src="r2" class="gap" cover alt="">
+                                <v-img draggable="false" :src="r2" class="gap" cover alt="pet review photo">
                                     <p class="pet-names">
                                         Rauri
                                     </p>
@@ -71,7 +71,7 @@
                     @click="toggle"
                     >
                         <div class="boxes tiny-boxes big-img">
-                            <v-img draggable="false" :src="r3" class="gap" cover alt="">
+                            <v-img draggable="false" :src="r3" class="gap" cover alt="pet review photo">
                                 <p class="pet-names single-name">
                                     Banjo
                                 </p>
@@ -93,7 +93,7 @@
                     @click="toggle"
                     >
                         <div class="boxes tiny-boxes big-img">
-                            <v-img draggable="false" :src="r4" class="gap" cover alt="">
+                            <v-img draggable="false" :src="r4" class="gap" cover alt="pet review photo">
                                 <p class="pet-names single-name">
                                     Ruby & Hollie
                                 </p>
@@ -114,7 +114,7 @@
                     @click="toggle"
                     >
                         <div class="boxes tiny-boxes big-img">  
-                            <v-img draggable="false" :src="r5" class="gap" cover alt="">
+                            <v-img draggable="false" :src="r5" class="gap" cover alt="pet review photo">
                                 <p class="pet-names single-name">
                                     Luna
                                 </p>
@@ -136,14 +136,14 @@
                     >
                         <v-row justify="center mt-0">
                             <div class="boxes tiny-boxes mr-2" style="margin-top: 75px">
-                                <v-img draggable="false" :src="r6" class="gap" cover alt="">
+                                <v-img draggable="false" :src="r6" class="gap" cover alt="pet review photo">
                                     <p class="pet-names">
                                         Isabelle
                                     </p>
                                 </v-img>
                             </div>
                             <div class="boxes tiny-boxes">
-                                <v-img draggable="false" :src="r7" class="gap" cover alt="">
+                                <v-img draggable="false" :src="r7" class="gap" cover alt="pet review photo">
                                     <p class="pet-names">
                                         Vasilli
                                     </p>
@@ -165,7 +165,7 @@
                     @click="toggle"
                     >
                         <div class="boxes tiny-boxes big-img">  
-                            <v-img draggable="false" :src="r16" class="gap" cover alt="">
+                            <v-img draggable="false" :src="r16" class="gap" cover alt="pet review photo">
                                 <p class="pet-names single-name">
                                     Douglas
                                 </p>
@@ -186,7 +186,7 @@
                     @click="toggle"
                     >
                         <div class="boxes tiny-boxes big-img">  
-                            <v-img draggable="false" :src="r17" class="gap" cover alt="">
+                            <v-img draggable="false" :src="r17" class="gap" cover alt="pet review photo">
                                 <p class="pet-names single-name">
                                     Kenny
                                 </p>
@@ -207,7 +207,7 @@
                     @click="toggle"
                     >
                         <div class="boxes tiny-boxes big-img">  
-                            <v-img draggable="false" :src="r18" class="gap" cover alt="">
+                            <v-img draggable="false" :src="r18" class="gap" cover alt="pet review photo">
                                 <p class="pet-names single-name">
                                     Harlee
                                 </p>
@@ -228,7 +228,7 @@
                     @click="toggle"
                     >
                         <div class="boxes tiny-boxes big-img">  
-                            <v-img draggable="false" :src="r12" class="gap" cover alt="">
+                            <v-img draggable="false" :src="r12" class="gap" cover alt="pet review photo">
                                 <p class="pet-names single-name">
                                     Leo
                                 </p>
@@ -249,7 +249,7 @@
                     @click="toggle"
                     >
                         <div class="boxes tiny-boxes big-img">  
-                            <v-img draggable="false" :src="r15" class="gap" cover alt="">
+                            <v-img draggable="false" :src="r15" class="gap" cover alt="pet review photo">
                                 <p class="pet-names single-name">
                                     Piggy
                                 </p>
@@ -272,14 +272,14 @@
                         <v-row justify="center mt-0" no-gutters="">
                             <v-col cols="6">
                                 <div class="boxes tiny-boxes mr-2" style="width: 90%">
-                                    <v-img draggable="false" :src="r19" class="gap" cover alt="">
+                                    <v-img draggable="false" :src="r19" class="gap" cover alt="pet review photo">
                                         <p class="pet-names">
                                             Jess
                                         </p>
                                     </v-img>
                                 </div>
                                 <div class="boxes tiny-boxes" style="width: 90%">
-                                    <v-img draggable="false" :src="r14" class="gap" cover alt="">
+                                    <v-img draggable="false" :src="r14" class="gap" cover alt="pet review photo">
                                         <p class="pet-names">
                                             Max
                                         </p>
@@ -288,7 +288,7 @@
                             </v-col>
                             <v-col cols="6">
                                 <div class="boxes tiny-boxes" style="width: 90%; margin-top: 75px;">
-                                    <v-img draggable="false" :src="r20" class="gap" cover alt="">
+                                    <v-img draggable="false" :src="r20" class="gap" cover alt="pet review photo">
                                         <p class="pet-names">
                                             Bella
                                         </p>
@@ -313,14 +313,14 @@
                         <v-row justify="center mt-0" no-gutters="">
                             <v-col cols="6">
                                 <div class="boxes tiny-boxes mr-2" style="width: 90%">
-                                    <v-img draggable="false" :src="r10" class="gap" cover alt="">
+                                    <v-img draggable="false" :src="r10" class="gap" cover alt="pet review photo">
                                         <p class="pet-names">
                                             Frankie
                                         </p>
                                     </v-img>
                                 </div>
                                 <div class="boxes tiny-boxes" style="width: 90%">
-                                    <v-img draggable="false" :src="r9" class="gap" cover alt="">
+                                    <v-img draggable="false" :src="r9" class="gap" cover alt="pet review photo">
                                         <p class="pet-names">
                                             George
                                         </p>
@@ -329,14 +329,14 @@
                             </v-col>
                             <v-col cols="6">
                                 <div class="boxes tiny-boxes mr-2" style="width: 90%;">
-                                    <v-img draggable="false" :src="r8" class="gap" cover alt="">
+                                    <v-img draggable="false" :src="r8" class="gap" cover alt="pet review photo">
                                         <p class="pet-names">
                                             Wynston
                                         </p>
                                     </v-img>
                                 </div>
                                 <div class="boxes tiny-boxes" style="width: 90%;">
-                                    <v-img draggable="false" :src="r23" class="gap" cover alt="">
+                                    <v-img draggable="false" :src="r23" class="gap" cover alt="pet review photo">
                                         <p class="pet-names">
                                             Ben
                                         </p>
@@ -359,7 +359,7 @@
                     @click="toggle"
                     >
                         <div class="boxes tiny-boxes big-img">  
-                            <v-img draggable="false" :src="r21" class="gap" cover alt="">
+                            <v-img draggable="false" :src="r21" class="gap" cover alt="pet review photo">
                                 <p class="pet-names single-name">
                                     Roxy
                                 </p>
@@ -381,14 +381,14 @@
                     >
                         <v-row justify="center mt-0">
                             <div class="boxes tiny-boxes mr-2" style="margin-top: 75px">
-                                <v-img draggable="false" :src="r13" class="gap" cover alt="">
+                                <v-img draggable="false" :src="r13" class="gap" cover alt="pet review photo">
                                     <p class="pet-names">
                                         Indi
                                     </p>
                                 </v-img>
                             </div>
                             <div class="boxes tiny-boxes">
-                                <v-img draggable="false" :src="r22" class="gap" cover alt="">
+                                <v-img draggable="false" :src="r22" class="gap" cover alt="pet review photo">
                                     <p class="pet-names">
                                         Lenny
                                     </p>
@@ -410,7 +410,7 @@
                     @click="toggle"
                     >
                         <div class="boxes tiny-boxes big-img">  
-                            <v-img draggable="false" :src="r11" class="gap" cover alt="">
+                            <v-img draggable="false" :src="r11" class="gap" cover alt="pet review photo">
                                 <p class="pet-names single-name">
                                     Ruby
                                 </p>

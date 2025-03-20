@@ -31,7 +31,7 @@
                 class="boxes"
                 :class="[smAndDown ? 'mobileBox' : null]"
                 >
-                    <img :src=" item " alt="" class="gap" />
+                    <img :src=" item " alt="pet photo" class="gap" />
 
                 </div>
             </div>
