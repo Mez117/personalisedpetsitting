@@ -208,8 +208,7 @@ html {
 }
 
 img {
-  image-rendering: crisp-edges;
-  image-rendering: -webkit-optimize-contrast;
+  image-rendering: auto;
 }
 
 
