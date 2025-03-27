@@ -201,10 +201,12 @@ html {
 
 .swiper-button-prev {
     padding-right: 20px;
+    color: white;
 }
 
 .swiper-button-next {
     padding-left: 20px;
+    color: white;
 }
 
 img {
