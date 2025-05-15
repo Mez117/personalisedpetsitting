@@ -98,7 +98,6 @@ export default {
       { src: '/lara_dogs/dog10.jpg' },
       { src: '/lara_dogs/dog11.jpg' },
       { src: '/lara_dogs/dog12.jpg' },
-      { src: '/lara_dogs/dog16.jpg' },
       { src: '/reviews/r5.jpg' },
       { src: '/reviews/r6.jpg' },
       { src: '/reviews/r7.jpg' },
